@@ -17,7 +17,7 @@ const Footer = () => {
       </div>
       <div className="footer__contact-btn">
         <a href="mailto:evelyn.m.bart@gmail.com" className="contact-btn">
-          Reach out to me!
+          Email
         </a>
       </div>
 

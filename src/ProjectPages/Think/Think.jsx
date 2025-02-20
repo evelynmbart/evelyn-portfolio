@@ -3,6 +3,13 @@ import "./Think.css";
 const Think = () => {
   return (
     <section className="think">
+      {/* <header className="hero__header">
+        <nav className="hero__nav">
+          <a href="/about">About</a>
+          <a href="/projects">Projects</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </header> */}
       <div className="think__text">
         <h1>Think</h1>
         <p className="think__description">
@@ -15,59 +22,44 @@ const Think = () => {
       </div>
 
       <article className="think__content">
-        <h2>Project Overview</h2>
+        <h2>Building Think: A Trivia App Born from Redemption</h2>
         <p>
-          Think was developed as a modern approach to trivia gaming, designed to
-          make learning fun and engaging while challenging users to expand their
-          knowledge across various categories.
+          Think was born out of equal parts embarrassment and inspiration. After
+          a particularly rough performance at a friend&apos;s trivia night, I
+          knew I needed to redeem myself. Trivia had always seemed like a fun
+          challenge, but that night made me realize just how much I had to
+          learn. At the same time, I wanted a way to practice without the
+          distractions and frustrations I encountered when I downloaded Trivia
+          Crack. While it&apos;s a great game, the overwhelming number of ads
+          and the tutorial&apos;s length pulled me away from the experience I
+          actually wanted—quick, engaging trivia without the fluff. tutorial’s
+          length pulled me away from the experience I actually wanted—quick,
+          engaging trivia without the fluff.
         </p>
-
-        <h2>Technical Implementation</h2>
         <p>
-          Built using React and TypeScript, Think leverages modern web
-          technologies to create a smooth and interactive user experience. The
-          application uses React Router for seamless navigation and Redux for
-          state management, ensuring consistent data flow throughout the app.
+          So, I set out to build Think, a trivia app focused on simplicity,
+          speed, and an ad-free experience. This project was the perfect
+          opportunity to sharpen my TypeScript skills and push my front-end
+          design abilities. I wanted the UI to be clean and intuitive,
+          minimizing distractions while keeping the gameplay smooth. From the
+          start, I emphasized responsive design, ensuring that Think worked
+          seamlessly on both mobile and desktop. I also explored different ways
+          to structure quiz logic efficiently, balancing performance with a
+          dynamic and enjoyable experience.
         </p>
-
-        <p>
-          One of the key technical challenges was implementing a robust scoring
-          system that could handle various question types while maintaining
-          accurate statistics across gaming sessions. This required careful
-          consideration of state management and data persistence.
-        </p>
-
         <div className="think__image-placeholder">
           {/* Image 2 will go here */}
         </div>
-
-        <h2>Development Challenges</h2>
         <p>
-          The main challenge in building Think was creating an intuitive user
-          interface that could accommodate different question formats while
-          maintaining consistency in the user experience. This required
-          implementing flexible component architecture and careful consideration
-          of responsive design principles.
-        </p>
-
-        <p>
-          Another significant challenge was optimizing performance while
-          handling large sets of question data. This led to implementing
-          efficient data loading strategies and caching mechanisms to ensure
-          smooth gameplay even with extensive question banks.
-        </p>
-
-        <div className="think__image-placeholder">
-          {/* Image 3 will go here */}
-        </div>
-
-        <h2>Learning Outcomes</h2>
-        <p>
-          Developing Think significantly improved my skills in TypeScript and
-          React, particularly in areas of state management and component
-          architecture. It also provided valuable experience in handling user
-          authentication, managing application state, and implementing
-          responsive design patterns.
+          One of the most rewarding challenges was crafting a
+          question-generation system that felt both fair and unpredictable. I
+          experimented with different ways to source and categorize questions
+          while implementing a scoring system that rewarded consistency and
+          quick thinking. The result? A trivia app that not only helped me
+          sharpen my knowledge but also reinforced my confidence as a developer.
+          Think became more than just a project—it was a testament to learning
+          through building, and, of course, my personal redemption in the world
+          of trivia.
         </p>
       </article>
     </section>
