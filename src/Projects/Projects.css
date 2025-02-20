@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+
+.projects {
+  padding: 6rem 5%;
+  background-color: #ffffff;
+}
+
+.projects__header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.projects__header-frame {
+  position: relative;
+  max-width: 400px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.projects__top-left-corner,
+.projects__top-right-corner,
+.projects__bottom-left-corner,
+.projects__bottom-left-corner-outside,
+.projects__bottom-right-corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+}
+
+/* Top left corner */
+.projects__top-left-corner {
+  top: 0;
+  left: 0;
+  border-top: 2px solid #1a1a1a;
+  border-left: 2px solid #1a1a1a;
+}
+
+/* Top right corner */
+.projects__top-right-corner {
+  top: 0;
+  right: 0;
+  border-top: 2px solid #1a1a1a;
+  border-right: 2px solid #1a1a1a;
+}
+
+/* Bottom left corner */
+.projects__bottom-left-corner {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid #1a1a1a;
+  border-left: 2px solid #1a1a1a;
+}
+
+/* Bottom left corner outside */
+.projects__bottom-left-corner-outside {
+  bottom: -15px;
+  left: -15px;
+  border-top: 2px solid #1a1a1a;
+  border-right: 2px solid #1a1a1a;
+}
+
+/* Bottom right corner */
+.projects__bottom-right-corner {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid #1a1a1a;
+  border-right: 2px solid #1a1a1a;
+}
+
+.projects__subtitle {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  color: #4a4a4a;
+}
+
+.projects__title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.projects__grid {
+  /* Styling for your project grid will go here */
+  margin-top: 4rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projects {
+    padding: 4rem 5%;
+  }
+
+  .projects__header-frame {
+    padding: 1.5rem;
+  }
+
+  .projects__title {
+    font-size: 1.8rem;
+  }
+}
