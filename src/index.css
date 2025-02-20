@@ -3,3 +3,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
+html {
+  background-color: oklch(45.8% 0.177 17.7);
+}
