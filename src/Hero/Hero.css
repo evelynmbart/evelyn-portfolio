@@ -55,9 +55,8 @@
   display: flex;
   align-items: center;
   height: 100%;
-  animation: scroll 10s linear 1s infinite;
+  animation: scroll 20s linear 1s infinite;
   white-space: nowrap;
-  /* Make a copy of the content for seamless looping */
 }
 
 .conveyor-belt__content span {
@@ -95,8 +94,8 @@
   border-radius: 50px;
   background: linear-gradient(
     90deg,
-    rgb(253, 63, 0) 0%,
-    rgb(100, 100, 243) 100%
+    rgb(102, 239, 239) 0%,
+    rgb(11, 47, 114) 100%
   );
   color: white;
   font-weight: 700;

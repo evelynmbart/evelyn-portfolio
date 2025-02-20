@@ -6,9 +6,9 @@ const Hero = () => {
     <section className="hero">
       <header className="hero__header">
         <nav className="hero__nav">
-          <a href="/page-a">Page A</a>
-          <a href="/page-b">Page B</a>
-          <a href="/page-c">Page C</a>
+          <a href="/about">About</a>
+          <a href="/projects">Projects</a>
+          <a href="/contact">Contact</a>
         </nav>
       </header>
 

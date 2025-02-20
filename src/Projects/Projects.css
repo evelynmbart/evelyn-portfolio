@@ -1,14 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
 
 .projects {
-  padding: 6rem 5%;
-  background-color: #ffffff;
+  margin-right: 50px;
+  margin-left: 50px;
+  padding-right: 16px;
+  padding-left: 16px;
+  background-color: white;
 }
 
 .projects__header {
   display: flex;
   justify-content: center;
-  margin-bottom: 4rem;
+  margin: 6rem 0;
 }
 
 .projects__header-frame {
@@ -75,7 +78,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 1rem;
-  color: #4a4a4a;
+  color: #1a1a1a;
 }
 
 .projects__title {
@@ -87,9 +90,122 @@
   color: #1a1a1a;
 }
 
+/* Projects Grid */
+
 .projects__grid {
-  /* Styling for your project grid will go here */
-  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 0 1.5rem;
+}
+
+.project {
+  max-width: 100%;
+  height: 450px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-color: #1a1a1a;
+}
+
+.project-top {
+  width: 100%;
+  height: 60%;
+  border-radius: 10px;
+}
+
+.project-top img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.project-bottom {
+  box-sizing: border-box;
+  width: 100%;
+  height: 40%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-bottom h3,
+.project-bottom p {
+  margin: 0;
+}
+
+.project-bottom h3 {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.project-bottom p {
+  font-size: 16px;
+}
+
+.project.featured:hover {
+  transform: scale(1.05);
+  transform: translateY(0);
+}
+
+.project.featured .project-top {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.project.featured .project-top img {
+  border-radius: 13px;
+}
+
+.project.featured .project-top:hover {
+  transform: scale(1.05);
+}
+
+.project.featured .project-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: white;
+  height: auto;
+  min-height: 30%;
+}
+
+.project.featured .project-bottom h3 {
+  color: white;
+  font-size: 2rem;
+}
+
+.project.featured .project-bottom p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+}
+
+.project.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  aspect-ratio: 16/9;
+  border: 2px solid black;
 }
 
 /* Responsive Design */
@@ -104,5 +220,14 @@
 
   .projects__title {
     font-size: 1.8rem;
+  }
+
+  .project.featured {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr;
   }
 }
