@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Projects.css";
 
 const projects = [
@@ -8,6 +9,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../projects/think.png",
     featured: true,
+    link: "/think",
   },
   {
     name: "Home Cooked",
@@ -15,6 +17,7 @@ const projects = [
       "A recipe app that allows you to search for recipes by name or by ingredients",
     technologies: ["Typescript", "React"],
     image: "../../projects/home-cooked.png",
+    link: "/home-cooked",
   },
   {
     name: "Mappi",
@@ -22,6 +25,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/mappi.png",
+    link: "/mappi",
   },
   {
     name: "Pup Progress",
@@ -30,6 +34,7 @@ const projects = [
     technologies: ["Javascript", "React"],
     image: "../../projects/pup-progress.png",
     featured: true,
+    link: "/pup-progress",
   },
 
   {
@@ -38,6 +43,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Javascript", "React"],
     image: "../../projects/riverflow.png",
+    link: "/riverflow",
   },
   {
     name: "CycleSync",
@@ -45,6 +51,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/cycle-sync.png",
+    link: "/cycle-sync",
   },
   {
     name: "Gridddle",
@@ -53,6 +60,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/gridddle.png",
     featured: true,
+    link: "/gridddle",
   },
   {
     name: "Last Meals",
@@ -60,6 +68,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/last-meals.png",
+    link: "last-meals",
   },
   {
     name: "Farkle",
@@ -67,6 +76,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/farkle.png",
+    link: "/farkle",
   },
 
   {
@@ -76,6 +86,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/markit.png",
     featured: true,
+    link: "/markit",
   },
 
   {
@@ -84,6 +95,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Javascript", "React"],
     image: "../../projects/jaipur.png",
+    link: "/jaipur",
   },
 
   {
@@ -92,6 +104,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/pomodoro.png",
+    link: "/pomodoro",
   },
   {
     name: "Cart Compare",
@@ -100,6 +113,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/cart-compare.png",
     featured: true,
+    link: "/cart-compare",
   },
 
   // {
@@ -108,6 +122,7 @@ const projects = [
   //     "A map app that allows you to search for locations by name or by address",
   //   technologies: ["Javascript", "React"],
   //   image: "../../projects/tile-slider.png",
+  //   link: "/tile-slider",
   // },
   {
     name: "Hangman",
@@ -115,6 +130,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/hangman.png",
+    link: "/hangman",
   },
   {
     name: "Hole-in-One",
@@ -122,6 +138,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/hole-in-one.png",
+    link: "/hole-in-one",
   },
   // {
   //   name: "Blog Woohoo",
@@ -129,6 +146,7 @@ const projects = [
   //     "A map app that allows you to search for locations by name or by address",
   //   technologies: ["Typescript", "React"],
   //   image: "../../projects/blogwoohoo.png",
+  //   link: "/blogwoohoo",
   // },
 ];
 
@@ -155,7 +173,12 @@ const Projects = () => {
             className={`project ${project.featured ? "featured" : ""}`}
             key={project.name}
           >
-            <a href={project.link} target="_blank" rel="noopener noreferrer">
+            <Link
+              to={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
               <div className="project-top">
                 <img src={project.image} alt={project.name} />
               </div>
@@ -163,7 +186,7 @@ const Projects = () => {
                 <h3>{project.name}</h3>
                 <p>{project.description}</p>
               </div>
-            </a>
+            </Link>
           </div>
         ))}
       </div>

@@ -1,10 +1,119 @@
 .footer {
   width: 100%;
-  height: 1000px;
+  height: 760px;
   background-color: rgb(19, 19, 19);
   color: white;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.footer__header {
+  display: flex;
+  justify-content: center;
+  margin: 5rem 0 3rem 0;
+}
+
+.footer__header-frame {
+  position: relative;
+  max-width: 400px;
+  padding: 2rem 8rem;
+  text-align: center;
+}
+
+.footer__top-left-corner,
+.footer__top-right-corner,
+.footer__bottom-left-corner,
+.footer__bottom-left-corner-outside,
+.footer__bottom-right-corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+}
+
+/* Top left corner */
+.footer__top-left-corner {
+  top: 0;
+  left: 0;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+}
+
+/* Top right corner */
+.footer__top-right-corner {
+  top: 0;
+  right: 0;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+}
+
+/* Bottom left corner */
+.footer__bottom-left-corner {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid white;
+  border-left: 2px solid white;
+}
+
+/* Bottom left corner outside */
+.footer__bottom-left-corner-outside {
+  bottom: -15px;
+  right: -15px;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+}
+
+/* Bottom right corner */
+.footer__bottom-right-corner {
+  bottom: 0px;
+  right: 0;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.footer__subtitle {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.footer__title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  color: white;
+}
+
+.footer__contact-btn {
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: rgba(124, 124, 124, 0.086);
+  border: 1px solid rgb(149, 149, 149);
+  text-align: center;
+  margin: 0 6rem;
+  padding: 1rem;
+  width: 300px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.footer__contact-btn a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.footer__contact-btn:hover {
+  transform: translateY(-5px);
 }
 
 .faint-border {
