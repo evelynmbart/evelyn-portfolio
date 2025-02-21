@@ -191,7 +191,7 @@ const Projects = () => {
   const arrangedProjects = arrangeProjects(projects);
 
   return (
-    <section className="projects">
+    <section className="projects" id="projects">
       <div className="projects__header">
         <div className="projects__header-frame">
           <span className="projects__subtitle">Projects</span>

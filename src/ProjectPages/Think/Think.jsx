@@ -1,15 +1,13 @@
+import { Link } from "react-router-dom";
 import "./Think.css";
-
 const Think = () => {
   return (
     <section className="think">
-      {/* <header className="hero__header">
-        <nav className="hero__nav">
-          <a href="/about">About</a>
-          <a href="/projects">Projects</a>
-          <a href="/contact">Contact</a>
+      <header className="think__header">
+        <nav className="think__nav">
+          <Link to="/">Back to Home</Link>
         </nav>
-      </header> */}
+      </header>
       <div className="think__text">
         <h1>Think</h1>
         <p className="think__description">
@@ -36,6 +34,7 @@ const Think = () => {
           length pulled me away from the experience I actually wanted—quick,
           engaging trivia without the fluff.
         </p>
+        <br />
         <p>
           So, I set out to build Think, a trivia app focused on simplicity,
           speed, and an ad-free experience. This project was the perfect

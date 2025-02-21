@@ -107,7 +107,7 @@ const funFacts = [
 
 const About = () => {
   return (
-    <section className="about">
+    <section className="about" id="about">
       <div className="about__header">
         <div className="about__header-frame">
           <span className="about__subtitle">About</span>
