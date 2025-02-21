@@ -1,0 +1,22 @@
+.contact-btn {
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: rgba(124, 124, 124, 0.086);
+  border: 1px solid rgb(149, 149, 149);
+  text-align: center;
+  margin: 0 6rem;
+  padding: 1rem;
+  width: 300px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.contact-btn a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.contact-btn:hover {
+  transform: translateY(-5px);
+}

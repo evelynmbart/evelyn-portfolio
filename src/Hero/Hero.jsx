@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import Projects from "../Projects/Projects";
 import "./Hero.css";
 
@@ -16,16 +17,12 @@ const Hero = () => {
         <main className="hero__main">
           <div className="hero__left">
             <h1 className="hero__title">
-              Hi, I&apos;m Evelyn Bart, a frontend web developer. I&apos;m so
-              excited that you&apos;re here!
+              Hi, I&apos;m Evelyn Bart, a frontend web developer.
             </h1>
-            {/* <p className="hero__bio">
-              New to the game and hungry for impactful opportunities. I&apos;m
-              fully self-taught and make up for my limited experience with
-              curiosity, adaptability, and determination. My biggest passion is
-              for developing intentional, accessible, and memorable React web
-              apps. Let&apos;s work together!
-            </p> */}
+            <p className="hero__subtitle">
+              {" "}
+              I&apos;m so excited that you&apos;re here!
+            </p>
             <a
               className="a-btn"
               href="../Evelyn Bart 2025 Resume copy.pdf"
@@ -34,6 +31,9 @@ const Hero = () => {
             >
               Check out my resume
             </a>
+            <Button className="contact-btn">
+              <a href="mailto:evelyn.m.bart@gmail.com">Let's connect!</a>
+            </Button>
           </div>
           <div className="hero__right"></div>
         </main>

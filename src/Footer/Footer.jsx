@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import "./Footer.css";
 
 const Footer = () => {
@@ -15,11 +16,9 @@ const Footer = () => {
           <span className="footer__bottom-left-corner-outside"></span>
         </div>
       </div>
-      <div className="footer__contact-btn">
-        <a href="mailto:evelyn.m.bart@gmail.com" className="contact-btn">
-          Email
-        </a>
-      </div>
+      <Button className="contact-btn">
+        <a href="mailto:evelyn.m.bart@gmail.com">Email</a>
+      </Button>
 
       <br />
       <div className="atmosphere" />
