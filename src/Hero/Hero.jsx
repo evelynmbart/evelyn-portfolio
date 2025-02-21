@@ -1,3 +1,4 @@
+import About from "../About/About";
 import Button from "../components/Button";
 import Projects from "../Projects/Projects";
 import "./Hero.css";
@@ -102,6 +103,7 @@ const Hero = () => {
           </div>
         </footer>
       </section>
+      <About />
       <Projects />
     </>
   );

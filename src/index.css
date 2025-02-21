@@ -2,6 +2,7 @@
 
 :root {
   --text-color: #060404;
+  --light-text-color: #fbf9f9;
   --background-color: #f7f2f2;
   --primary-color: #bb585d;
   --secondary-color: #b5c99c;
@@ -9,6 +10,7 @@
 }
 :root[data-theme="dark"] {
   --text-color: #fbf9f9;
+  --light-text-color: #060404;
   --background-color: #0d0808;
   --primary-color: #a74449;
   --secondary-color: #4f6336;
@@ -33,4 +35,5 @@ html,
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+  font-family: "Cabin", sans-serif;
 }
