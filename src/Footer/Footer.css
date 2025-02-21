@@ -94,7 +94,8 @@
 
 .faint-border {
   height: 1px;
-  width: 100%;
+  margin: 0 10rem;
+
   background: linear-gradient(
     90deg,
     hsla(0, 0%, 100%, 0) 0,
@@ -111,8 +112,45 @@
   text-align: center;
   position: absolute;
   bottom: 0;
+
   width: 100%;
-  height: 100px;
+  height: 200px;
+}
+
+.recap {
+  margin: 0 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.recap a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer__nav a:hover {
+  color: var(--primary-color);
 }
 
 .atmosphere {

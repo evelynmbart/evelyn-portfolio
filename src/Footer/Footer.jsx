@@ -25,7 +25,25 @@ const Footer = () => {
       <div className="planet" />
       <section className="copyright">
         <div className="faint-border" />
-        &copy; 2025 Evelyn Bart
+        <section className="recap">
+          <div className="social-links">
+            <a href="https://www.linkedin.com/in/evelyn-bart-9000000000/">
+              LinkedIn
+            </a>
+            <a href="https://github.com/evelyn-bart">GitHub</a>
+            <a href="../Evelyn Bart 2025 Resume copy.pdf" download>
+              Resume
+            </a>
+          </div>
+          <div className="recap-text">
+            <nav className="footer__nav">
+              <a href="/about">About</a>
+              <a href="/projects">Projects</a>
+              <a href="/contact">Contact</a>
+            </nav>
+          </div>
+        </section>
+        &copy; 2025 Evelyn Bart. All rights reserved.
       </section>
     </section>
   );
