@@ -1,3 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Cabin:700|Cabin:400");
+
+:root {
+  --text-color: #060f0d;
+  --background-color: #f4faf8;
+  --primary-color: #58bba1;
+  --secondary-color: #9dbdd8;
+  --accent-color: #728cc5;
+}
+:root[data-theme="dark"] {
+  --text-color: #f0f9f7;
+  --background-color: #050a09;
+  --primary-color: #44a78c;
+  --secondary-color: #274862;
+  --accent-color: #3a548d;
+}
+
 html,
 body,
 h1,
@@ -9,10 +26,11 @@ h6,
 p {
   margin: 0;
   padding: 0;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Cabin", sans-serif;
 }
 
 html,
 body {
-  background-color: #052b55;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }

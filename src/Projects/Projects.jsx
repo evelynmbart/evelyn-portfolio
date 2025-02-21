@@ -12,6 +12,15 @@ const projects = [
     link: "/think",
   },
   {
+    name: "Gridddle",
+    description:
+      "A map app that allows you to search for locations by name or by address",
+    technologies: ["Typescript", "React"],
+    image: "../../projects/gridddle.png",
+    featured: true,
+    link: "/gridddle",
+  },
+  {
     name: "Home Cooked",
     description:
       "A recipe app that allows you to search for recipes by name or by ingredients",
@@ -28,6 +37,14 @@ const projects = [
     link: "/mappi",
   },
   {
+    name: "CycleSync",
+    description:
+      "A map app that allows you to search for locations by name or by address",
+    technologies: ["Typescript", "React"],
+    image: "../../projects/cycle-sync.png",
+    link: "/cycle-sync",
+  },
+  {
     name: "Pup Progress",
     description:
       "A map app that allows you to search for locations by name or by address",
@@ -35,6 +52,15 @@ const projects = [
     image: "../../projects/pup-progress.png",
     featured: true,
     link: "/pup-progress",
+  },
+  {
+    name: "MarkIt",
+    description:
+      "Use Mappi to locate your must-have shops/destinations and find the perfect neighborhood for you and your lifestyle",
+    technologies: ["Typescript", "React"],
+    image: "../../projects/markit.png",
+    featured: true,
+    link: "/markit",
   },
 
   {
@@ -45,23 +71,7 @@ const projects = [
     image: "../../projects/riverflow.png",
     link: "/riverflow",
   },
-  {
-    name: "CycleSync",
-    description:
-      "A map app that allows you to search for locations by name or by address",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/cycle-sync.png",
-    link: "/cycle-sync",
-  },
-  {
-    name: "Gridddle",
-    description:
-      "A map app that allows you to search for locations by name or by address",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/gridddle.png",
-    featured: true,
-    link: "/gridddle",
-  },
+
   {
     name: "Last Meals",
     description:
@@ -69,24 +79,6 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/last-meals.png",
     link: "last-meals",
-  },
-  {
-    name: "Farkle",
-    description:
-      "A map app that allows you to search for locations by name or by address",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/farkle.png",
-    link: "/farkle",
-  },
-
-  {
-    name: "MarkIt",
-    description:
-      "Use Mappi to locate your must-have shops/destinations and find the perfect neighborhood for you and your lifestyle",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/markit.png",
-    featured: true,
-    link: "/markit",
   },
 
   {
@@ -99,12 +91,13 @@ const projects = [
   },
 
   {
-    name: "Pomodoro",
+    name: "Farkle",
     description:
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
-    image: "../../projects/pomodoro.png",
-    link: "/pomodoro",
+    image: "../../projects/farkle.png",
+    featured: true,
+    link: "/farkle",
   },
   {
     name: "Cart Compare",
@@ -124,6 +117,14 @@ const projects = [
   //   image: "../../projects/tile-slider.png",
   //   link: "/tile-slider",
   // },
+  {
+    name: "Pomodoro",
+    description:
+      "A map app that allows you to search for locations by name or by address",
+    technologies: ["Typescript", "React"],
+    image: "../../projects/pomodoro.png",
+    link: "/pomodoro",
+  },
   {
     name: "Hangman",
     description:
@@ -151,6 +152,44 @@ const projects = [
 ];
 
 const Projects = () => {
+  // Function to arrange projects in the desired pattern
+  const arrangeProjects = (projects) => {
+    const featured = projects.filter((project) => project.featured);
+    const nonFeatured = projects.filter((project) => !project.featured);
+
+    const arranged = [];
+    let featuredIndex = 0;
+    let nonFeaturedIndex = 0;
+
+    while (
+      featuredIndex < featured.length ||
+      nonFeaturedIndex < nonFeatured.length
+    ) {
+      // Add a row with large and small featured projects
+      if (featuredIndex < featured.length - 1) {
+        arranged.push({
+          ...featured[featuredIndex],
+          sizingClass: "featured-large",
+        });
+        arranged.push({
+          ...featured[featuredIndex + 1],
+          sizingClass: "featured-small",
+        });
+        featuredIndex += 2;
+      }
+
+      // Add a row of three non-featured projects
+      for (let i = 0; i < 3 && nonFeaturedIndex < nonFeatured.length; i++) {
+        arranged.push(nonFeatured[nonFeaturedIndex]);
+        nonFeaturedIndex++;
+      }
+    }
+
+    return arranged;
+  };
+
+  const arrangedProjects = arrangeProjects(projects);
+
   return (
     <section className="projects">
       <div className="projects__header">
@@ -168,9 +207,11 @@ const Projects = () => {
       </div>
 
       <div className="projects__grid">
-        {projects.map((project) => (
+        {arrangedProjects.map((project) => (
           <div
-            className={`project ${project.featured ? "featured" : ""}`}
+            className={`project ${
+              project.featured ? `featured ${project.sizingClass}` : ""
+            }`}
             key={project.name}
           >
             <Link

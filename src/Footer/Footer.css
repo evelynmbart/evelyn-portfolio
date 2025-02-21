@@ -145,7 +145,7 @@
   left: 50%;
   bottom: -2000px;
   transform: translateX(-50%) translate3d(0px, 0px, 0px);
-  background: conic-gradient(rgb(11, 47, 114), rgb(102, 239, 239));
+  background: conic-gradient(var(--accent-color), var(--primary-color));
   border-radius: 9999px;
   filter: blur(144px);
 }

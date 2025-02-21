@@ -94,8 +94,8 @@
   border-radius: 50px;
   background: linear-gradient(
     90deg,
-    rgb(102, 239, 239) 0%,
-    rgb(11, 47, 114) 100%
+    var(--primary-color) 0%,
+    var(--accent-color) 100%
   );
   color: white;
   font-weight: 700;
