@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer__header">
         <div className="footer__header-frame">
           <span className="footer__subtitle">Contact</span>
-          <h2 className="footer__title">Get in touch with me</h2>
+          <h2 className="footer__title">Send me a message</h2>
           <span className="footer__top-left-corner"></span>
           <span className="footer__top-right-corner"></span>
           <span className="footer__bottom-left-corner"></span>
@@ -16,8 +16,8 @@ const Footer = () => {
           <span className="footer__bottom-left-corner-outside"></span>
         </div>
       </div>
-      <Button className="contact-btn">
-        <a href="mailto:evelyn.m.bart@gmail.com">Email</a>
+      <Button className="contact-btn" href="mailto:evelyn.m.bart@gmail.com">
+        Email me
       </Button>
 
       <br />

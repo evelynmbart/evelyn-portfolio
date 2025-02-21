@@ -31,8 +31,11 @@ const Hero = () => {
             >
               Check out my resume
             </a>
-            <Button className="contact-btn">
-              <a href="mailto:evelyn.m.bart@gmail.com">Let's connect!</a>
+            <Button
+              className="contact-btn"
+              href="mailto:evelyn.m.bart@gmail.com"
+            >
+              Let's connect!
             </Button>
           </div>
           <div className="hero__right"></div>
