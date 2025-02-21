@@ -1,25 +1,7 @@
-import { useEffect } from "react";
+import React from "react";
 import "./Modal.css";
 
-const Modal = ({ isOpen, onClose, children }) => {
-  useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
-      document.body.style.overflow = "hidden";
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen, onClose]);
-
+const Modal = ({ isOpen, onClose, title, date, content }) => {
   if (!isOpen) return null;
 
   return (
@@ -28,7 +10,13 @@ const Modal = ({ isOpen, onClose, children }) => {
         <button className="modal-close" onClick={onClose}>
           ×
         </button>
-        {children}
+        <div className="modal-header">
+          <h2>{title}</h2>
+          <p className="modal-date">{date}</p>
+        </div>
+        <div className="modal-body">
+          <p>{content}</p>
+        </div>
       </div>
     </div>
   );

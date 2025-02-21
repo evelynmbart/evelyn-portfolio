@@ -1,20 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Cabin:700|Cabin:400");
 
 :root {
-  --text-color: #060404;
-  --light-text-color: #fbf9f9;
-  --background-color: #f7f2f2;
-  --primary-color: #bb585d;
-  --secondary-color: #b5c99c;
-  --accent-color: #de5e65;
+  --text-color: #060f0d;
+  --background-color: #f4faf8;
+  --primary-color: #58bba1;
+  --secondary-color: #9dbdd8;
+  --accent-color: #728cc5;
+  --light-text-color: #f0f9f7;
 }
 :root[data-theme="dark"] {
-  --text-color: #fbf9f9;
-  --light-text-color: #060404;
-  --background-color: #0d0808;
-  --primary-color: #a74449;
-  --secondary-color: #4f6336;
-  --accent-color: #a12127;
+  --text-color: #f0f9f7;
+  --background-color: #050a09;
+  --primary-color: #44a78c;
+  --secondary-color: #274862;
+  --accent-color: #3a548d;
 }
 
 html,
