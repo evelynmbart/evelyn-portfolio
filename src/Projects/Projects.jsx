@@ -9,7 +9,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../projects/think.png",
     featured: true,
-    link: "/think",
+    link: "/project/1",
   },
   {
     name: "Gridddle",
@@ -18,7 +18,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/gridddle.png",
     featured: true,
-    link: "/gridddle",
+    link: "/project/12",
   },
   {
     name: "Home Cooked",
@@ -26,7 +26,7 @@ const projects = [
       "A recipe app that allows you to search for recipes by name or by ingredients",
     technologies: ["Typescript", "React"],
     image: "../../projects/home-cooked.png",
-    link: "/home-cooked",
+    link: "/project/9",
   },
   {
     name: "Mappi",
@@ -34,7 +34,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/mappi.png",
-    link: "/mappi",
+    link: "/project/6",
   },
   {
     name: "CycleSync",
@@ -42,7 +42,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/cycle-sync.png",
-    link: "/cycle-sync",
+    link: "/project/14",
   },
   {
     name: "Pup Progress",
@@ -51,7 +51,7 @@ const projects = [
     technologies: ["Javascript", "React"],
     image: "../../projects/pup-progress.png",
     featured: true,
-    link: "/pup-progress",
+    link: "/project/2",
   },
   {
     name: "MarkIt",
@@ -60,7 +60,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/markit.png",
     featured: true,
-    link: "/markit",
+    link: "/project/5",
   },
 
   {
@@ -69,7 +69,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Javascript", "React"],
     image: "../../projects/riverflow.png",
-    link: "/riverflow",
+    link: "/project/4",
   },
 
   {
@@ -78,7 +78,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/last-meals.png",
-    link: "last-meals",
+    link: "/project/7",
   },
 
   {
@@ -87,7 +87,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Javascript", "React"],
     image: "../../projects/jaipur.png",
-    link: "/jaipur",
+    link: "/project/8",
   },
 
   {
@@ -97,7 +97,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/farkle.png",
     featured: true,
-    link: "/farkle",
+    link: "/project/13",
   },
   {
     name: "Cart Compare",
@@ -106,7 +106,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/cart-compare.png",
     featured: true,
-    link: "/cart-compare",
+    link: "/project/15",
   },
 
   // {
@@ -123,7 +123,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/pomodoro.png",
-    link: "/pomodoro",
+    link: "/project/3",
   },
   {
     name: "Hangman",
@@ -131,7 +131,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/hangman.png",
-    link: "/hangman",
+    link: "/project/11",
   },
   {
     name: "Hole-in-One",
@@ -139,7 +139,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/hole-in-one.png",
-    link: "/hole-in-one",
+    link: "/project/10",
   },
   // {
   //   name: "Blog Woohoo",
@@ -147,7 +147,7 @@ const projects = [
   //     "A map app that allows you to search for locations by name or by address",
   //   technologies: ["Typescript", "React"],
   //   image: "../../projects/blogwoohoo.png",
-  //   link: "/blogwoohoo",
+  //   link: "/project/16",
   // },
 ];
 
