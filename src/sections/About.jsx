@@ -276,7 +276,7 @@ const TypingSection = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  margin: 2rem auto;
+  margin: 4rem auto 2rem;
   max-width: 800px;
   padding: 0 2rem;
   position: relative;

@@ -1,57 +1,54 @@
 import React from "react";
+import ReactModal from "react-modal";
 import styled from "styled-components";
 
 const Modal = ({ isOpen, onClose, title, date, content }) => {
-  if (!isOpen) return null;
-
   return (
-    <ModalOverlay onClick={onClose}>
-      <ModalContent onClick={e => e.stopPropagation()}>
-        <CloseButton onClick={onClose}>×</CloseButton>
-        <Header>
-          <h2>
-            {title}
-          </h2>
-          <Date>
-            {date}
-          </Date>
-        </Header>
-        <Body>
-          <p>
-            {content}
-          </p>
-        </Body>
-      </ModalContent>
-    </ModalOverlay>
+    <ReactModal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      style={{
+        overlay: {
+          backgroundColor: "rgba(0, 0, 0, 0.7)",
+          zIndex: 9999
+        },
+        content: {
+          top: "50%",
+          left: "50%",
+          right: "auto",
+          bottom: "auto",
+          marginRight: "-50%",
+          transform: "translate(-50%, -50%)",
+          background: "var(--background-color)",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+          borderRadius: "12px",
+          padding: "2rem",
+          maxWidth: "600px",
+          width: "90%",
+          maxHeight: "80vh",
+          overflow: "auto"
+        }
+      }}
+    >
+      <CloseButton onClick={onClose}>×</CloseButton>
+      <Header>
+        <h2>
+          {title}
+        </h2>
+        <Date>
+          {date}
+        </Date>
+      </Header>
+      <Body>
+        <p>
+          {content}
+        </p>
+      </Body>
+    </ReactModal>
   );
 };
 
 export default Modal;
-
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-`;
-
-const ModalContent = styled.div`
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 600px;
-  width: 90%;
-  max-height: 80vh;
-  overflow-y: auto;
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-`;
 
 const CloseButton = styled.button`
   position: absolute;
