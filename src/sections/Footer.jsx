@@ -141,16 +141,6 @@ const Title = styled.h2`
   line-height: 1.3;
   margin: 0;
   color: white;
-  position: relative;
-
-  &:after {
-    content: "Sorry if the buttons disappear. I'm working on it.";
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    color: white;
-    font-size: 0.8rem;
-  }
 `;
 
 const ContactButton = styled.button.attrs({ className: "contact-button" })`
@@ -179,7 +169,6 @@ const ContactLinks = styled.div.attrs({ className: "contact-links" })`
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  transform-style: preserve-3d;
   transition: transform 0.6s;
   transform: rotateX(-180deg);
   display: flex;
