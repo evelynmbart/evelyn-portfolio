@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Post from "../components/Post";
 import { BLOG_POSTS, funFacts } from "../components/posts";
@@ -20,6 +20,7 @@ const About = () => {
   const [displayText, setDisplayText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
+  const canvasRef = useRef(null);
 
   // Filter out empty objects from funFacts
   const validFunFacts = funFacts.filter(fact => fact.id);
@@ -81,6 +82,66 @@ const About = () => {
     return () => clearInterval(typingInterval);
   }, [currentFact, isVisible]);
 
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    
+    const resizeCanvas = () => {
+      const container = canvas.parentElement;
+      canvas.width = container.offsetWidth;
+      canvas.height = container.offsetHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    let animationFrameId;
+    let offset = 0;
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Define wave parameters with brighter colors and glow effect
+      const waves = [
+        { amplitude: 25, frequency: 0.02, speed: 0.7, color: 'rgba(88, 187, 161)' },  // primary
+        { amplitude: 30, frequency: 0.015, speed: 0.5, color: 'rgba(157, 189, 216)' }, // secondary
+        { amplitude: 20, frequency: 0.025, speed: 0.3, color: 'rgba(114, 140, 197)' }  // accent
+      ];
+
+      waves.forEach(wave => {
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height / 2);
+
+        for (let x = 0; x < canvas.width; x++) {
+          const y = Math.sin(x * wave.frequency + offset * wave.speed) * wave.amplitude + canvas.height / 2;
+          ctx.lineTo(x, y);
+        }
+
+        // Add glow effect
+        ctx.shadowColor = wave.color;
+        ctx.shadowBlur = 10;
+        ctx.strokeStyle = wave.color;
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        
+        // Reset shadow for next line
+        ctx.shadowBlur = 0;
+      });
+
+      offset -= 0.05;
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [isVisible]);
+
   const handleNewFact = () => {
     if (!isTyping) {
       setCurrentFact(prev => 
@@ -107,21 +168,21 @@ const About = () => {
         </HeaderFrame>
       </Header>
 
-      <HorizontalTimelineBox isVisible={isVisible}>
-        {BLOG_POSTS.map((item, index) => (
-          <>
-            <Post
-              key={item.id}
-              date={item.date}
-              title={item.title}
-              post={item.post}
-            />
-            {index < BLOG_POSTS.length - 1 && (
-              <TimelineArrow>→</TimelineArrow>
-            )}
-          </>
-        ))}
-      </HorizontalTimelineBox>
+      <TimelineContainer>
+        <TimelineCanvas ref={canvasRef} />
+        <HorizontalTimelineBox isVisible={isVisible}>
+          {BLOG_POSTS.map((item, index) => (
+            <>
+              <Post
+                key={item.id}
+                date={item.date}
+                title={item.title}
+                post={item.post}
+              />
+            </>
+          ))}
+        </HorizontalTimelineBox>
+      </TimelineContainer>
 
       <TypingSection>
         <TypingContainer>
@@ -169,6 +230,11 @@ const AboutSection = styled.section`
   }
 `;
 
+const TimelineContainer = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
 const HorizontalTimelineBox = styled.div`
   display: flex;
   align-items: center;
@@ -177,13 +243,6 @@ const HorizontalTimelineBox = styled.div`
   max-width: 100%;
   overflow-x: scroll;
   opacity: ${props => props.isVisible ? 1 : 0};
-  transform: ${props => props.isVisible ? 'translateX(0)' : 'translateX(500px)'};
-  transition: opacity 1s ease-out, transform 1s ease-in-out;
-`;
-
-const TimelineArrow = styled.span`
-  font-size: 2rem;
-  color: var(--primary-color);
 `;
 
 const Header = styled.div`
@@ -346,4 +405,14 @@ const NewFactLink = styled.span`
   &:hover {
     opacity: 0.8;
   }
+`;
+
+const TimelineCanvas = styled.canvas`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
 `;

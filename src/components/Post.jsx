@@ -13,6 +13,8 @@ const Post = ({ date, title, post }) => {
           <PostTitle>{title}</PostTitle>
           <PostText>{post}</PostText>
         </PostContent>
+
+        <TimelineArrow>&gt;</TimelineArrow>
       </PostCard>
 
       <Modal
@@ -29,17 +31,18 @@ const Post = ({ date, title, post }) => {
 export default Post;
 
 const PostCard = styled.div`
-  background: var(--card-bg-color);
+  background: white;
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.5rem 0.5rem 1.5rem 1.5rem;
   min-width: 300px;
   min-height: 220px;
   height: 220px;
   max-height: 220px;
-  margin: 1rem;
+  margin: 0 3rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
   overflow: hidden;
+  display: flex;
 
   &:hover {
     border-color: var(--primary-color);
@@ -72,4 +75,12 @@ const PostText = styled.p`
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
+`;
+
+const TimelineArrow = styled.span`
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--primary-color);
+  margin: 0.5rem;
 `;
