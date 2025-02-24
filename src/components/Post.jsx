@@ -42,7 +42,7 @@ const PostCard = styled.div`
   height: 220px;
   max-height: 220px;
   margin: 0 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
   overflow: hidden;
   display: flex;

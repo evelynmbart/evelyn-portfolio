@@ -364,7 +364,7 @@ const Title = styled.h2`
 const TypingSection = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
   margin: 4rem auto 2rem;
   max-width: 800px;
@@ -382,8 +382,6 @@ const TypingContainer = styled.div`
   max-width: 600px;
   font-family: monospace;
   display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   line-height: 1.6;
   padding: 1.5rem;
@@ -421,7 +419,6 @@ const TypingContainer = styled.div`
 
 const TypingText = styled.span`
   color: var(--text-color);
-  text-align: center;
   word-wrap: break-word;
 `;
 
