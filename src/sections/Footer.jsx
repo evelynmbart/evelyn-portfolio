@@ -1,4 +1,4 @@
-import { FaEnvelope, FaLinkedin } from "react-icons/fa";
+import { FaEnvelope, FaFilePdf, FaGithub, FaLinkedin } from "react-icons/fa";
 import styled from "styled-components";
 
 const Footer = () => {
@@ -35,12 +35,14 @@ const Footer = () => {
         <FaintBorder />
         <Recap>
           <SocialLinks>
-            <a href="https://www.linkedin.com/in/evelyn-bart-9000000000/">
-              LinkedIn
+            <a href="https://www.linkedin.com/in/evelyn-bart-a469a4288">
+              <FaLinkedin size={27} title="LinkedIn" />
             </a>
-            <a href="https://github.com/evelyn-bart">GitHub</a>
-            <a href="../Evelyn Bart 2025 Resume copy.pdf" download>
-              Resume
+            <a href="https://github.com/evelynmbart">
+              <FaGithub size={27} title="GitHub" />
+            </a>
+            <a href="../Evelyn_Bart_Resume_2025.pdf" download>
+              <FaFilePdf size={27} title="Resume" />
             </a>
           </SocialLinks>
           <div>
@@ -273,7 +275,7 @@ const SocialLinks = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 `;
 
 const Nav = styled.nav`
