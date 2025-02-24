@@ -3,8 +3,22 @@ import styled from "styled-components";
 import Post from "../components/Post";
 import { BLOG_POSTS, funFacts } from "../components/posts";
 
+const MORE =
+  [
+    "encore!",
+    "anotha one",
+    "hit me again",
+    "more!",
+    "keep 'em coming",
+    "gimme more",
+    "next up",
+  ]
+
 const About = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
+  const [currentFact, setCurrentFact] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
 
   // Filter out empty objects from funFacts
   const validFunFacts = funFacts.filter(fact => fact.id);
@@ -22,12 +36,34 @@ const About = () => {
     [validFunFacts.length, currentQuote]
   );
 
-  const handlePrevious = () => {
-    setCurrentQuote(prev => (prev === 0 ? validFunFacts.length - 1 : prev - 1));
-  };
+  useEffect(() => {
+    if (!validFunFacts[currentFact]?.quote) return;
+    
+    setIsTyping(true);
+    setDisplayText("");
+    
+    let index = -1;
+    const text = validFunFacts[currentFact].quote;
+    
+    const typingInterval = setInterval(() => {
+      if (index < text.length) {
+        setDisplayText(prev => prev + text.charAt(index));
+        index++;
+      } else {
+        setIsTyping(false);
+        clearInterval(typingInterval);
+      }
+    }, 25);
 
-  const handleNext = () => {
-    setCurrentQuote(prev => (prev === validFunFacts.length - 1 ? 0 : prev + 1));
+    return () => clearInterval(typingInterval);
+  }, [currentFact]);
+
+  const handleNewFact = () => {
+    if (!isTyping) {
+      setCurrentFact(prev => 
+        prev === validFunFacts.length - 1 ? 0 : prev + 1
+      );
+    }
   };
 
   return (
@@ -46,33 +82,6 @@ const About = () => {
         </HeaderFrame>
       </Header>
 
-      <FunFactsCarousel>
-        <CarouselButton
-          onClick={handlePrevious}
-          disabled={currentQuote === 0}
-          aria-label="Previous quote"
-        >
-          ←
-        </CarouselButton>
-        <CarouselContent>
-          {validFunFacts.map((fact, index) =>
-            <CarouselQuote
-              key={fact.id}
-              className={index === currentQuote ? "active" : ""}
-            >
-              {fact.quote}
-            </CarouselQuote>
-          )}
-        </CarouselContent>
-        <CarouselButton
-          onClick={handleNext}
-          disabled={currentQuote === validFunFacts.length - 1}
-          aria-label="Next quote"
-        >
-          →
-        </CarouselButton>
-      </FunFactsCarousel>
-
       <HorizontalTimelineBox>
         {BLOG_POSTS.map((item, index) => (
           <>
@@ -88,6 +97,20 @@ const About = () => {
           </>
         ))}
       </HorizontalTimelineBox>
+
+      <TypingSection>
+        <TypingContainer>
+          <TypingText>
+            {displayText}
+            <Cursor isTyping={isTyping}>|</Cursor>
+            {!isTyping && (
+              <span>
+                {" "}(<NewFactLink onClick={handleNewFact}>{MORE[currentFact % MORE.length]}</NewFactLink>)
+              </span>
+            )}
+          </TypingText>
+        </TypingContainer>
+      </TypingSection>
     </AboutSection>
   );
 };
@@ -95,9 +118,26 @@ const About = () => {
 export default About;
 
 const AboutSection = styled.section`
-  margin: 0 auto;
+  margin: -40px 0 0;
   padding: 4rem 0;
-  max-width: 1400px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  background: 
+    linear-gradient(to right, rgba(128, 128, 128, 0.1) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.1) 1px, transparent 1px) 0 0 / 40px 40px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    z-index: -1;
+    background: linear-gradient(to bottom, transparent, var(--background-color));
+    pointer-events: none;
+  }
 
   @media only screen and (max-width: 768px) {
     padding: 2rem 1rem;
@@ -107,9 +147,10 @@ const AboutSection = styled.section`
 const HorizontalTimelineBox = styled.div`
   display: flex;
   align-items: center;
-  margin: 1rem 0;
   padding: 2rem 4rem;
   min-height: 300px;
+  max-width: 100%;
+  overflow-x: scroll;
 `;
 
 const TimelineArrow = styled.span`
@@ -120,7 +161,7 @@ const TimelineArrow = styled.span`
 const Header = styled.div`
   display: flex;
   justify-content: center;
-  margin: 2rem 0 4rem 0;
+  margin: 2rem 0;
 `;
 
 const HeaderFrame = styled.div`
@@ -202,91 +243,79 @@ const Title = styled.h2`
   }
 `;
 
-const FunFactsCarousel = styled.div`
+const TypingSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  padding: 0 2rem;
+  position: relative;
+
+`;
+
+const TypingContainer = styled.div`
+  width: 600px;
+  font-family: monospace;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 650px;
-  margin: 0 auto 4rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
   padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  perspective: 1000px;
-
-  @media only screen and (max-width: 768px) {
-    padding: 1rem;
-    margin-bottom: 2rem;
-    perspective: 800px;
-  }
-`;
-
-const CarouselContent = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100px;
-  padding: 0 1rem;
-  transform-style: preserve-3d;
-
-  @media only screen and (max-width: 768px) {
-    height: 180px;
-  }
-`;
-
-const CarouselQuote = styled.p`
-  position: absolute;
-  width: 60%;
-  margin: 0 70px;
-  text-align: center;
-  backface-visibility: hidden;
-  transform-origin: center center -200px;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 20px;
-  background: var(--card-bg-color);
   border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: rotateY(-180deg) translateZ(200px);
+  backdrop-filter: blur(10px);
 
-  &.active {
-    opacity: 1;
-    transform: rotateY(0deg) translateZ(200px);
+  &::after {
+    content: '✨ The fun fact machine ✨';
+    position: absolute;
+    font-size: 0.8rem;
+    top: 0;
+    transform: translateY(-100%);
+    left: 0;
   }
 
-  &.active ~ & {
-    transform: rotateY(180deg) translateZ(200px);
-  }
-
-  @media only screen and (max-width: 768px) {
-    font-size: 0.9rem;
-    transform-origin: center center -150px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #0066ff 0%, #ff6600 100%);
+    opacity: 0.15;
+    z-index: -1;
   }
 `;
 
-const CarouselButton = styled.button`
-  outline: none;
-  border: none;
-  border-radius: 4px;
-  background: transparent;
+const TypingText = styled.span`
+  color: var(--text-color);
+`;
+
+const Cursor = styled.span`
+  display: inline-block;
   color: var(--primary-color);
-  font-size: 1.5rem;
+  animation: ${props => props.isTyping ? 'none' : 'blink 1s step-end infinite'};
+  transform: translateX(-4px) translateY(-2px);
+  font-weight: bold;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+`;
+
+const NewFactLink = styled.span`
+  color: var(--primary-color);
+  text-decoration: underline;
   cursor: pointer;
-  padding: 0.5rem 1rem;
-  transition: all 0.3s ease;
-  z-index: 2;
-  text-shadow: 0 0 10px rgba(var(--primary-color-rgb), 0.3);
+  transition: opacity 0.2s ease;
 
-  &:hover:not(:disabled) {
-    color: var(--text-color);
-    transform: scale(1.1);
-    text-shadow: 0 0 20px rgba(var(--primary-color-rgb), 0.5);
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 2px var(--primary-color);
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    color: var(--text-color);
-    text-shadow: none;
+  &:hover {
+    opacity: 0.8;
   }
 `;

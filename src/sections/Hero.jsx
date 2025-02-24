@@ -116,6 +116,7 @@ const HeroSection = styled.section`
   height: calc(100vh - 20px);
   width: calc(100vw - 20px);
   box-sizing: border-box;
+  z-index: 100;
 
   @media (max-width: 768px) {
     margin: 0px;

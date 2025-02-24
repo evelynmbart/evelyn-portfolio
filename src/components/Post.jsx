@@ -39,11 +39,10 @@ const PostCard = styled.div`
   margin: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
-  transition: transform 0.2s ease;
   overflow: hidden;
 
   &:hover {
-    transform: translateY(-5px);
+    border-color: var(--primary-color);
   }
 `;
 
