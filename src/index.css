@@ -2,12 +2,13 @@
 
 :root {
   --text-color: #060f0d;
-  --background-color: #f4faf8;
+  --background-color: rgb(224, 224, 224);
   --primary-color: #58bba1;
   --secondary-color: #9dbdd8;
   --accent-color: #728cc5;
   --light-text-color: #f0f9f7;
   --primary-color-rgb: 147, 51, 234; /* Adjust these values to match your primary color */
+  --card-bg-color: hsla(0,0%,100%,.66);
 }
 :root[data-theme="dark"] {
   --text-color: #f0f9f7;
@@ -19,22 +20,28 @@
 
 html,
 body,
+p {
+  margin: 0;
+  padding: 0;
+  font-family: "DM Sans", sans-serif;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-p {
+h6 {
   margin: 0;
   padding: 0;
-  font-family: "Cabin", sans-serif;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
 }
 
 html,
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: "Cabin", sans-serif;
+  font-family: "DM Sans", sans-serif;
   scroll-behavior: smooth;
 }
