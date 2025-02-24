@@ -7,21 +7,23 @@ import ProjectPage from "./sections/ProjectPage";
 const PROJECTS = [
   {
     id: 1,
+    mainImage: "../project-post-imgs/think0.png",
     name: "Think",
     title: "Sharpen Your Trivia Skills",
     description:
       "Think is a trivia quiz app designed to test and enhance your general knowledge.",
     technologies: ["TypeScript", "React"],
     firstP:
-      "Trivia lovers often find themselves searching for new ways to challenge their knowledge. Think was built with that in mind, offering an interactive experience that keeps users engaged. Whether you're preparing for a quiz night or just enjoy testing yourself, Think has something for everyone. The app dynamically generates questions to ensure a fresh experience every time.",
+      "Trivia lovers often find themselves searching for new ways to challenge their knowledge. Think was built with that in mind, offering an interactive experience that keeps users engaged. The app randomly generates questions to ensure a fresh experience every time.",
     secondP:
       "Built using TypeScript and React, Think ensures a seamless and responsive user interface. Users can answer questions in various categories and track their progress over time. The intuitive design allows for a smooth and engaging experience. The use of TypeScript ensures type safety and scalability for future expansions.",
     thirdP:
-      "Think also includes a leaderboard to add a competitive element to the experience. Users can see how they rank among friends and other trivia enthusiasts. Additionally, the app offers hints and explanations to help users learn from their mistakes. This makes Think not just a quiz app but also a learning tool.",
-    image: "think.png",
+      "Additionally, the app offers hints and explanations to help users learn from their mistakes. This makes Think not just a quiz app but also a learning tool.",
+    image: "../project-post-imgs/think2.png",
   },
   {
     id: 2,
+    mainImage: "../project-post-imgs/pup7.png",
     name: "Pup Progress",
     title: "Train Your Dog with Ease",
     description:
@@ -31,12 +33,11 @@ const PROJECTS = [
       "Training a dog can be a challenging task, but Pup Progress simplifies the process. It offers a structured way to teach new tricks through progressive learning. The app provides two modes: chapter-based learning and freestyle training. This ensures that both beginners and experienced trainers can benefit from its features.",
     secondP:
       "Using TypeScript and React, Pup Progress delivers a clean and organized interface. The app categorizes tricks based on difficulty level, making it easy to pick up where you left off. Users can track their dog's progress over time and revisit past lessons as needed. The intuitive design makes navigation effortless for all users.",
-    thirdP:
-      "Pup Progress also includes a built-in rewards system to keep training engaging for both dogs and owners. Positive reinforcement techniques are highlighted, making the training experience effective and enjoyable. With regular updates, the app continues to grow and improve based on user feedback.",
-    image: "pup_progress.png",
+    image: "../project-post-imgs/pup1.png",
   },
   {
     id: 3,
+    mainImage: "../project-post-imgs/pom4.png",
     name: "Pomodoro",
     title: "Boost Your Productivity with Pomodoro",
     description:
@@ -45,13 +46,12 @@ const PROJECTS = [
     firstP:
       "Time management is crucial for productivity, and Pomodoro offers an effective way to structure your work. The app follows the Pomodoro technique, breaking tasks into focused time blocks with short breaks in between. This approach helps maintain concentration and prevents burnout. Users can customize session lengths to match their workflow.",
     secondP:
-      "Built with TypeScript and React, Pomodoro provides a smooth and visually appealing interface. The task list feature allows users to organize their workload efficiently. Completed tasks are logged for reference, offering a sense of accomplishment. The responsive design ensures usability across different devices.",
-    thirdP:
-      "Pomodoro also includes an analytics section where users can track their productivity trends. Insights into work habits help users make informed decisions about their time management strategies. Whether you're studying or working, Pomodoro is a valuable tool to enhance focus and efficiency.",
-    image: "pomodoro.png",
+      "Built with TypeScript and React, Pomodoro provides a smooth and visually appealing interface. The task list feature allows users to organize their workload efficiently. The responsive design ensures usability across different devices.",
+    image: "../project-post-imgs/pom2.png",
   },
   {
     id: 4,
+    mainImage: "../project-post-imgs/river0.png",
     name: "RiverFlow",
     title: "Kayak Smarter with Real-Time Data",
     description:
@@ -62,11 +62,12 @@ const PROJECTS = [
     secondP:
       "Developed using JavaScript and React, RiverFlow ensures a fast and reliable experience. The app features an intuitive interface where users can quickly check rapid classifications. Data updates dynamically to reflect changing river conditions, making it an essential tool for planning trips.",
     thirdP:
-      "With a user-friendly design, RiverFlow also offers insights into weather conditions and safety guidelines. Users can bookmark favorite river spots for easy access. The app was inspired by my brother, a whitewater kayak instructor, who needed an efficient way to check rapid conditions before leading groups.",
-    image: "riverflow.png",
+      "With a user-friendly design, users can bookmark favorite river spots for easy access. The app was inspired by my brother, a whitewater kayak instructor, who needed an efficient way to check rapid conditions before leading groups.",
+    image: "../project-post-imgs/river1.png",
   },
   {
     id: 5,
+    mainImage: "../project-post-imgs/mark2.png",
     name: "MarkIt",
     title: "All Your Links in One Place",
     description:
@@ -77,11 +78,12 @@ const PROJECTS = [
     secondP:
       "Built with TypeScript and React, MarkIt provides a seamless experience across devices. The app includes tagging and search functionalities, allowing users to organize bookmarks efficiently. The ability to pin essential links ensures frequently used websites are always within reach.",
     thirdP:
-      "MarkIt was originally created to improve NYC bus tracking, but it quickly evolved into a versatile tool for any bookmarking need. Whether it's news articles, travel information, or reference materials, MarkIt ensures quick access. Its clean design and user-friendly interface make it a must-have tool for digital organization.",
-    image: "markit.png",
+      "Whether it's news articles, travel information, or reference materials, MarkIt ensures quick access. Its clean design and user-friendly interface make it a must-have tool for digital organization.",
+    image: "../project-post-imgs/mark1.png",
   },
   {
     id: 6,
+    mainImage: "../project-post-imgs/mappi2.png",
     name: "Mappi",
     title: "Find Your Ideal NYC Neighborhood",
     description:
@@ -93,11 +95,12 @@ const PROJECTS = [
       "Built using TypeScript, React, and Google Maps API, Mappi delivers accurate location data. The interactive map makes it easy to visualize potential living areas. Users can refine their searches and compare different neighborhoods effortlessly.",
     thirdP:
       "Mappi was designed to help people make informed decisions about where to live. It saves time by presenting all necessary data in one place. Whether moving to NYC or just exploring new areas, Mappi is a valuable tool for finding the perfect neighborhood.",
-    image: "mappi.png",
+    image: "../project-post-imgs/mappi3.png",
   },
 
   {
     id: 7,
+    mainImage: "../project-post-imgs/last4.png",
     name: "Last Meals",
     title: "Last Meals - Your Favorite Meal Journal",
     description:
@@ -109,10 +112,11 @@ const PROJECTS = [
       "Built using TypeScript and React, the app ensures a seamless and interactive experience. Users can easily navigate through the app, adding meal details along with dates and meal descriptions. The modern design and responsive layout make it user-friendly across all devices. TypeScript provides the type safety needed for robust meal tracking features.",
     thirdP:
       "What makes Last Meals stand out is its ability to review meals over a certain period, like a month or year. This gives users the chance to track their favorite dishes seasonally or discover recurring meals. Whether you are a chef or a casual foodie, this app can bring joy to those who take pride in their culinary choices. By using it regularly, you can build a rich database of your food adventures.",
-    image: "last-meals.jpg",
+    image: "../project-post-imgs/last1.png",
   },
   {
     id: 8,
+    mainImage: "../project-post-imgs/jaipur5.png",
     name: "Jaipur",
     title: "Jaipur - Online Scorekeeper for Jaipur",
     description:
@@ -124,10 +128,11 @@ const PROJECTS = [
       "Built using JavaScript and React, the Jaipur scorekeeper offers a simple yet effective way to handle scores. The app displays current scores in real-time, automatically updating as you progress through the game. No need to worry about losing tokens or making manual errors with score tracking. Just enter each player's actions, and the app does the rest.",
     thirdP:
       "With its intuitive design, users can quickly get started without needing a tutorial. The clean interface ensures a smooth experience during gameplay. Jaipur's scorekeeper makes it easier to dive right into the game, allowing players to enjoy their sessions without interruptions. Perfect for fans of the board game who want to keep their focus on the fun rather than on math.",
-    image: "jaipur.jpg",
+    image: "../project-post-imgs/jaipur1.png",
   },
   {
     id: 9,
+    mainImage: "../project-post-imgs/homecooked2.png",
     name: "HomeCooked",
     title: "HomeCooked - A Recipe Hub for Your Favorite Meals",
     description:
@@ -139,10 +144,11 @@ const PROJECTS = [
       "Built with TypeScript and React, HomeCooked provides users with a fast and reliable experience. With advanced search functionality, you can quickly find recipes by name or tag. You can add your own tags to recipes for better organization. The search engine filters meals based on the tags you input, helping you to easily find dishes that match your craving.",
     thirdP:
       "One of the standout features of HomeCooked is its ability to let users contribute new recipes. This creates a growing catalog of meals where users can inspire each other. Whether you're trying to make a new dish or looking for something new to cook, this app connects people through food. With HomeCooked, you'll never run out of meal ideas again.",
-    image: "homecooked.jpg",
+    image: "../project-post-imgs/homecooked1.png",
   },
   {
     id: 10,
+    mainImage: "../project-post-imgs/hole3.jpg",
     name: "Hole-in-One",
     title: "Hole-in-One - A Donut-Themed Memory Game",
     description:
@@ -151,13 +157,14 @@ const PROJECTS = [
     firstP:
       "Hole-in-One is a playful and challenging memory game featuring donuts as the central theme. It's one of the first projects I built using React, and it provided a great introduction to component-based development. The game presents players with a grid of cards that must be matched based on memory. Each card is adorned with a cute donut image, adding to the game's charm.",
     secondP:
-      "In this game, you need to flip two cards at a time and try to find matching pairs. As you progress, the challenge increases with more cards and tighter time constraints. React helped me create a smooth user experience with responsive elements and quick feedback during gameplay. The use of JavaScript made it easy to handle game logic, including detecting when all pairs are matched.",
+      "In this game, you need to flip two cards at a time and try to find matching pairs. React helped me create a smooth user experience with responsive elements and quick feedback during gameplay. The use of JavaScript made it easy to handle game logic, including detecting when all pairs are matched.",
     thirdP:
       "This project helped me learn about managing state, handling user interactions, and implementing logic for a card game. Hole-in-One has a simple design, making it accessible for players of all ages. Its donut theme adds a fun and quirky touch to a traditional memory game, making it even more enjoyable. Whether you're looking to sharpen your memory skills or just have fun, Hole-in-One is a perfect game to try.",
-    image: "hole-in-one.jpg",
+    image: "../project-post-imgs/hole1.png",
   },
   {
     id: 11,
+    mainImage: "../project-post-imgs/hangman1.png",
     name: "Hangman",
     title: "Hangman - An Online Version of the Classic Game",
     description:
@@ -169,10 +176,11 @@ const PROJECTS = [
       "Built with TypeScript for type safety and React for a dynamic interface, Hangman provides a smooth gaming experience. The interface is simple yet visually engaging, and it's easy to understand for new players. You can choose different difficulty levels, making the game suitable for all ages. The app also generates random words for endless gameplay without the need for preparation.",
     thirdP:
       "Playing Hangman on this app is a fun way to improve your vocabulary and spelling skills. The clean design and easy navigation make it an enjoyable game for a quick break or long sessions. This project was a great opportunity to explore user input handling and state management within React. If you love word games, this online version of Hangman will give you hours of entertainment.",
-    image: "hangman.jpg",
+    image: "../project-post-imgs/hangman3.png",
   },
   {
     id: 12,
+    mainImage: "../project-post-imgs/grid0.png",
     name: "Gridddle",
     title: "Gridddle - A Pixel Art Daily Challenge",
     description:
@@ -184,10 +192,11 @@ const PROJECTS = [
       "The app lets you post your daily artwork to a feed, where you can see what others have created. Users can log in with their GitHub accounts to share their art easily. Built with TypeScript and React, Gridddle ensures that the app is both responsive and interactive. You can quickly upload and view artwork, making it easy to stay engaged with the daily challenges.",
     thirdP:
       "Gridddle is more than just an art app; it's a community-driven platform for artistic expression. Every day brings a new challenge that encourages users to think outside the box and experiment with pixel art. The daily prompts keep the app fresh and interesting, making it a great tool for practicing and improving your design skills. Whether you're a pixel art expert or a newcomer, Gridddle offers a fun and creative environment.",
-    image: "gridddle.jpg",
+    image: "../project-post-imgs/grid5.png",
   },
   {
     id: 13,
+    mainImage: "../project-post-imgs/farkle3.png",
     name: "Farkle",
     title: "Farkle - Online Multiplayer Farkle Game",
     description:
@@ -196,13 +205,14 @@ const PROJECTS = [
     firstP:
       "Farkle is a fast-paced dice game where players try to score points by rolling different combinations. This online version brings the game to your browser with the added benefit of automatic score tracking. You can play with friends and easily keep track of who's winning. The app makes the gameplay experience smoother by handling the math, so you can focus on the fun part of the game.",
     secondP:
-      "Developed with TypeScript and React, the Farkle game app is built to be both reliable and engaging. The app uses state management to keep track of players' scores and turns. The rules of the game are integrated into the app, making it easy to jump into a game without needing a manual. Simply roll the dice, and the app will calculate your score in real-time.",
+      "Developed with TypeScript and React, the Farkle game app is built to be both reliable and engaging. The app uses state management to keep track of players' scores and turns. Simply roll the dice, and the app will calculate your score in real-time.",
     thirdP:
-      "This app is perfect for people who enjoy playing dice games with friends online. It's fast-paced and has a simple interface that lets you focus on the gameplay rather than keeping track of numbers. Farkle is a great choice for casual gaming sessions, whether you're playing with friends or family. The game will keep you on your toes as you try to beat your opponents without rolling a 'farkle'!",
-    image: "farkle.jpg",
+      "This app is perfect for people who enjoy playing dice games with friends. It's fast-paced and has a simple interface that lets you focus on the gameplay rather than keeping track of numbers. Farkle is a great choice for casual gaming sessions, whether you're playing with friends or family. The game will keep you on your toes as you try to beat your opponents without rolling a 'farkle'!",
+    image: "../project-post-imgs/farkle1.png",
   },
   {
     id: 14,
+    mainImage: "../project-post-imgs/cycle3.png",
     name: "CycleSync",
     title: "CycleSync - Your Personal Period Tracker",
     description:
@@ -213,11 +223,12 @@ const PROJECTS = [
     secondP:
       "Developed with TypeScript and React, CycleSync provides a smooth experience on both mobile and desktop. You can log your cycle data easily and keep track of things like moods, energy levels, and physical symptoms. The app gives you the ability to reflect on past cycles and see patterns over time. It's an ideal tool for anyone wanting to understand and manage their reproductive health better.",
     thirdP:
-      "CycleSync also helps you predict your next cycle based on your data, which is useful for those planning their schedules or managing symptoms. The app was created with a strong focus on privacy, ensuring your data stays secure and confidential. With its user-centric design, CycleSync is the go-to app for anyone who wants to keep a detailed record of their menstrual health.",
-    image: "cyclesync.jpg",
+      "CycleSync also helps you predict your next cycle based on your data, which is useful for those planning their schedules or managing symptoms. With its user-centric design, CycleSync is the go-to app for anyone who wants to keep a detailed record of their menstrual health.",
+    image: "../project-post-imgs/cycle2.png",
   },
   {
     id: 15,
+    mainImage: "../project-post-imgs/cart2.png",
     name: "CartCompare",
     title: "CartCompare - Compare Grocery Prices Across Stores",
     description:
@@ -229,7 +240,7 @@ const PROJECTS = [
       "Built using TypeScript and React, CartCompare ensures that the app provides accurate and real-time information. Users can search for specific items and compare prices from multiple stores nearby. With its clean and easy-to-navigate interface, the app makes shopping comparisons quick and efficient. You can also view historical price trends for items to help you decide when to purchase.",
     thirdP:
       "CartCompare is perfect for people who want to save money without sacrificing the quality of their groceries. By providing detailed pricing information, the app helps you make informed decisions about where to shop. Whether you're on a tight budget or just looking for a better deal, CartCompare can help you find the lowest prices for your favorite products.",
-    image: "cartcompare.jpg",
+    image: "../project-post-imgs/cart4.png",
   },
   // {
   //   id: 16,

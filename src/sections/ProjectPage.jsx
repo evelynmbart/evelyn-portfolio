@@ -21,7 +21,7 @@ function ProjectPage({ PROJECTS }) {
       </Header>
       {project && (
         <div>
-          <Text key={project.name}>
+          <Text key={project.name} src={project.mainImage}>
             <Title>{project.name}</Title>
             <Description>{project.description}</Description>
             <Technologies>
@@ -82,9 +82,10 @@ const StyledLink = styled(Link)`
 `;
 
 const Text = styled.div`
+  background-image: url(${({ src }) => src});
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   border-radius: 30px;
   padding: 20px;
   height: 200px;
@@ -149,7 +150,7 @@ const ContentText = styled.p`
   line-height: 1.6;
   text-indent: 2.5rem;
   color: white;
-
+  padding-bottom: 2rem;
   @media (max-width: 768px) {
     font-size: 1rem;
   }
@@ -158,13 +159,20 @@ const ContentText = styled.p`
 const ImagePlaceholder = styled.div`
   width: 100%;
   height: 400px;
-  background: #f5f5f5;
+
   margin: 2rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
 
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: contain;
+    object-position: center;
+  }
   @media (max-width: 768px) {
     height: 300px;
   }

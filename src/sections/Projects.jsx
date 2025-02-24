@@ -9,7 +9,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../projects/think.png",
     featured: true,
-    link: "/project/1"
+    link: "/project/1",
   },
   {
     name: "Gridddle",
@@ -18,7 +18,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/gridddle.png",
     featured: true,
-    link: "/project/12"
+    link: "/project/12",
   },
   {
     name: "Home Cooked",
@@ -26,7 +26,7 @@ const projects = [
       "A recipe app that allows you to search for recipes by name or by ingredients",
     technologies: ["Typescript", "React"],
     image: "../../projects/home-cooked.png",
-    link: "/project/9"
+    link: "/project/9",
   },
   {
     name: "Mappi",
@@ -34,7 +34,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/mappi.png",
-    link: "/project/6"
+    link: "/project/6",
   },
   {
     name: "CycleSync",
@@ -42,7 +42,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/cycle-sync.png",
-    link: "/project/14"
+    link: "/project/14",
   },
   {
     name: "Pup Progress",
@@ -51,7 +51,7 @@ const projects = [
     technologies: ["Javascript", "React"],
     image: "../../projects/pup-progress.png",
     featured: true,
-    link: "/project/2"
+    link: "/project/2",
   },
   {
     name: "MarkIt",
@@ -60,7 +60,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/markit.png",
     featured: true,
-    link: "/project/5"
+    link: "/project/5",
   },
 
   {
@@ -69,7 +69,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Javascript", "React"],
     image: "../../projects/riverflow.png",
-    link: "/project/4"
+    link: "/project/4",
   },
 
   {
@@ -78,7 +78,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/last-meals.png",
-    link: "/project/7"
+    link: "/project/7",
   },
 
   {
@@ -87,7 +87,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Javascript", "React"],
     image: "../../projects/jaipur.png",
-    link: "/project/8"
+    link: "/project/8",
   },
 
   {
@@ -97,7 +97,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/farkle.png",
     featured: true,
-    link: "/project/13"
+    link: "/project/13",
   },
   {
     name: "Cart Compare",
@@ -106,7 +106,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/cart-compare.png",
     featured: true,
-    link: "/project/15"
+    link: "/project/15",
   },
 
   // {
@@ -123,7 +123,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/pomodoro.png",
-    link: "/project/3"
+    link: "/project/3",
   },
   {
     name: "Hangman",
@@ -131,7 +131,7 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/hangman.png",
-    link: "/project/11"
+    link: "/project/11",
   },
   {
     name: "Hole-in-One",
@@ -139,8 +139,8 @@ const projects = [
       "A map app that allows you to search for locations by name or by address",
     technologies: ["Typescript", "React"],
     image: "../../projects/hole-in-one.png",
-    link: "/project/10"
-  }
+    link: "/project/10",
+  },
   // {
   //   name: "Blog Woohoo",
   //   description:
@@ -153,9 +153,9 @@ const projects = [
 
 const Projects = () => {
   // Function to arrange projects in the desired pattern
-  const arrangeProjects = projects => {
-    const featured = projects.filter(project => project.featured);
-    const nonFeatured = projects.filter(project => !project.featured);
+  const arrangeProjects = (projects) => {
+    const featured = projects.filter((project) => project.featured);
+    const nonFeatured = projects.filter((project) => !project.featured);
 
     const arranged = [];
     let featuredIndex = 0;
@@ -169,11 +169,11 @@ const Projects = () => {
       if (featuredIndex < featured.length - 1) {
         arranged.push({
           ...featured[featuredIndex],
-          sizingClass: "featured"
+          sizingClass: "featured",
         });
         arranged.push({
           ...featured[featuredIndex + 1],
-          sizingClass: "featured"
+          sizingClass: "featured",
         });
         featuredIndex += 2;
       }
@@ -205,7 +205,7 @@ const Projects = () => {
       </ProjectsHeader>
 
       <ProjectsGrid>
-        {arrangedProjects.map(project =>
+        {arrangedProjects.map((project) => (
           <ProjectCard key={project.name} featured={project.featured}>
             <ProjectLink
               to={project.link}
@@ -225,7 +225,7 @@ const Projects = () => {
               </ProjectBottom>
             </ProjectLink>
           </ProjectCard>
-        )}
+        ))}
       </ProjectsGrid>
     </ProjectsSection>
   );
@@ -345,7 +345,7 @@ const ProjectsGrid = styled.div`
 const ProjectCard = styled.div`
   position: relative;
   max-width: 100%;
-  height: ${props => (props.featured ? "384px" : "390px")};
+  height: ${(props) => (props.featured ? "384px" : "390px")};
   border-radius: 10px;
   box-sizing: border-box;
   padding: 0;
@@ -354,7 +354,7 @@ const ProjectCard = styled.div`
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   width: 100%;
-  border: ${props =>
+  border: ${(props) =>
     props.featured ? "none" : "1px solid hsla(0, 0%, 100%, 0.2)"};
 
   &.featured {
@@ -368,10 +368,11 @@ const ProjectCard = styled.div`
   }
 
   &:hover {
-    transform: ${props =>
+    transform: ${(props) =>
       props.featured ? "scale(1)" : "translateY(-8px) scale(1.02)"};
-    box-shadow: ${props => !props.featured && "0 10px 20px rgba(0, 0, 0, 0.3)"};
-    filter: ${props => !props.featured && "brightness(1.1)"};
+    box-shadow: ${(props) =>
+      !props.featured && "0 10px 20px rgba(0, 0, 0, 0.3)"};
+    filter: ${(props) => !props.featured && "brightness(1.1)"};
   }
 
   @media (max-width: 1024px) {
@@ -412,45 +413,45 @@ const ProjectImage = styled.img`
   border-radius: 10px 10px 0 0;
 
   &:hover {
-    transform: ${props => props.featured && "scale(1.05)"};
-    box-shadow: ${props => props.featured && "0 5px 15px rgba(0, 0, 0, 0.2)"};
+    transform: ${(props) => props.featured && "scale(1.05)"};
+    box-shadow: ${(props) => props.featured && "0 5px 15px rgba(0, 0, 0, 0.2)"};
   }
 `;
 
 const ProjectBottom = styled.div`
   box-sizing: border-box;
   width: 100%;
-  height: ${props => (props.featured ? "auto" : "40%")};
-  min-height: ${props => props.featured && "30%"};
+  height: ${(props) => (props.featured ? "auto" : "40%")};
+  min-height: ${(props) => props.featured && "30%"};
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background: ${props =>
+  background: ${(props) =>
     props.featured
       ? "linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent)"
       : "rgb(50, 50, 50)"};
-  border-radius: ${props => (props.featured ? "0" : "0 0 10px 10px")};
-  position: ${props => (props.featured ? "absolute" : "relative")};
-  bottom: ${props => props.featured && "0"};
-  left: ${props => props.featured && "0"};
+  border-radius: ${(props) => (props.featured ? "0" : "0 0 10px 10px")};
+  position: ${(props) => (props.featured ? "absolute" : "relative")};
+  bottom: ${(props) => props.featured && "0"};
+  left: ${(props) => props.featured && "0"};
   transform-style: preserve-3d;
   perspective: 1000px;
   transform: translateZ(10px);
   transition: transform 0.3s ease;
   color: white;
-  z-index: ${props => props.featured && "2"};
+  z-index: ${(props) => props.featured && "2"};
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: ${props => (props.featured ? "2rem" : "1.7rem")};
+  font-size: ${(props) => (props.featured ? "2rem" : "1.7rem")};
   font-weight: 600;
   margin: 0;
   color: white;
 `;
 
 const ProjectDescription = styled.p`
-  font-size: ${props => (props.featured ? "1.2rem" : "16px")};
-  margin: ${props => (props.featured ? "0.5rem 0 0 0" : "0")};
-  color: ${props => (props.featured ? "rgba(255, 255, 255, 0.9)" : "white")};
+  font-size: ${(props) => (props.featured ? "1.2rem" : "16px")};
+  margin: ${(props) => (props.featured ? "0.5rem 0 0 0" : "0")};
+  color: ${(props) => (props.featured ? "rgba(255, 255, 255, 0.9)" : "white")};
 `;
