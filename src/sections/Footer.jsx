@@ -1,4 +1,56 @@
-.footer {
+import styled from "styled-components";
+import Button from "../components/Button";
+
+const Footer = () => {
+  return (
+    <FooterSection id="contact">
+      <Header>
+        <HeaderFrame>
+          <Subtitle>Contact</Subtitle>
+          <Title>Send me a message</Title>
+          <TopLeftCorner />
+          <TopRightCorner />
+          <BottomLeftCorner />
+          <BottomRightCorner />
+          <BottomLeftCornerOutside />
+        </HeaderFrame>
+      </Header>
+      <Button className="contact-btn" href="mailto:evelyn.m.bart@gmail.com">
+        Email me
+      </Button>
+
+      <br />
+      <Atmosphere />
+      <Planet />
+      <Copyright>
+        <FaintBorder />
+        <Recap>
+          <SocialLinks>
+            <a href="https://www.linkedin.com/in/evelyn-bart-9000000000/">
+              LinkedIn
+            </a>
+            <a href="https://github.com/evelyn-bart">GitHub</a>
+            <a href="../Evelyn Bart 2025 Resume copy.pdf" download>
+              Resume
+            </a>
+          </SocialLinks>
+          <div>
+            <Nav>
+              <a href="/about">About</a>
+              <a href="/projects">Projects</a>
+              <a href="/contact">Contact</a>
+            </Nav>
+          </div>
+        </Recap>
+        &copy; 2025 Evelyn Bart. All rights reserved.
+      </Copyright>
+    </FooterSection>
+  );
+};
+
+export default Footer;
+
+const FooterSection = styled.section`
   width: 100%;
   height: 760px;
   background-color: rgb(19, 19, 19);
@@ -9,93 +61,82 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-}
+`;
 
-.footer__header {
+const Header = styled.div`
   display: flex;
   justify-content: center;
   margin: 5rem 0 3rem 0;
-}
+`;
 
-.footer__header-frame {
+const HeaderFrame = styled.div`
   position: relative;
   max-width: 400px;
   padding: 2rem 8rem;
   text-align: center;
-}
+`;
 
-.footer__top-left-corner,
-.footer__top-right-corner,
-.footer__bottom-left-corner,
-.footer__bottom-left-corner-outside,
-.footer__bottom-right-corner {
+const Corner = styled.span`
   position: absolute;
   width: 15px;
   height: 15px;
-}
+`;
 
-/* Top left corner */
-.footer__top-left-corner {
+const TopLeftCorner = styled(Corner)`
   top: 0;
   left: 0;
   border-top: 2px solid white;
   border-left: 2px solid white;
-}
+`;
 
-/* Top right corner */
-.footer__top-right-corner {
+const TopRightCorner = styled(Corner)`
   top: 0;
   right: 0;
   border-top: 2px solid white;
   border-right: 2px solid white;
-}
+`;
 
-/* Bottom left corner */
-.footer__bottom-left-corner {
+const BottomLeftCorner = styled(Corner)`
   bottom: 0;
   left: 0;
   border-bottom: 2px solid white;
   border-left: 2px solid white;
-}
+`;
 
-/* Bottom left corner outside */
-.footer__bottom-left-corner-outside {
+const BottomLeftCornerOutside = styled(Corner)`
   bottom: -15px;
   right: -15px;
   border-top: 2px solid white;
   border-left: 2px solid white;
-}
+`;
 
-/* Bottom right corner */
-.footer__bottom-right-corner {
+const BottomRightCorner = styled(Corner)`
   bottom: 0px;
   right: 0;
   border-bottom: 2px solid white;
   border-right: 2px solid white;
-}
+`;
 
-.footer__subtitle {
+const Subtitle = styled.span`
   display: block;
-
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 1rem;
   color: white;
-}
+`;
 
-.footer__title {
+const Title = styled.h2`
   font-size: 2.2rem;
   font-weight: 400;
   line-height: 1.3;
   margin: 0;
   color: white;
-}
+`;
 
-.faint-border {
+const FaintBorder = styled.div`
   height: 1px;
   margin: 0 10rem;
-
   background: linear-gradient(
     90deg,
     hsla(0, 0%, 100%, 0) 0,
@@ -103,57 +144,56 @@
     hsla(0, 0%, 100%, 0.25) 60%,
     hsla(0, 0%, 100%, 0)
   );
-}
+`;
 
-.copyright {
+const Copyright = styled.section`
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
   position: absolute;
   bottom: 0;
-
   width: 100%;
   height: 200px;
-}
+`;
 
-.recap {
+const Recap = styled.section`
   margin: 0 400px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-}
 
-.recap a {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-}
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+`;
 
-.social-links {
+const SocialLinks = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-}
+`;
 
-.footer__nav {
+const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-}
 
-.footer__nav a:hover {
-  color: var(--primary-color);
-}
+  a:hover {
+    color: var(--primary-color);
+  }
+`;
 
-.atmosphere {
+const Atmosphere = styled.div`
   position: absolute;
   height: 2400px;
   width: 1800px;
@@ -163,9 +203,9 @@
   background: conic-gradient(var(--secondary-color), var(--primary-color));
   border-radius: 9999px;
   filter: blur(144px);
-}
+`;
 
-.planet {
+const Planet = styled.div`
   position: absolute;
   height: 2400px;
   width: 1800px;
@@ -174,4 +214,4 @@
   transform: translateX(-50%);
   background: rgb(19, 19, 19);
   border-radius: 9999px;
-}
+`;

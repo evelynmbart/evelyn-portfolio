@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Footer from "./Footer/Footer";
-import Hero from "./Hero/Hero";
-import ProjectPage from "./components/ProjectPage";
+import Footer from "./sections/Footer";
+import Hero from "./sections/Hero";
+import ProjectPage from "./sections/ProjectPage";
 
 const PROJECTS = [
   {
