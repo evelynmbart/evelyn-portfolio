@@ -6,7 +6,7 @@ import { BLOG_POSTS, funFacts } from "../components/posts";
 const MORE =
   [
     "encore!",
-    "anotha one",
+    "anotha one", 
     "hit me again",
     "more!",
     "keep 'em coming",
@@ -19,9 +19,32 @@ const About = () => {
   const [currentFact, setCurrentFact] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   // Filter out empty objects from funFacts
   const validFunFacts = funFacts.filter(fact => fact.id);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.getElementById("about");
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
 
   useEffect(
     () => {
@@ -37,7 +60,7 @@ const About = () => {
   );
 
   useEffect(() => {
-    if (!validFunFacts[currentFact]?.quote) return;
+    if (!validFunFacts[currentFact]?.quote || !isVisible) return;
     
     setIsTyping(true);
     setDisplayText("");
@@ -56,7 +79,7 @@ const About = () => {
     }, 25);
 
     return () => clearInterval(typingInterval);
-  }, [currentFact]);
+  }, [currentFact, isVisible]);
 
   const handleNewFact = () => {
     if (!isTyping) {
@@ -72,8 +95,10 @@ const About = () => {
         <HeaderFrame>
           <Subtitle>About</Subtitle>
           <Title>
-            A little about me and my journey into web development
+            My journey into web development.
           </Title>
+          <br />
+          <Subtitle>It ain't easy teaching yourself!</Subtitle>
           <TopLeftCorner />
           <TopRightCorner />
           <TopRightCornerOutside />
@@ -82,7 +107,7 @@ const About = () => {
         </HeaderFrame>
       </Header>
 
-      <HorizontalTimelineBox>
+      <HorizontalTimelineBox isVisible={isVisible}>
         {BLOG_POSTS.map((item, index) => (
           <>
             <Post
@@ -151,6 +176,9 @@ const HorizontalTimelineBox = styled.div`
   min-height: 300px;
   max-width: 100%;
   overflow-x: scroll;
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: ${props => props.isVisible ? 'translateX(0)' : 'translateX(500px)'};
+  transition: opacity 1s ease-out, transform 1s ease-in-out;
 `;
 
 const TimelineArrow = styled.span`
