@@ -1,5 +1,5 @@
+import { FaEnvelope, FaLinkedin } from "react-icons/fa";
 import styled from "styled-components";
-import Button from "../components/Button";
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
       <Header>
         <HeaderFrame>
           <Subtitle>Contact</Subtitle>
-          <Title>Send me a message</Title>
+          <Title>Let&apos;s get in touch.</Title>
           <TopLeftCorner />
           <TopRightCorner />
           <BottomLeftCorner />
@@ -15,9 +15,18 @@ const Footer = () => {
           <BottomLeftCornerOutside />
         </HeaderFrame>
       </Header>
-      <Button className="contact-btn" href="mailto:evelyn.m.bart@gmail.com">
-        Email me
-      </Button>
+
+      <ContactContainer>
+        <ContactButton>Contact</ContactButton>
+        <ContactLinks>
+          <ContactLink href="https://www.linkedin.com/in/evelyn-bart-9000000000/">
+            <FaLinkedin />
+          </ContactLink>
+          <ContactLink href="mailto:evelyn.m.bart@gmail.com">
+            <FaEnvelope />
+          </ContactLink>
+        </ContactLinks>
+      </ContactContainer>
 
       <br />
       <Atmosphere />
@@ -132,6 +141,103 @@ const Title = styled.h2`
   line-height: 1.3;
   margin: 0;
   color: white;
+  position: relative;
+
+  &:after {
+    content: "Sorry if the buttons disappear. I'm working on it.";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    color: white;
+    font-size: 0.8rem;
+  }
+`;
+
+const ContactButton = styled.button.attrs({ className: "contact-button" })`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  transform: rotateX(0);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const ContactLinks = styled.div.attrs({ className: "contact-links" })`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  transform: rotateX(-180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  pointer-events: none;
+
+  @media (max-width: 768px) {
+    position: static;
+    transform: none;
+    pointer-events: auto;
+  }
+`;
+
+const ContactContainer = styled.div`
+  position: relative;
+  perspective: 1000px;
+  width: 200px;
+  height: 50px;
+
+  &:hover {
+    ${ContactButton} {
+      transform: rotateX(180deg);
+    }
+    ${ContactLinks} {
+      transform: rotateX(0);
+      pointer-events: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    perspective: none;
+    &:hover {
+      ${ContactLinks} {
+        transform: none;
+      }
+    }
+  }
+`;
+
+const ContactLink = styled.a`
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const FaintBorder = styled.div`

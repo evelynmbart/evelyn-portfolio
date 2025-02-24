@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import Button from "../components/Button";
 import About from "./About";
 import Projects from "./Projects";
 
@@ -18,7 +17,7 @@ const Hero = () => {
         <Main>
           <Left>
             <Title>Hi, I&apos;m Evelyn Bart, a frontend web developer.</Title>
-            <Subtitle>I&apos;m so excited that you&apos;re here!</Subtitle>
+            <Subtitle>I&apos;m so <ExcitedSpan>excited</ExcitedSpan> that you&apos;re here!</Subtitle>
             <ButtonContainer>
               <ResumeButton
                 href="../Evelyn Bart 2025 Resume copy.pdf"
@@ -27,12 +26,12 @@ const Hero = () => {
               >
                 Check out my resume
               </ResumeButton>
-              <Button
-                className="contact-btn"
+              <ResumeButton
+                secondary
                 href="mailto:evelyn.m.bart@gmail.com"
               >
                 Let's connect!
-              </Button>
+              </ResumeButton>
             </ButtonContainer>
           </Left>
           <Right></Right>
@@ -247,7 +246,7 @@ const Left = styled.div`
 
 const ButtonContainer = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -259,31 +258,38 @@ const ButtonContainer = styled.div`
 
 const ResumeButton = styled.a`
   width: 200px;
-  border-radius: 50px;
-  background: linear-gradient(
+  background: ${props => props.secondary ? 'black' : `linear-gradient(
     90deg,
     var(--secondary-color) 0%,
     var(--primary-color) 100%
-  );
-  color: white;
+  )`};
+  color: ${props => props.secondary ? 'var(--primary-color)' : 'white'};
   font-size: 1rem;
   font-weight: bold;
   padding: 1rem 1.2rem;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   position: relative;
+  border: 2px solid ${props => props.secondary ? 'var(--primary-color)' : 'white'};
+  position: relative;
 
-  &:after {
-    content: "→";
+  &:before {
+    content: "";
     position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    transition: transform 0.4s ease-in-out;
+    top: 8px;
+    left: 8px;
+    width: 100%;
+    height: 100%;
+    background-color: ${props => props.secondary ? 'var(--primary-color)' : 'white'};
+    transition: all 0.3s ease;
+    z-index: -1;
   }
 
-  &:hover:after {
-    transform: translateX(50%) translateY(-50%);
+  &:hover {
+    &:before {
+      top: 0;
+      left: 0;
+    }
   }
 
   @media (max-width: 480px) {
@@ -316,6 +322,18 @@ const Title = styled.h1`
   @media (max-width: 480px) {
     font-size: 1.75rem;
   }
+`;
+
+const ExcitedSpan = styled.span`
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: linear-gradient(
+    90deg,
+    var(--secondary-color) 0%,
+    var(--primary-color) 100%
+  );
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
 `;
 
 const Subtitle = styled.p`
