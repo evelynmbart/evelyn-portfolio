@@ -28,7 +28,7 @@ const Hero = () => {
             </Subtitle>
             <ButtonContainer>
               <ResumeButton
-                href="../Evelyn Bart 2025 Resume copy.pdf"
+                href="../Evelyn_Bart_Resume_2025.pdf"
                 alt="Download my resume!"
                 download
               >
@@ -194,6 +194,9 @@ const ConveyorBelt = styled.div`
   height: 100%;
   width: 100%;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 `;
 
 const scroll = keyframes`
@@ -201,7 +204,7 @@ const scroll = keyframes`
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 `;
 
@@ -209,8 +212,20 @@ const ConveyorContent = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
-  animation: ${scroll} 20s linear 1s infinite;
+  animation: ${scroll} 20s linear infinite;
   white-space: nowrap;
+
+  /* Create a copy of content for seamless loop */
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height: 100%;
+    width: 100%;
+    background: inherit;
+  }
 `;
 
 const SkillItem = styled.span`

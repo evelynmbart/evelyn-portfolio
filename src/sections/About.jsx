@@ -3,16 +3,15 @@ import styled from "styled-components";
 import Post from "../components/Post";
 import { BLOG_POSTS, funFacts } from "../components/posts";
 
-const MORE =
-  [
-    "encore!",
-    "anotha one", 
-    "hit me again",
-    "more!",
-    "keep 'em coming",
-    "gimme more",
-    "next up",
-  ]
+const MORE = [
+  "encore!",
+  "anotha one",
+  "hit me again",
+  "more!",
+  "keep 'em coming",
+  "gimme more",
+  "next up",
+];
 
 const About = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
@@ -23,7 +22,7 @@ const About = () => {
   const canvasRef = useRef(null);
 
   // Filter out empty objects from funFacts
-  const validFunFacts = funFacts.filter(fact => fact.id);
+  const validFunFacts = funFacts.filter((fact) => fact.id);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,31 +46,28 @@ const About = () => {
     };
   }, []);
 
-  useEffect(
-    () => {
-      const timer = setInterval(() => {
-        setCurrentQuote(
-          prev => (prev === validFunFacts.length - 1 ? 0 : prev + 1)
-        );
-      }, 5000); // Change quote every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentQuote((prev) =>
+        prev === validFunFacts.length - 1 ? 0 : prev + 1
+      );
+    }, 5000); // Change quote every 5 seconds
 
-      return () => clearInterval(timer);
-    },
-    [validFunFacts.length, currentQuote]
-  );
+    return () => clearInterval(timer);
+  }, [validFunFacts.length, currentQuote]);
 
   useEffect(() => {
     if (!validFunFacts[currentFact]?.quote || !isVisible) return;
-    
+
     setIsTyping(true);
     setDisplayText("");
-    
+
     let index = -1;
     const text = validFunFacts[currentFact].quote;
-    
+
     const typingInterval = setInterval(() => {
       if (index < text.length) {
-        setDisplayText(prev => prev + text.charAt(index));
+        setDisplayText((prev) => prev + text.charAt(index));
         index++;
       } else {
         setIsTyping(false);
@@ -86,8 +82,8 @@ const About = () => {
     if (!isVisible) return;
 
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    
+    const ctx = canvas.getContext("2d");
+
     const resizeCanvas = () => {
       const container = canvas.parentElement;
       canvas.width = container.offsetWidth;
@@ -95,27 +91,45 @@ const About = () => {
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     let animationFrameId;
     let offset = 0;
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       // Define wave parameters with brighter colors and glow effect
       const waves = [
-        { amplitude: 25, frequency: 0.02, speed: 0.7, color: 'rgba(88, 187, 161)' },  // primary
-        { amplitude: 30, frequency: 0.015, speed: 0.5, color: 'rgba(157, 189, 216)' }, // secondary
-        { amplitude: 20, frequency: 0.025, speed: 0.3, color: 'rgba(114, 140, 197)' }  // accent
+        {
+          amplitude: 25,
+          frequency: 0.02,
+          speed: 0.7,
+          color: "rgba(88, 187, 161)",
+        }, // primary
+        {
+          amplitude: 30,
+          frequency: 0.015,
+          speed: 0.5,
+          color: "rgba(157, 189, 216)",
+        }, // secondary
+        {
+          amplitude: 20,
+          frequency: 0.025,
+          speed: 0.3,
+          color: "rgba(114, 140, 197)",
+        }, // accent
       ];
 
-      waves.forEach(wave => {
+      waves.forEach((wave) => {
         ctx.beginPath();
         ctx.moveTo(0, canvas.height / 2);
 
         for (let x = 0; x < canvas.width; x++) {
-          const y = Math.sin(x * wave.frequency + offset * wave.speed) * wave.amplitude + canvas.height / 2;
+          const y =
+            Math.sin(x * wave.frequency + offset * wave.speed) *
+              wave.amplitude +
+            canvas.height / 2;
           ctx.lineTo(x, y);
         }
 
@@ -125,7 +139,7 @@ const About = () => {
         ctx.strokeStyle = wave.color;
         ctx.lineWidth = 3;
         ctx.stroke();
-        
+
         // Reset shadow for next line
         ctx.shadowBlur = 0;
       });
@@ -137,14 +151,14 @@ const About = () => {
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
   }, [isVisible]);
 
   const handleNewFact = () => {
     if (!isTyping) {
-      setCurrentFact(prev => 
+      setCurrentFact((prev) =>
         prev === validFunFacts.length - 1 ? 0 : prev + 1
       );
     }
@@ -155,9 +169,7 @@ const About = () => {
       <Header>
         <HeaderFrame>
           <Subtitle>About</Subtitle>
-          <Title>
-            My journey into web development.
-          </Title>
+          <Title>My journey into web development.</Title>
           <br />
           <Subtitle>It ain't easy teaching yourself!</Subtitle>
           <TopLeftCorner />
@@ -192,7 +204,12 @@ const About = () => {
             <Cursor isTyping={isTyping}>|</Cursor>
             {!isTyping && (
               <span>
-                {" "}(<NewFactLink onClick={handleNewFact}>{MORE[currentFact % MORE.length]}</NewFactLink>)
+                {" "}
+                (
+                <NewFactLink onClick={handleNewFact}>
+                  {MORE[currentFact % MORE.length]}
+                </NewFactLink>
+                )
               </span>
             )}
           </TypingText>
@@ -210,19 +227,28 @@ const AboutSection = styled.section`
   width: 100%;
   position: relative;
   z-index: 1;
-  background: 
-    linear-gradient(to right, rgba(128, 128, 128, 0.1) 1px, transparent 1px) 0 0 / 40px 40px,
-    linear-gradient(to bottom, rgba(128, 128, 128, 0.1) 1px, transparent 1px) 0 0 / 40px 40px;
+  background: linear-gradient(
+        to right,
+        rgba(128, 128, 128, 0.1) 1px,
+        transparent 1px
+      )
+      0 0 / 40px 40px,
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.1) 1px, transparent 1px) 0
+      0 / 40px 40px;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 500px;
     z-index: -1;
-    background: linear-gradient(to bottom, transparent, var(--background-color));
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--background-color)
+    );
     pointer-events: none;
   }
 
@@ -245,10 +271,10 @@ const HorizontalTimelineBox = styled.div`
   min-height: 300px;
   max-width: 100%;
   overflow-x: auto;
-  opacity: ${props => props.isVisible ? 1 : 0};
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  
+
   @media (max-width: 768px) {
     padding: 1rem;
     min-height: 250px;
@@ -264,7 +290,7 @@ const Header = styled.div`
   display: flex;
   justify-content: center;
   margin: 2rem 1rem;
-  
+
   @media (max-width: 480px) {
     margin: 1rem 0.5rem;
   }
@@ -326,7 +352,7 @@ const TopRightCornerOutside = styled(Corner)`
   right: -15px;
   border-bottom: 2px solid var(--primary-color);
   border-left: 2px solid var(--primary-color);
-  
+
   @media (max-width: 480px) {
     top: -10px;
     right: -10px;
@@ -356,7 +382,11 @@ const Title = styled.h2`
   line-height: 1.3;
   margin: 0;
   color: var(--text-color);
-  background: linear-gradient(45deg, var(--text-color), color-mix(in srgb, var(--primary-color) 60%, black));
+  background: linear-gradient(
+    45deg,
+    var(--text-color),
+    color-mix(in srgb, var(--primary-color) 60%, black)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
@@ -391,7 +421,7 @@ const TypingContainer = styled.div`
   backdrop-filter: blur(10px);
 
   &::after {
-    content: '✨ The fun fact machine ✨';
+    content: "✨ The fun fact machine ✨";
     position: absolute;
     font-size: clamp(0.6rem, 1.5vw, 0.8rem);
     top: 0;
@@ -400,7 +430,7 @@ const TypingContainer = styled.div`
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -425,7 +455,8 @@ const TypingText = styled.span`
 const Cursor = styled.span`
   display: inline-block;
   color: var(--primary-color);
-  animation: ${props => props.isTyping ? 'none' : 'blink 1s step-end infinite'};
+  animation: ${(props) =>
+    props.isTyping ? "none" : "blink 1s step-end infinite"};
   transform: translateX(-4px) translateY(-2px);
   font-weight: bold;
 
