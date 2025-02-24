@@ -1,9 +1,10 @@
+import { FaHome } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 function ProjectPage({ PROJECTS }) {
   const { id } = useParams();
-  const project = PROJECTS.find(project => project.id === Number(id));
+  const project = PROJECTS.find((project) => project.id === Number(id));
 
   if (!project) {
     return <div>Project not found</div>;
@@ -13,44 +14,33 @@ function ProjectPage({ PROJECTS }) {
     <ProjectSection>
       <Header>
         <Nav>
-          <StyledLink to="/">Back to Home</StyledLink>
+          <StyledLink to="/">
+            <FaHome size={32} title="Back to Home" />
+          </StyledLink>
         </Nav>
       </Header>
-      {project &&
+      {project && (
         <div>
           <Text key={project.name}>
-            <Title>
-              {project.name}
-            </Title>
-            <Description>
-              {project.description}
-            </Description>
+            <Title>{project.name}</Title>
+            <Description>{project.description}</Description>
             <Technologies>
-              {project.technologies.map((tech, index) =>
-                <TechSpan key={index}>
-                  {tech}
-                </TechSpan>
-              )}
+              {project.technologies.map((tech, index) => (
+                <TechSpan key={index}>{tech}</TechSpan>
+              ))}
             </Technologies>
           </Text>
           <Content>
-            <ContentTitle>
-              {project.title}
-            </ContentTitle>
-            <ContentText>
-              {project.firstP}
-            </ContentText>
-            <ContentText>
-              {project.secondP}
-            </ContentText>
+            <ContentTitle>{project.title}</ContentTitle>
+            <ContentText>{project.firstP}</ContentText>
+            <ContentText>{project.secondP}</ContentText>
             <ImagePlaceholder>
               <img src={project.image} alt={project.name} />
             </ImagePlaceholder>
-            <ContentText>
-              {project.thirdP}
-            </ContentText>
+            <ContentText>{project.thirdP}</ContentText>
           </Content>
-        </div>}
+        </div>
+      )}
     </ProjectSection>
   );
 }
