@@ -18,20 +18,22 @@ const Hero = () => {
         <Main>
           <Left>
             <Title>Hi, I&apos;m Evelyn Bart, a frontend web developer.</Title>
-            <Subtitle> I&apos;m so excited that you&apos;re here!</Subtitle>
-            <ResumeButton
-              href="../Evelyn Bart 2025 Resume copy.pdf"
-              alt="Download my resume!"
-              download
-            >
-              Check out my resume
-            </ResumeButton>
-            <Button
-              className="contact-btn"
-              href="mailto:evelyn.m.bart@gmail.com"
-            >
-              Let's connect!
-            </Button>
+            <Subtitle>I&apos;m so excited that you&apos;re here!</Subtitle>
+            <ButtonContainer>
+              <ResumeButton
+                href="../Evelyn Bart 2025 Resume copy.pdf"
+                alt="Download my resume!"
+                download
+              >
+                Check out my resume
+              </ResumeButton>
+              <Button
+                className="contact-btn"
+                href="mailto:evelyn.m.bart@gmail.com"
+              >
+                Let's connect!
+              </Button>
+            </ButtonContainer>
           </Left>
           <Right></Right>
         </Main>
@@ -39,7 +41,7 @@ const Hero = () => {
         <Footer>
           <ConveyorBelt>
             <ConveyorContent>
-              {[1, 2, 3, 4, 5].map(() => {
+              {[1, 2, 3, 4, 5].map((_) => {
                 return (
                   <>
                     <SkillItem>
@@ -119,9 +121,9 @@ const HeroSection = styled.section`
   z-index: 100;
 
   @media (max-width: 768px) {
-    margin: 0px;
+    margin: 0;
     border-radius: 0;
-    height: 100vh;
+    height: fit-content;
     width: 100vw;
   }
 `;
@@ -134,9 +136,18 @@ const Header = styled.header`
   align-items: center;
   justify-content: flex-end;
   border-bottom: 1px solid rgb(119, 119, 119);
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
-const Nav = styled.nav``;
+const Nav = styled.nav`
+  @media (max-width: 480px) {
+    display: flex;
+    gap: 1rem;
+  }
+`;
 
 const NavLink = styled.a`
   color: white;
@@ -148,11 +159,20 @@ const NavLink = styled.a`
   &:hover {
     opacity: 0.8;
   }
+
+  @media (max-width: 480px) {
+    margin-left: 0;
+    font-size: 1rem;
+  }
 `;
 
 const Main = styled.main`
   flex: 1;
   display: flex;
+
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 const Footer = styled.footer`
@@ -160,6 +180,10 @@ const Footer = styled.footer`
   background-color: rgba(0, 0, 0, 0.2);
   overflow: hidden;
   border-top: 1px solid rgb(119, 119, 119);
+
+  @media (max-width: 768px) {
+    min-height: 60px;
+  }
 `;
 
 const ConveyorBelt = styled.div`
@@ -195,6 +219,11 @@ const SkillItem = styled.span`
   justify-content: center;
   gap: 0.5rem;
   text-align: center;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 const Left = styled.div`
@@ -203,9 +232,29 @@ const Left = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 4rem;
-  padding: 2rem 1rem;
+  padding: 2rem;
   border-right: 1px solid rgb(119, 119, 119);
   align-items: center;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgb(119, 119, 119);
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  @media (max-width: 480px) {
+    gap: 0.75rem;
+  }
 `;
 
 const ResumeButton = styled.a`
@@ -236,10 +285,21 @@ const ResumeButton = styled.a`
   &:hover:after {
     transform: translateX(50%) translateY(-50%);
   }
+
+  @media (max-width: 480px) {
+    width: 180px;
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+  }
 `;
 
 const Right = styled.div`
   width: 65%;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    flex: 1;
+  }
 `;
 
 const Title = styled.h1`
@@ -247,6 +307,15 @@ const Title = styled.h1`
   font-weight: 400;
   line-height: 1.3;
   color: white;
+  text-align: center;
+
+  @media (max-width: 1024px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+  }
 `;
 
 const Subtitle = styled.p`
@@ -254,5 +323,13 @@ const Subtitle = styled.p`
   line-height: 1.6;
   color: white;
   margin: 0;
-  align-self: flex-start;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;

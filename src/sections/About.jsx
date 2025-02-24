@@ -178,6 +178,7 @@ const About = () => {
                 date={item.date}
                 title={item.title}
                 post={item.post}
+                isFirst={index === 0}
               />
             </>
           ))}
@@ -205,7 +206,7 @@ export default About;
 
 const AboutSection = styled.section`
   margin: -40px 0 0;
-  padding: 4rem 0;
+  padding: 4rem 1rem;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -225,42 +226,66 @@ const AboutSection = styled.section`
     pointer-events: none;
   }
 
-  @media only screen and (max-width: 768px) {
-    padding: 2rem 1rem;
+  @media (max-width: 480px) {
+    padding: 2rem 0.5rem;
+    margin: -20px 0 0;
   }
 `;
 
 const TimelineContainer = styled.div`
   position: relative;
   width: 100%;
+  overflow-x: hidden;
 `;
 
 const HorizontalTimelineBox = styled.div`
   display: flex;
   align-items: center;
-  padding: 2rem 4rem;
+  padding: 2rem;
   min-height: 300px;
   max-width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
   opacity: ${props => props.isVisible ? 1 : 0};
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+    min-height: 250px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.5rem;
+    min-height: 200px;
+  }
 `;
 
 const Header = styled.div`
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 2rem 1rem;
+  
+  @media (max-width: 480px) {
+    margin: 1rem 0.5rem;
+  }
 `;
 
 const HeaderFrame = styled.div`
   position: relative;
   max-width: 650px;
-  padding: 2rem 4rem;
+  width: 90%;
+  padding: 2rem;
   text-align: center;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 
-  @media only screen and (max-width: 768px) {
-    padding: 1.5rem 2rem;
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    width: 95%;
   }
 `;
 
@@ -268,6 +293,11 @@ const Corner = styled.span`
   position: absolute;
   width: 15px;
   height: 15px;
+
+  @media (max-width: 480px) {
+    width: 10px;
+    height: 10px;
+  }
 `;
 
 const TopLeftCorner = styled(Corner)`
@@ -296,6 +326,11 @@ const TopRightCornerOutside = styled(Corner)`
   right: -15px;
   border-bottom: 2px solid var(--primary-color);
   border-left: 2px solid var(--primary-color);
+  
+  @media (max-width: 480px) {
+    top: -10px;
+    right: -10px;
+  }
 `;
 
 const BottomRightCorner = styled(Corner)`
@@ -307,7 +342,7 @@ const BottomRightCorner = styled(Corner)`
 
 const Subtitle = styled.span`
   display: block;
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 2vw, 1rem);
   color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -316,7 +351,7 @@ const Subtitle = styled.span`
 `;
 
 const Title = styled.h2`
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 500;
   line-height: 1.3;
   margin: 0;
@@ -324,10 +359,6 @@ const Title = styled.h2`
   background: linear-gradient(45deg, var(--text-color), color-mix(in srgb, var(--primary-color) 60%, black));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  @media only screen and (max-width: 768px) {
-    font-size: 2rem;
-  }
 `;
 
 const TypingSection = styled.div`
@@ -337,20 +368,25 @@ const TypingSection = styled.div`
   gap: 2rem;
   margin: 4rem auto 2rem;
   max-width: 800px;
-  padding: 0 2rem;
+  padding: 0 1rem;
   position: relative;
 
+  @media (max-width: 768px) {
+    margin: 2rem auto 1rem;
+    gap: 1rem;
+  }
 `;
 
 const TypingContainer = styled.div`
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   font-family: monospace;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   line-height: 1.6;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -359,7 +395,7 @@ const TypingContainer = styled.div`
   &::after {
     content: '✨ The fun fact machine ✨';
     position: absolute;
-    font-size: 0.8rem;
+    font-size: clamp(0.6rem, 1.5vw, 0.8rem);
     top: 0;
     transform: translateY(-100%);
     left: 0;
@@ -375,11 +411,18 @@ const TypingContainer = styled.div`
     background: linear-gradient(135deg, #0066ff 0%, #ff6600 100%);
     opacity: 0.15;
     z-index: -1;
+    border-radius: 12px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
   }
 `;
 
 const TypingText = styled.span`
   color: var(--text-color);
+  text-align: center;
+  word-wrap: break-word;
 `;
 
 const Cursor = styled.span`
@@ -404,6 +447,12 @@ const NewFactLink = styled.span`
 
   &:hover {
     opacity: 0.8;
+  }
+
+  @media (hover: none) {
+    &:active {
+      opacity: 0.8;
+    }
   }
 `;
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Modal from "./Modal";
 
-const Post = ({ date, title, post }) => {
+const Post = ({ date, title, post, isFirst }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -14,7 +14,10 @@ const Post = ({ date, title, post }) => {
           <PostText>{post}</PostText>
         </PostContent>
 
-        <TimelineArrow>&gt;</TimelineArrow>
+        <RightSide>
+          <TimelineArrow>&gt;</TimelineArrow>
+          {isFirst && <SwipeText>Swipe for more</SwipeText>}
+        </RightSide>
       </PostCard>
 
       <Modal
@@ -51,6 +54,7 @@ const PostCard = styled.div`
 
 const PostContent = styled.div`
   height: 100%;
+  flex: 1;
 `;
 
 const PostDate = styled.span`
@@ -75,6 +79,28 @@ const PostText = styled.p`
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
+`;
+
+const RightSide = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 1rem;
+`;
+
+const SwipeText = styled.span`
+  writing-mode: vertical-rl;
+  transform: rotate(0deg);
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
 const TimelineArrow = styled.span`
