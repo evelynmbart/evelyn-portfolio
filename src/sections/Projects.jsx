@@ -155,7 +155,7 @@ const DotGrid = () => {
         this.size = Math.random() * 2 + 1;
         this.twinkleSpeed = Math.random() * 0.1;
         this.angle = Math.random() * Math.PI * 2;
-        this.opacity = Math.random() * 0.5 + 0.3;
+        this.opacity = Math.random() * 0.5 + 0.5;
       }
 
       draw() {

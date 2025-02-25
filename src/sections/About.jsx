@@ -403,6 +403,8 @@ const TypingSection = styled.div`
 
   @media (max-width: 768px) {
     margin: 2rem auto 1rem;
+    align-items: center;
+    text-align: center;
     gap: 1rem;
   }
 `;
@@ -415,6 +417,7 @@ const TypingContainer = styled.div`
   font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   line-height: 1.6;
   padding: 1.5rem;
+
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -445,6 +448,8 @@ const TypingContainer = styled.div`
 
   @media (max-width: 480px) {
     padding: 1rem;
+    margin: 0 auto;
+    width: 80%;
   }
 `;
 
