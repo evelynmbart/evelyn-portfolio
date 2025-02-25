@@ -61,7 +61,6 @@ const projects = [
     featured: true,
     link: "/project/5"
   },
-
   {
     name: "NE RiverFlow",
     description: "Track the water levels of the New England rivers and lakes.",
@@ -69,7 +68,6 @@ const projects = [
     image: "../../projects/riverflow.png",
     link: "/project/4"
   },
-
   {
     name: "Farkle",
     description:
@@ -86,7 +84,6 @@ const projects = [
     image: "../../projects/last-meals.png",
     link: "/project/7"
   },
-
   {
     name: "Jaipur Score",
     description: "A simple score keeper for the board game Jaipur.",
@@ -94,7 +91,6 @@ const projects = [
     image: "../../projects/jaipur.png",
     link: "/project/8"
   },
-
   {
     name: "Cart Compare",
     description:
@@ -104,15 +100,6 @@ const projects = [
     featured: true,
     link: "/project/15"
   },
-
-  // {
-  //   name: "Tile Slider",
-  //   description:
-  //     "A map app that allows you to search for locations by name or by address",
-  //   technologies: ["Javascript", "React"],
-  //   image: "../../projects/tile-slider.png",
-  //   link: "/tile-slider",
-  // },
   {
     name: "Pomodoro",
     description:
@@ -136,14 +123,6 @@ const projects = [
     image: "../../projects/hole-in-one.png",
     link: "/project/10"
   }
-  // {
-  //   name: "Blog Woohoo",
-  //   description:
-  //     "A map app that allows you to search for locations by name or by address",
-  //   technologies: ["Typescript", "React"],
-  //   image: "../../projects/blogwoohoo.png",
-  //   link: "/project/16",
-  // },
 ];
 
 const Projects = () => {
@@ -152,42 +131,46 @@ const Projects = () => {
       <ProjectsHeader>
         <HeaderFrame>
           <Subtitle>Projects</Subtitle>
-          <Title>Check out some things I&apos;ve been working on</Title>
-          <TopLeftCorner />
-          <TopRightCorner />
-          <BottomLeftCorner />
-          <BottomLeftCornerOutside />
-          <BottomRightCorner />
+          <Title>My Portfolio of Work</Title>
+          <SubtitleDescription>
+            A collection of {projects.length} applications showcasing my
+            expertise in web development
+          </SubtitleDescription>
         </HeaderFrame>
       </ProjectsHeader>
 
-      <ProjectsGrid>
-        {projects.map(project =>
-          <ProjectCard
-            key={project.name}
-            featured={project.featured}
-            className={project.featured ? "featured" : ""}
-          >
-            <ProjectLink href={project.link}>
-              <ProjectTop>
-                <ProjectImage
-                  src={project.image}
-                  alt={project.name}
-                  featured={project.featured}
-                />
-              </ProjectTop>
-              <ProjectBottom featured={project.featured}>
-                <ProjectTitle featured={project.featured}>
+      <ProjectsList>
+        {projects.map((project, index) =>
+          <ProjectCard key={project.name} isEven={index % 2 === 0}>
+            <ProjectImageWrapper>
+              <ProjectImage src={project.image} alt={project.name} />
+            </ProjectImageWrapper>
+
+            <ProjectContent>
+              <ProjectMeta>
+                <ProjectTitle>
                   {project.name}
                 </ProjectTitle>
-                <ProjectDescription featured={project.featured}>
-                  {project.description}
-                </ProjectDescription>
-              </ProjectBottom>
-            </ProjectLink>
+                <TechStack>
+                  {project.technologies.map(tech =>
+                    <TechTag key={tech}>
+                      {tech}
+                    </TechTag>
+                  )}
+                </TechStack>
+              </ProjectMeta>
+
+              <ProjectDescription>
+                {project.description}
+              </ProjectDescription>
+
+              <ViewProjectButton href={project.link}>
+                View Project
+              </ViewProjectButton>
+            </ProjectContent>
           </ProjectCard>
         )}
-      </ProjectsGrid>
+      </ProjectsList>
     </ProjectsSection>
   );
 };
@@ -195,87 +178,37 @@ const Projects = () => {
 export default Projects;
 
 const ProjectsSection = styled.section`
-  padding: 1rem 7rem;
+  padding: 4rem 7rem;
   background-color: rgb(19, 19, 19);
 
   @media (max-width: 768px) {
-    padding: 4rem 5%;
+    padding: 2rem 1rem;
   }
 `;
 
 const ProjectsHeader = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 6rem 0;
+  text-align: center;
+  margin-bottom: 6rem;
 `;
 
 const HeaderFrame = styled.div`
-  position: relative;
-  max-width: 400px;
-  padding: 2rem 8rem;
-  text-align: center;
-
-  @media (max-width: 768px) {
-    padding: 1.5rem;
-  }
-`;
-
-const Corner = styled.span`
-  position: absolute;
-  width: 15px;
-  height: 15px;
-`;
-
-const TopLeftCorner = styled(Corner)`
-  top: 0;
-  left: 0;
-  border-top: 2px solid var(--primary-color);
-  border-left: 2px solid var(--primary-color);
-`;
-
-const TopRightCorner = styled(Corner)`
-  top: 0;
-  right: 0;
-  border-top: 2px solid var(--primary-color);
-  border-right: 2px solid var(--primary-color);
-`;
-
-const BottomLeftCorner = styled(Corner)`
-  bottom: 0;
-  left: 0;
-  border-bottom: 2px solid var(--primary-color);
-  border-left: 2px solid var(--primary-color);
-`;
-
-const BottomLeftCornerOutside = styled(Corner)`
-  bottom: -15px;
-  left: -15px;
-  border-top: 2px solid var(--primary-color);
-  border-right: 2px solid var(--primary-color);
-`;
-
-const BottomRightCorner = styled(Corner)`
-  bottom: 0;
-  right: 0;
-  border-bottom: 2px solid var(--primary-color);
-  border-right: 2px solid var(--primary-color);
+  max-width: 800px;
+  margin: 0 auto;
 `;
 
 const Subtitle = styled.span`
-  display: block;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 1rem;
+  letter-spacing: 3px;
   color: var(--primary-color);
+  margin-bottom: 1rem;
+  display: block;
 `;
 
 const Title = styled.h2`
-  font-size: 2.5rem;
-  font-weight: 500;
-  line-height: 1.3;
-  margin: 0;
-  color: var(--text-color);
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 1rem 0;
   background: linear-gradient(
     45deg,
     var(--primary-color),
@@ -285,111 +218,109 @@ const Title = styled.h2`
   -webkit-text-fill-color: transparent;
 
   @media (max-width: 768px) {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
   }
 `;
 
-const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 16px;
+const SubtitleDescription = styled.p`
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 1rem;
+`;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
+const ProjectsList = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
 `;
 
 const ProjectCard = styled.div`
-  position: relative;
-  height: ${props => (props.featured ? "384px" : "390px")};
-  border-radius: 10px;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  border: 1px solid hsla(0, 0%, 100%, 0.2);
-
-  &.featured {
-    grid-column: span 2;
-  }
-
-  &:not(.featured) {
-    grid-column: span 1;
-  }
-
-  &:hover {
-    transform: ${props =>
-      props.featured ? "scale(1)" : "translateY(-8px) scale(1.02)"};
-    box-shadow: ${props => !props.featured && "0 10px 20px rgba(0, 0, 0, 0.3)"};
-  }
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  flex-direction: ${props => (props.isEven ? "row" : "row-reverse")};
 
   @media (max-width: 1024px) {
-    &.featured {
-      grid-column: span 3;
-    }
-
-    &:not(.featured) {
-      grid-column: span 3;
-    }
-  }
-
-  @media (max-width: 768px) {
-    &.featured,
-    &:not(.featured) {
-      grid-column: span 1;
-    }
+    flex-direction: column;
+    gap: 2rem;
   }
 `;
 
-const ProjectLink = styled.a`text-decoration: none;`;
+const ProjectImageWrapper = styled.div`
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 
-const ProjectTop = styled.div`
-  width: 100%;
-  height: 60%;
-  border-radius: 10px;
+  &:hover {
+    transform: translateY(-10px);
+  }
 `;
 
 const ProjectImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px 10px 0 0;
-  transition: transform 0.3s ease-in-out;
+  vertical-align: middle;
 `;
 
-const ProjectBottom = styled.div`
-  box-sizing: border-box;
-  width: 100%;
-  height: 40%;
-  padding: 1.5rem;
+const ProjectContent = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  background: rgba(50, 50, 50, 0.5);
-  border-radius: 0 0 10px 10px;
+  gap: 1.5rem;
+`;
 
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  transform: translateZ(10px);
-  transition: transform 0.3s ease;
+const ProjectMeta = styled.div`margin-bottom: 1rem;`;
+
+const ProjectTitle = styled.h3`
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
   color: white;
 `;
 
-const ProjectTitle = styled.h3`
-  font-size: 1.7rem;
-  font-weight: 600;
-  margin: 0;
-  color: white;
+const TechStack = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+`;
+
+const TechTag = styled.span`
+  padding: 0.5rem 1rem;
+  background: rgba(var(--primary-color-rgb), 0.1);
+  border: 1px solid var(--primary-color);
+  border-radius: 20px;
+  color: var(--primary-color);
+  font-size: 0.9rem;
 `;
 
 const ProjectDescription = styled.p`
-  font-size: 16px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ccc;
+`;
 
+const ViewProjectButton = styled.a`
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: 30px;
   color: white;
+  text-decoration: none;
+  font-weight: 500;
+  align-self: flex-start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
+  }
 `;
