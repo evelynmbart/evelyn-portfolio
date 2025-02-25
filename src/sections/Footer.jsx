@@ -53,7 +53,9 @@ const Footer = () => {
             </Nav>
           </div>
         </Recap>
-        &copy; 2025 Evelyn Bart. All rights reserved.
+        <CopyrightText>
+          &copy; 2025 Evelyn Bart. All rights reserved.
+        </CopyrightText>
       </Copyright>
     </FooterSection>
   );
@@ -63,7 +65,7 @@ export default Footer;
 
 const FooterSection = styled.section`
   width: 100%;
-  height: 760px;
+  min-height: 760px;
   background-color: rgb(19, 19, 19);
   color: white;
   position: relative;
@@ -72,25 +74,44 @@ const FooterSection = styled.section`
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  padding: 1rem;
+
+  @media (max-width: 768px) {
+    min-height: 600px;
+  }
 `;
 
 const Header = styled.div`
   display: flex;
   justify-content: center;
   margin: 5rem 0 3rem 0;
+
+  @media (max-width: 768px) {
+    margin: 3rem 0 2rem 0;
+  }
 `;
 
 const HeaderFrame = styled.div`
   position: relative;
   max-width: 400px;
-  padding: 2rem 8rem;
+  padding: 2rem;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    max-width: 300px;
+  }
 `;
 
 const Corner = styled.span`
   position: absolute;
   width: 15px;
   height: 15px;
+
+  @media (max-width: 768px) {
+    width: 10px;
+    height: 10px;
+  }
 `;
 
 const TopLeftCorner = styled(Corner)`
@@ -119,10 +140,15 @@ const BottomLeftCornerOutside = styled(Corner)`
   right: -15px;
   border-top: 2px solid white;
   border-left: 2px solid white;
+
+  @media (max-width: 768px) {
+    bottom: -10px;
+    right: -10px;
+  }
 `;
 
 const BottomRightCorner = styled(Corner)`
-  bottom: 0px;
+  bottom: 0;
   right: 0;
   border-bottom: 2px solid white;
   border-right: 2px solid white;
@@ -135,6 +161,11 @@ const Subtitle = styled.span`
   letter-spacing: 2px;
   margin-bottom: 1rem;
   color: white;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const Title = styled.h2`
@@ -143,6 +174,10 @@ const Title = styled.h2`
   line-height: 1.3;
   margin: 0;
   color: white;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const ContactButton = styled.button.attrs({ className: "contact-button" })`
@@ -204,6 +239,9 @@ const ContactContainer = styled.div`
 
   @media (max-width: 768px) {
     perspective: none;
+    height: auto;
+    margin: 1rem 0;
+
     &:hover {
       ${ContactLinks} {
         transform: none;
@@ -229,11 +267,17 @@ const ContactLink = styled.a`
   &:hover {
     transform: scale(1.1);
   }
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const FaintBorder = styled.div`
   height: 1px;
-  margin: 0 10rem;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 800px;
   background: linear-gradient(
     90deg,
     hsla(0, 0%, 100%, 0) 0,
@@ -252,14 +296,27 @@ const Copyright = styled.section`
   bottom: 0;
   width: 100%;
   height: 200px;
+
+  @media (max-width: 768px) {
+    position: relative;
+    height: auto;
+    margin-top: 2rem;
+  }
 `;
 
 const Recap = styled.section`
-  margin: 0 400px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
   a {
     color: white;
@@ -272,10 +329,11 @@ const Recap = styled.section`
 
 const SocialLinks = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
 `;
 
 const Nav = styled.nav`
@@ -283,10 +341,25 @@ const Nav = styled.nav`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
 
   a:hover {
     color: var(--primary-color);
+  }
+`;
+
+const CopyrightText = styled.div`
+  margin-top: 1rem;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+    font-size: 0.9rem;
   }
 `;
 
@@ -300,6 +373,11 @@ const Atmosphere = styled.div`
   background: conic-gradient(var(--secondary-color), var(--primary-color));
   border-radius: 9999px;
   filter: blur(144px);
+
+  @media (max-width: 768px) {
+    width: 150%;
+    height: 200%;
+  }
 `;
 
 const Planet = styled.div`
@@ -311,4 +389,9 @@ const Planet = styled.div`
   transform: translateX(-50%);
   background: rgb(19, 19, 19);
   border-radius: 9999px;
+
+  @media (max-width: 768px) {
+    width: 150%;
+    height: 200%;
+  }
 `;
