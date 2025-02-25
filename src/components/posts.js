@@ -69,7 +69,7 @@ export const funFacts = [
   {
     id: 2,
     quote:
-      "I've moved around more in the last 2 years than I have in the rest of my life combined."
+      "I've moved around more in the last 2 years than I have in my entire life."
   },
   {
     id: 3,
@@ -79,45 +79,40 @@ export const funFacts = [
   {
     id: 4,
     quote:
-      "I love stupid humor tv-shows, they're so easy to laugh at!"
+      "I love, love, loooove cats, but I own a dog named Tux."
   },
   {
     id: 5,
     quote:
-      "I love, love, loooove cats, but I own a dog named Tux."
+      "My two favorite places on Earth are Montreal and Marin Headlands."
   },
   {
     id: 6,
     quote:
-      "My two favorite places on Earth are Montreal and Marin Headlands."
+      "I look up input-types more often than I'd like to admit."
   },
   {
     id: 7,
     quote:
-      "I look up input-types more often than I'd like to admit."
+      "I will NEVER turn down a sweet treat."
   },
   {
     id: 8,
     quote:
-      "I will NEVER turn down a sweet treat."
+      "I want to get better at building accessible websites!"
   },
   {
     id: 9,
     quote:
-      "I want to get better at building accessible websites!"
+      "Instagram/social media is overrated."
   },
   {
     id: 10,
     quote:
-      "Instagram/social media is overrated."
-  },
-  {
-    id: 11,
-    quote:
       "I am biased towards May babies 100% of the time."
   },
   {
-    id: 12,
+    id: 11,
     quote:
       "Apartment tours/checking out the interiors of new places is my guilty pleasure"
   },
