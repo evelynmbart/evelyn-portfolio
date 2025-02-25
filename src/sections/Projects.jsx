@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 const projects = [
@@ -126,27 +127,64 @@ const projects = [
 ];
 
 const Projects = () => {
+  const projectRefs = useRef([]);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1
+    };
+
+    const handleIntersect = entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateX(0)";
+        } else {
+          const rect = entry.boundingClientRect;
+          const windowHeight = window.innerHeight;
+          const isAbove = rect.top < windowHeight / 2;
+
+          entry.target.style.opacity = "0";
+          entry.target.style.transform = isAbove
+            ? "translateX(-100px)"
+            : "translateX(100px)";
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+    projectRefs.current.forEach(ref => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <ProjectsSection id="projects">
       <ProjectsHeader>
         <HeaderFrame>
           <Subtitle>Projects</Subtitle>
-          <Title>My Portfolio of Work</Title>
-          <SubtitleDescription>
-            A collection of {projects.length} applications showcasing my
-            expertise in web development
-          </SubtitleDescription>
+          <Title>Check out what I've been working on</Title>
+          <SubtitleDescription />
         </HeaderFrame>
       </ProjectsHeader>
 
       <ProjectsList>
         {projects.map((project, index) =>
-          <ProjectCard key={project.name} isEven={index % 2 === 0}>
+          <ProjectCard
+            key={project.name}
+            isEven={index % 2 === 0}
+            ref={el => (projectRefs.current[index] = el)}
+          >
             <ProjectImageWrapper>
               <ProjectImage src={project.image} alt={project.name} />
             </ProjectImageWrapper>
 
-            <ProjectContent>
+            <ProjectContent isEven={index % 2 === 0}>
               <ProjectMeta>
                 <ProjectTitle>
                   {project.name}
@@ -160,11 +198,11 @@ const Projects = () => {
                 </TechStack>
               </ProjectMeta>
 
-              <ProjectDescription>
+              <ProjectDescription isEven={index % 2 === 0}>
                 {project.description}
               </ProjectDescription>
 
-              <ViewProjectButton href={project.link}>
+              <ViewProjectButton href={project.link} secondary>
                 View Project
               </ViewProjectButton>
             </ProjectContent>
@@ -206,8 +244,8 @@ const Subtitle = styled.span`
 `;
 
 const Title = styled.h2`
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: 500;
   margin: 1rem 0;
   background: linear-gradient(
     45deg,
@@ -241,6 +279,9 @@ const ProjectCard = styled.div`
   align-items: center;
   gap: 4rem;
   flex-direction: ${props => (props.isEven ? "row" : "row-reverse")};
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.6s ease-out;
 
   @media (max-width: 1024px) {
     flex-direction: column;
@@ -271,6 +312,7 @@ const ProjectContent = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: ${props => (props.isEven ? "flex-start" : "flex-end")};
   gap: 1.5rem;
 `;
 
@@ -302,25 +344,53 @@ const ProjectDescription = styled.p`
   font-size: 1.1rem;
   line-height: 1.6;
   color: #ccc;
+  text-align: ${props => (props.isEven ? "left" : "right")};
 `;
 
 const ViewProjectButton = styled.a`
-  display: inline-block;
-  padding: 1rem 2rem;
-  background: linear-gradient(
-    45deg,
-    var(--primary-color),
-    var(--secondary-color)
-  );
-  border-radius: 30px;
-  color: white;
+  width: 200px;
+  background: ${props =>
+    props.secondary
+      ? "black"
+      : `linear-gradient(
+    90deg,
+    var(--secondary-color) 0%,
+    var(--primary-color) 100%
+  )`};
+  color: ${props => (props.secondary ? "var(--primary-color)" : "white")};
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem 1.2rem;
+  text-align: center;
   text-decoration: none;
-  font-weight: 500;
-  align-self: flex-start;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  border: 2px solid
+    ${props => (props.secondary ? "var(--primary-color)" : "white")};
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 100%;
+    height: 100%;
+    background-color: ${props =>
+      props.secondary ? "var(--primary-color)" : "white"};
+    transition: all 0.3s ease;
+    z-index: -1;
+  }
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
+    &:before {
+      top: 0;
+      left: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 180px;
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
   }
 `;
