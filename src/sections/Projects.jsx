@@ -1,6 +1,132 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
+const projects = [
+  {
+    name: "Think",
+    description:
+      "Test your trivia knowledge with this fun and addictive quiz app.",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/think2.png",
+    featured: true,
+    link: "/project/1",
+  },
+  {
+    name: "Home Cooked",
+    description:
+      "Your online recipe catalog, where you can keep and create recipes for all your favorite foods.",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/homecooked4.png",
+    link: "/project/9",
+  },
+  {
+    name: "Mappi",
+    description:
+      "Find the perfect NYC neighborhood for you and your lifestyle.",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/mappi3.png",
+    link: "/project/6",
+  },
+  {
+    name: "Gridddle",
+    description:
+      "With daily inspiration, share your pixelated masterpieces with the world.",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/grid4.png",
+    featured: true,
+    link: "/project/12",
+  },
+  {
+    name: "Cart Compare",
+    description:
+      "Compare prices of products across different stores and find the best deals",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/cart2.png",
+    featured: true,
+    link: "/project/15",
+  },
+
+  {
+    name: "Pup Progress",
+    description:
+      "Chapter-based or freestyle training programs for you and your pup!",
+    technologies: ["Javascript", "React"],
+    image: "../project-post-imgs/pup5.png",
+    featured: true,
+    link: "/project/2",
+  },
+  {
+    name: "MarkIt",
+    description:
+      "The only bookmark hub you'll ever need. Save, organize, and share your favorite links with ease.",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/mark2.png",
+    featured: true,
+    link: "/project/5",
+  },
+  {
+    name: "NE RiverFlow",
+    description: "Track the water levels of the New England rivers and lakes.",
+    technologies: ["Javascript", "React"],
+    image: "../project-post-imgs/river1.png",
+    link: "/project/4",
+  },
+  {
+    name: "CycleSync",
+    description:
+      "A personalized period tracker that helps you understand yourself and your cycle.",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/cycle4.png",
+    link: "/project/14",
+  },
+  {
+    name: "Farkle",
+    description:
+      "The classic dice game that tests your luck. Roll the dice and see if you can score big!",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/farkle1.png",
+    featured: true,
+    link: "/project/13",
+  },
+  {
+    name: "Last Meals",
+    description: "Journal your last meals and the memories they bring back.",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/last2.png",
+    link: "/project/7",
+  },
+  {
+    name: "Jaipur Score",
+    description: "A simple score keeper for the board game Jaipur.",
+    technologies: ["Javascript", "React"],
+    image: "../project-post-imgs/jaipur1.png",
+    link: "/project/8",
+  },
+  {
+    name: "Pomodoro",
+    description:
+      "A productivity tool that helps you stay focused and productive.",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/pom2.png",
+    link: "/project/3",
+  },
+  {
+    name: "Hangman",
+    description:
+      "The classic word game that tests your vocabulary and guessing skills.",
+    technologies: ["Typescript", "React"],
+    image: "../../projects/hangman.png",
+    link: "/project/11",
+  },
+  {
+    name: "Hole-in-One",
+    description: "Donut themed memory game. Match the donuts to win!",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/hole1.png",
+    link: "/project/10",
+  },
+];
+
 // Canvas background component
 const DotGrid = () => {
   const canvasRef = useRef(null);
@@ -60,7 +186,7 @@ const DotGrid = () => {
           this.x = canvas.width + 50;
         }
 
-        this.y = Math.random() * canvas.height / 2;
+        this.y = (Math.random() * canvas.height) / 2;
         this.speed = Math.random() * 15 + 10;
         // Wider angle range and random direction
         this.angle = (Math.random() * 30 - 15) * this.direction;
@@ -70,7 +196,7 @@ const DotGrid = () => {
 
       draw() {
         this.x += this.speed * this.direction;
-        this.y += Math.tan(this.angle * Math.PI / 180) * this.speed * 0.1;
+        this.y += Math.tan((this.angle * Math.PI) / 180) * this.speed * 0.1;
 
         this.tail.unshift({ x: this.x, y: this.y });
         if (this.tail.length > 20) this.tail.pop();
@@ -115,8 +241,8 @@ const DotGrid = () => {
       ctx.fillStyle = "rgba(19, 19, 19)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      stars.forEach(star => star.draw());
-      shootingStars.forEach(star => star.draw());
+      stars.forEach((star) => star.draw());
+      shootingStars.forEach((star) => star.draw());
 
       requestAnimationFrame(animate);
     };
@@ -131,131 +257,6 @@ const DotGrid = () => {
   return <Canvas ref={canvasRef} />;
 };
 
-const projects = [
-  {
-    name: "Think",
-    description:
-      "Test your trivia knowledge with this fun and addictive quiz app.",
-    technologies: ["Typescript", "React"],
-    image: "../projects/think.png",
-    featured: true,
-    link: "/project/1"
-  },
-  {
-    name: "Home Cooked",
-    description:
-      "Your online recipe catalog, where you can keep and create recipes for all your favorite foods.",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/home-cooked.png",
-    link: "/project/9"
-  },
-  {
-    name: "Mappi",
-    description:
-      "Find the perfect NYC neighborhood for you and your lifestyle.",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/mappi.png",
-    link: "/project/6"
-  },
-  {
-    name: "Gridddle",
-    description:
-      "With daily inspiration, share your pixelated masterpieces with the world.",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/gridddle.png",
-    featured: true,
-    link: "/project/12"
-  },
-  {
-    name: "CycleSync",
-    description:
-      "A personalized period tracker that helps you understand yourself and your cycle.",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/cycle-sync.png",
-    link: "/project/14"
-  },
-  {
-    name: "Pup Progress",
-    description:
-      "Chapter-based or freestyle training programs for you and your pup!",
-    technologies: ["Javascript", "React"],
-    image: "../../projects/pup-progress.png",
-    featured: true,
-    link: "/project/2"
-  },
-  {
-    name: "MarkIt",
-    description:
-      "The only bookmark hub you'll ever need. Save, organize, and share your favorite links with ease.",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/markit.png",
-    featured: true,
-    link: "/project/5"
-  },
-  {
-    name: "NE RiverFlow",
-    description: "Track the water levels of the New England rivers and lakes.",
-    technologies: ["Javascript", "React"],
-    image: "../../projects/riverflow.png",
-    link: "/project/4"
-  },
-  {
-    name: "Farkle",
-    description:
-      "The classic dice game that tests your luck. Roll the dice and see if you can score big!",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/farkle.png",
-    featured: true,
-    link: "/project/13"
-  },
-  {
-    name: "Last Meals",
-    description: "Journal your last meals and the memories they bring back.",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/last-meals.png",
-    link: "/project/7"
-  },
-  {
-    name: "Jaipur Score",
-    description: "A simple score keeper for the board game Jaipur.",
-    technologies: ["Javascript", "React"],
-    image: "../../projects/jaipur.png",
-    link: "/project/8"
-  },
-  {
-    name: "Cart Compare",
-    description:
-      "Compare prices of products across different stores and find the best deals",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/cart-compare.png",
-    featured: true,
-    link: "/project/15"
-  },
-  {
-    name: "Pomodoro",
-    description:
-      "A productivity tool that helps you stay focused and productive.",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/pomodoro.png",
-    link: "/project/3"
-  },
-  {
-    name: "Hangman",
-    description:
-      "The classic word game that tests your vocabulary and guessing skills.",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/hangman.png",
-    link: "/project/11"
-  },
-  {
-    name: "Hole-in-One",
-    description: "Donut themed memory game. Match the donuts to win!",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/hole-in-one.png",
-    link: "/project/10"
-  }
-];
-
 const Projects = () => {
   const projectRefs = useRef([]);
 
@@ -263,11 +264,11 @@ const Projects = () => {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.1
+      threshold: 0.1,
     };
 
-    const handleIntersect = entries => {
-      entries.forEach(entry => {
+    const handleIntersect = (entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = "1";
           entry.target.style.transform = "translateX(0)";
@@ -286,7 +287,7 @@ const Projects = () => {
 
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
 
-    projectRefs.current.forEach(ref => {
+    projectRefs.current.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
@@ -309,11 +310,11 @@ const Projects = () => {
       </ProjectsHeader>
 
       <ProjectsList>
-        {projects.map((project, index) =>
+        {projects.map((project, index) => (
           <ProjectCard
             key={project.name}
             isEven={index % 2 === 0}
-            ref={el => (projectRefs.current[index] = el)}
+            ref={(el) => (projectRefs.current[index] = el)}
           >
             <ProjectImageWrapper>
               <ProjectImage src={project.image} alt={project.name} />
@@ -321,15 +322,11 @@ const Projects = () => {
 
             <ProjectContent isEven={index % 2 === 0}>
               <ProjectMeta>
-                <ProjectTitle>
-                  {project.name}
-                </ProjectTitle>
+                <ProjectTitle>{project.name}</ProjectTitle>
                 <TechStack>
-                  {project.technologies.map(tech =>
-                    <TechTag key={tech}>
-                      {tech}
-                    </TechTag>
-                  )}
+                  {project.technologies.map((tech) => (
+                    <TechTag key={tech}>{tech}</TechTag>
+                  ))}
                 </TechStack>
               </ProjectMeta>
 
@@ -342,7 +339,7 @@ const Projects = () => {
               </ViewProjectButton>
             </ProjectContent>
           </ProjectCard>
-        )}
+        ))}
       </ProjectsList>
     </ProjectsSection>
   );
@@ -471,7 +468,7 @@ const ProjectCard = styled.div`
   display: flex;
   align-items: center;
   gap: 4rem;
-  flex-direction: ${props => (props.isEven ? "row" : "row-reverse")};
+  flex-direction: ${(props) => (props.isEven ? "row" : "row-reverse")};
   opacity: 0;
   transform: translateX(100px);
   transition: all 0.6s ease-out;
@@ -496,8 +493,8 @@ const ProjectImageWrapper = styled.div`
 
 const ProjectImage = styled.img`
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 500px;
+  object-fit: contain;
   vertical-align: middle;
 `;
 
@@ -505,11 +502,13 @@ const ProjectContent = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: ${props => (props.isEven ? "flex-start" : "flex-end")};
+  align-items: ${(props) => (props.isEven ? "flex-start" : "flex-end")};
   gap: 1.5rem;
 `;
 
-const ProjectMeta = styled.div`margin-bottom: 1rem;`;
+const ProjectMeta = styled.div`
+  margin-bottom: 1rem;
+`;
 
 const ProjectTitle = styled.h3`
   font-size: 2.5rem;
@@ -537,12 +536,12 @@ const ProjectDescription = styled.p`
   font-size: 1.1rem;
   line-height: 1.6;
   color: #ccc;
-  text-align: ${props => (props.isEven ? "left" : "right")};
+  text-align: ${(props) => (props.isEven ? "left" : "right")};
 `;
 
 const ViewProjectButton = styled.a`
   width: 200px;
-  background: ${props =>
+  background: ${(props) =>
     props.secondary
       ? "black"
       : `linear-gradient(
@@ -550,7 +549,7 @@ const ViewProjectButton = styled.a`
     var(--secondary-color) 0%,
     var(--primary-color) 100%
   )`};
-  color: ${props => (props.secondary ? "var(--primary-color)" : "white")};
+  color: ${(props) => (props.secondary ? "var(--primary-color)" : "white")};
   font-size: 1rem;
   font-weight: bold;
   padding: 1rem 1.2rem;
@@ -558,7 +557,7 @@ const ViewProjectButton = styled.a`
   text-decoration: none;
   position: relative;
   border: 2px solid
-    ${props => (props.secondary ? "var(--primary-color)" : "white")};
+    ${(props) => (props.secondary ? "var(--primary-color)" : "white")};
   position: relative;
 
   &:before {
@@ -568,7 +567,7 @@ const ViewProjectButton = styled.a`
     left: 8px;
     width: 100%;
     height: 100%;
-    background-color: ${props =>
+    background-color: ${(props) =>
       props.secondary ? "var(--primary-color)" : "white"};
     transition: all 0.3s ease;
     z-index: -1;
