@@ -1,6 +1,136 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
+// Canvas background component
+const DotGrid = () => {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    const stars = [];
+    let shootingStars = [];
+
+    // Set canvas size
+    const resizeCanvas = () => {
+      const container = canvas.parentElement;
+      canvas.width = container.clientWidth;
+      canvas.height = container.clientHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    // Create star class
+    class Star {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.twinkleSpeed = Math.random() * 0.1;
+        this.angle = Math.random() * Math.PI * 2;
+        this.opacity = Math.random() * 0.5 + 0.1;
+      }
+
+      draw() {
+        this.angle += this.twinkleSpeed;
+        const twinkle = Math.sin(this.angle) * 0.3 + 0.7;
+
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * twinkle})`;
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // Create shooting star class
+    class ShootingStar {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        // Randomly choose direction (left-to-right or right-to-left)
+        this.direction = Math.random() < 0.5 ? 1 : -1;
+
+        // Set starting position based on direction
+        if (this.direction === 1) {
+          this.x = -50;
+        } else {
+          this.x = canvas.width + 50;
+        }
+
+        this.y = Math.random() * canvas.height / 2;
+        this.speed = Math.random() * 15 + 10;
+        // Wider angle range and random direction
+        this.angle = (Math.random() * 30 - 15) * this.direction;
+        this.tail = [];
+        this.opacity = 1;
+      }
+
+      draw() {
+        this.x += this.speed * this.direction;
+        this.y += Math.tan(this.angle * Math.PI / 180) * this.speed * 0.1;
+
+        this.tail.unshift({ x: this.x, y: this.y });
+        if (this.tail.length > 20) this.tail.pop();
+
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        this.tail.forEach((pos, i) => {
+          ctx.lineTo(pos.x, pos.y);
+          ctx.lineWidth = 2 - i / 10;
+          ctx.strokeStyle = `rgba(255, 255, 255, ${1 - i / 20})`;
+          ctx.stroke();
+        });
+
+        // Reset based on direction
+        if (
+          (this.direction === 1 && this.x > canvas.width + 50) ||
+          (this.direction === -1 && this.x < -50)
+        ) {
+          this.reset();
+        }
+      }
+    }
+
+    // Initialize more stars
+    for (let i = 0; i < 500; i++) {
+      stars.push(new Star());
+    }
+
+    // Initialize one shooting star
+    shootingStars.push(new ShootingStar());
+
+    // Add new shooting star at a constant rate
+    setInterval(() => {
+      if (shootingStars.length > 0) {
+        shootingStars.pop();
+      }
+      shootingStars.push(new ShootingStar());
+    }, 12000);
+
+    // Animation loop
+    const animate = () => {
+      ctx.fillStyle = "rgba(19, 19, 19)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      stars.forEach(star => star.draw());
+      shootingStars.forEach(star => star.draw());
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+    };
+  }, []);
+
+  return <Canvas ref={canvasRef} />;
+};
+
 const projects = [
   {
     name: "Think",
@@ -165,6 +295,7 @@ const Projects = () => {
 
   return (
     <ProjectsSection id="projects">
+      <DotGrid />
       <ProjectsHeader>
         <HeaderFrame>
           <Subtitle>Projects</Subtitle>
@@ -219,6 +350,16 @@ const Projects = () => {
 
 export default Projects;
 
+const Canvas = styled.canvas`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.5;
+`;
+
 const Corner = styled.span`
   position: absolute;
   width: 15px;
@@ -263,6 +404,7 @@ const BottomRightCorner = styled(Corner)`
 const ProjectsSection = styled.section`
   padding: 4rem 7rem;
   background-color: rgb(19, 19, 19);
+  position: relative;
 
   @media (max-width: 768px) {
     padding: 2rem 1rem;
@@ -272,6 +414,8 @@ const ProjectsSection = styled.section`
 const ProjectsHeader = styled.div`
   text-align: center;
   margin-bottom: 6rem;
+  position: relative;
+  z-index: 1;
 `;
 
 const HeaderFrame = styled.div`
@@ -319,6 +463,8 @@ const ProjectsList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8rem;
+  position: relative;
+  z-index: 1;
 `;
 
 const ProjectCard = styled.div`
