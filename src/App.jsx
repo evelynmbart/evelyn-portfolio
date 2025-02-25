@@ -20,6 +20,13 @@ const PROJECTS = [
     thirdP:
       "Additionally, the app offers hints and explanations to help users learn from their mistakes. This makes Think not just a quiz app but also a learning tool.",
     image: "../project-post-imgs/think2.png",
+    siteLink: "", // ADD SITE LINK
+    githubLink: "", // ADD GITHUB LINK
+    embedLink:
+      "https://www.loom.com/embed/751a1d63fcf44a49a12123eaf6a810b1?sid=d3252d38-0130-44c6-9dd7-83c7350f36b4",
+    shareLink:
+      "https://www.loom.com/share/751a1d63fcf44a49a12123eaf6a810b1?sid=6b25c1b3-f3e8-4fa8-9a80-fe71fffa56cc",
+    demoImage: "../demo-thumbnails/thinkdemo.png",
   },
   {
     id: 2,
@@ -34,6 +41,13 @@ const PROJECTS = [
     secondP:
       "Using TypeScript and React, Pup Progress delivers a clean and organized interface. The app categorizes tricks based on difficulty level, making it easy to pick up where you left off. Users can track their dog's progress over time and revisit past lessons as needed. The intuitive design makes navigation effortless for all users.",
     image: "../project-post-imgs/pup1.png",
+    siteLink: "", // ADD SITE LINK
+    githubLink: "", // ADD GITHUB LINK
+    embedLink:
+      "https://www.loom.com/embed/8349bf0a80e6429d8a057cefbbff9dee?sid=a868ac5d-e99f-4e00-875e-2c553b8f1429",
+    shareLink:
+      "https://www.loom.com/share/8349bf0a80e6429d8a057cefbbff9dee?sid=62a638e3-27fe-42dd-8f59-cf88c4b42392",
+    demoImage: "../demo-thumbnails/pupdemo.gif",
   },
   {
     id: 3,
@@ -42,12 +56,19 @@ const PROJECTS = [
     title: "Boost Your Productivity with Pomodoro",
     description:
       "A Pomodoro-style timer combined with a task list to help users stay focused and efficient.",
-    technologies: ["TypeScript", "React"],
+    technologies: ["JavaScript", "React"],
     firstP:
       "Time management is crucial for productivity, and Pomodoro offers an effective way to structure your work. The app follows the Pomodoro technique, breaking tasks into focused time blocks with short breaks in between. This approach helps maintain concentration and prevents burnout. Users can customize session lengths to match their workflow.",
     secondP:
       "Built with TypeScript and React, Pomodoro provides a smooth and visually appealing interface. The task list feature allows users to organize their workload efficiently. The responsive design ensures usability across different devices.",
     image: "../project-post-imgs/pom2.png",
+    siteLink: "https://pomodoro.levelynup.com/",
+    githubLink: "https://github.com/evelynmbart/pomodoro",
+    embedLink:
+      "https://www.loom.com/embed/5da16a72f9f84765939704196f97177e?sid=66304248-a088-4be3-b301-9d615862c9cb",
+    shareLink:
+      "https://www.loom.com/share/5da16a72f9f84765939704196f97177e?sid=be0083ea-d7b6-46c7-a277-bd9190fc68dd",
+    demoImage: "../demo-thumbnails/pomodorodemo.gif",
   },
   {
     id: 4,
@@ -64,6 +85,13 @@ const PROJECTS = [
     thirdP:
       "With a user-friendly design, users can bookmark favorite river spots for easy access. The app was inspired by my brother, a whitewater kayak instructor, who needed an efficient way to check rapid conditions before leading groups.",
     image: "../project-post-imgs/river1.png",
+    siteLink: "", // ADD SITE LINK
+    githubLink: "", // ADD GITHUB LINK
+    embedLink:
+      "https://www.loom.com/embed/cd60cb7f128345af852b3dffc39118f0?sid=544359e7-ea1c-4321-bdc0-b15487b43dd6",
+    shareLink:
+      "https://www.loom.com/share/cd60cb7f128345af852b3dffc39118f0?sid=44e20cfc-2d09-4831-9d93-30fe9c4d021f",
+    demoImage: "../demo-thumbnails/riverdemo.gif",
   },
   {
     id: 5,
@@ -80,6 +108,13 @@ const PROJECTS = [
     thirdP:
       "Whether it's news articles, travel information, or reference materials, MarkIt ensures quick access. Its clean design and user-friendly interface make it a must-have tool for digital organization.",
     image: "../project-post-imgs/mark1.png",
+    siteLink: "", // ADD SITE LINK
+    githubLink: "", // ADD GITHUB LINK
+    embedLink:
+      "https://www.loom.com/embed/ad53292ce7f6418b85e074eb102ca6eb?sid=fac70a7f-f43a-4034-b08d-c6e776f60c0e",
+    shareLink:
+      "https://www.loom.com/share/ad53292ce7f6418b85e074eb102ca6eb?sid=c57732c4-3b88-4ec1-b926-b4615864df24",
+    demoImage: "../demo-thumbnails/markitdemo.gif",
   },
   {
     id: 6,
@@ -96,6 +131,13 @@ const PROJECTS = [
     thirdP:
       "Mappi was designed to help people make informed decisions about where to live. It saves time by presenting all necessary data in one place. Whether moving to NYC or just exploring new areas, Mappi is a valuable tool for finding the perfect neighborhood.",
     image: "../project-post-imgs/mappi3.png",
+    siteLink: "", // ADD SITE LINK
+    githubLink: "https://github.com/evelynmbart/mappi",
+    embedLink:
+      "https://www.loom.com/embed/8df0a24f844c4d01ae1170dc06655e2b?sid=91ec193c-712a-489b-a3a7-2c87029addb6",
+    shareLink:
+      "https://www.loom.com/share/8df0a24f844c4d01ae1170dc06655e2b?sid=834cc485-dd8a-4609-81f0-bc1ba1e1f342",
+    demoImage: "../demo-thumbnails/mappidemo.gif",
   },
 
   {
@@ -113,6 +155,13 @@ const PROJECTS = [
     thirdP:
       "What makes Last Meals stand out is its ability to review meals over a certain period, like a month or year. This gives users the chance to track their favorite dishes seasonally or discover recurring meals. Whether you are a chef or a casual foodie, this app can bring joy to those who take pride in their culinary choices. By using it regularly, you can build a rich database of your food adventures.",
     image: "../project-post-imgs/last1.png",
+    siteLink: "", // ADD SITE LINK
+    githubLink: "", // ADD GITHUB LINK
+    embedLink:
+      "https://www.loom.com/embed/aa793fd349e44089ac2b50b9f9fab275?sid=43530566-500f-42da-9ba7-d332de546a38",
+    shareLink:
+      "https://www.loom.com/share/aa793fd349e44089ac2b50b9f9fab275?sid=5c3ef3f0-9a21-4752-9aa2-756d45fd817a",
+    demoImage: "../demo-thumbnails/lastmealsdemo.gif",
   },
   {
     id: 8,
@@ -129,6 +178,13 @@ const PROJECTS = [
     thirdP:
       "With its intuitive design, users can quickly get started without needing a tutorial. The clean interface ensures a smooth experience during gameplay. Jaipur's scorekeeper makes it easier to dive right into the game, allowing players to enjoy their sessions without interruptions. Perfect for fans of the board game who want to keep their focus on the fun rather than on math.",
     image: "../project-post-imgs/jaipur1.png",
+    siteLink: "https://jaipur-score.levelynup.com/",
+    githubLink: "https://github.com/evelynmbart/jaipur-score",
+    embedLink:
+      "https://www.loom.com/embed/55959389246243af9874c0d72a8b33ed?sid=c044b419-71f6-4de4-b64f-438e96ece3b8",
+    shareLink:
+      "https://www.loom.com/share/55959389246243af9874c0d72a8b33ed?sid=5288e883-7d14-4fa0-b073-c19dc22cbfa2",
+    demoImage: "../demo-thumbnails/jaipurdemo.gif",
   },
   {
     id: 9,
@@ -145,6 +201,13 @@ const PROJECTS = [
     thirdP:
       "One of the standout features of HomeCooked is its ability to let users contribute new recipes. This creates a growing catalog of meals where users can inspire each other. Whether you're trying to make a new dish or looking for something new to cook, this app connects people through food. With HomeCooked, you'll never run out of meal ideas again.",
     image: "../project-post-imgs/homecooked1.png",
+    siteLink: "", // ADD SITE LINK
+    githubLink: "", // ADD GITHUB LINK
+    embedLink:
+      "https://www.loom.com/embed/160b831f35264a0582ac38eb0be793a8?sid=072c706a-3bd6-4426-b5d3-6235d3863b1a",
+    shareLink:
+      "https://www.loom.com/share/160b831f35264a0582ac38eb0be793a8?sid=cee86293-5802-4a66-adde-486b8fe99ba8",
+    demoImage: "../demo-thumbnails/homecookeddemo.gif",
   },
   {
     id: 10,
@@ -161,6 +224,13 @@ const PROJECTS = [
     thirdP:
       "This project helped me learn about managing state, handling user interactions, and implementing logic for a card game. Hole-in-One has a simple design, making it accessible for players of all ages. Its donut theme adds a fun and quirky touch to a traditional memory game, making it even more enjoyable. Whether you're looking to sharpen your memory skills or just have fun, Hole-in-One is a perfect game to try.",
     image: "../project-post-imgs/hole1.png",
+    siteLink: "https://holeinone.levelynup.com/",
+    githubLink: "https://github.com/evelynmbart/Memory-Game",
+    embedLink:
+      "https://www.loom.com/embed/831b851e26794422ad245e3544ca0a23?sid=3f9cdca5-8395-4c60-a258-8f65e6d4b8a6",
+    shareLink:
+      "https://www.loom.com/share/831b851e26794422ad245e3544ca0a23?sid=44027376-c0d0-493d-b3c7-ccaf52cc6da7",
+    demoImage: "../demo-thumbnails/holedemo.gif",
   },
   {
     id: 11,
@@ -177,6 +247,13 @@ const PROJECTS = [
     thirdP:
       "Playing Hangman on this app is a fun way to improve your vocabulary and spelling skills. The clean design and easy navigation make it an enjoyable game for a quick break or long sessions. This project was a great opportunity to explore user input handling and state management within React. If you love word games, this online version of Hangman will give you hours of entertainment.",
     image: "../project-post-imgs/hangman3.png",
+    siteLink: "https://hangman.levelynup.com/",
+    githubLink: "https://github.com/evelynmbart/hangman",
+    embedLink:
+      "https://www.loom.com/embed/051a47c6f4b7496fb86fe3172bf83dd8?sid=e630413a-3ee1-4c7e-995e-6fc7021355b2",
+    shareLink:
+      "https://www.loom.com/share/051a47c6f4b7496fb86fe3172bf83dd8?sid=616c6982-e05d-4597-8793-4a05338e1489",
+    demoImage: "../demo-thumbnails/hangmandemo.gif",
   },
   {
     id: 12,
@@ -193,6 +270,13 @@ const PROJECTS = [
     thirdP:
       "Gridddle is more than just an art app; it's a community-driven platform for artistic expression. Every day brings a new challenge that encourages users to think outside the box and experiment with pixel art. The daily prompts keep the app fresh and interesting, making it a great tool for practicing and improving your design skills. Whether you're a pixel art expert or a newcomer, Gridddle offers a fun and creative environment.",
     image: "../project-post-imgs/grid5.png",
+    siteLink: "", // ADD SITE LINK
+    githubLink: "https://github.com/evelynmbart/Gridddle",
+    embedLink:
+      "https://www.loom.com/embed/4286157e6615442e9b0d59c9843c949c?sid=2d2057fa-81a8-4dec-9c7c-84bf4cb924b7",
+    shareLink:
+      "https://www.loom.com/share/4286157e6615442e9b0d59c9843c949c?sid=750dadea-0906-4575-8760-8de794444129",
+    demoImage: "../demo-thumbnails/griddemo.gif",
   },
   {
     id: 13,
@@ -209,6 +293,13 @@ const PROJECTS = [
     thirdP:
       "This app is perfect for people who enjoy playing dice games with friends. It's fast-paced and has a simple interface that lets you focus on the gameplay rather than keeping track of numbers. Farkle is a great choice for casual gaming sessions, whether you're playing with friends or family. The game will keep you on your toes as you try to beat your opponents without rolling a 'farkle'!",
     image: "../project-post-imgs/farkle1.png",
+    siteLink: "https://farkle.levelynup.com/",
+    githubLink: "https://github.com/evelynmbart/farkle",
+    embedLink:
+      "https://www.loom.com/embed/39f5d919babb46f281ceb1b1852aa2a2?sid=2b1aa771-161f-4d4b-aa7e-f4e131dcbec5",
+    shareLink:
+      "https://www.loom.com/share/39f5d919babb46f281ceb1b1852aa2a2?sid=c21c3840-758b-416d-ab77-42aa541ed56e",
+    demoImage: "../demo-thumbnails/farkledemo.gif",
   },
   {
     id: 14,
@@ -225,6 +316,13 @@ const PROJECTS = [
     thirdP:
       "CycleSync also helps you predict your next cycle based on your data, which is useful for those planning their schedules or managing symptoms. With its user-centric design, CycleSync is the go-to app for anyone who wants to keep a detailed record of their menstrual health.",
     image: "../project-post-imgs/cycle2.png",
+    siteLink: "", // ADD SITE LINK
+    githubLink: "", // ADD GITHUB LINK
+    embedLink:
+      "https://www.loom.com/embed/8401ae90f9c9454ea4f55e91a97ed4c8?sid=ea821f59-8a55-4488-bafd-dda1c6a44fc8",
+    shareLink:
+      "https://www.loom.com/share/8401ae90f9c9454ea4f55e91a97ed4c8?sid=e8c7d575-5afc-4fdb-9456-b25f6ef2edcb",
+    demoImage: "../demo-thumbnails/cycledemo.gif",
   },
   {
     id: 15,
@@ -241,6 +339,13 @@ const PROJECTS = [
     thirdP:
       "CartCompare is perfect for people who want to save money without sacrificing the quality of their groceries. By providing detailed pricing information, the app helps you make informed decisions about where to shop. Whether you're on a tight budget or just looking for a better deal, CartCompare can help you find the lowest prices for your favorite products.",
     image: "../project-post-imgs/cart4.png",
+    siteLink: "", // ADD SITE LINK
+    githubLink: "", // ADD GITHUB LINK
+    embedLink:
+      "https://www.loom.com/embed/9278d3a2300e4298b955024ed932821f?sid=910eb522-595c-469b-9611-e3437aaa0f69",
+    shareLink:
+      "https://www.loom.com/share/9278d3a2300e4298b955024ed932821f?sid=2b3e7c17-29f3-4196-b00d-3888c32b5d62",
+    demoImage: "../demo-thumbnails/cartdemo.gif",
   },
   // {
   //   id: 16,

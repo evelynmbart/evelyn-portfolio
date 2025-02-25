@@ -38,6 +38,31 @@ function ProjectPage({ PROJECTS }) {
               <img src={project.image} alt={project.name} />
             </ImagePlaceholder>
             <ContentText>{project.thirdP}</ContentText>
+            {/* <ContentLinks>
+              <ContentLink
+                href={project.siteLink}
+                target="_blank"
+                title="Site link"
+              >
+                Check out the live site!
+              </ContentLink>
+              <ContentLink
+                href={project.githubLink}
+                target="_blank"
+                title="Github link"
+              >
+                Check out the code!
+              </ContentLink>
+            </ContentLinks> */}
+            <DemoContent>
+              Here's a demo of the project:
+              <Demo>
+                <iframe src={project.embedLink} allowFullScreen></iframe>
+              </Demo>
+              <DemoLink href={project.shareLink} target="_blank">
+                External Demo Link
+              </DemoLink>
+            </DemoContent>
           </Content>
         </div>
       )}
@@ -174,7 +199,7 @@ const Content = styled.article`
   padding: 0 5rem;
 
   @media (max-width: 768px) {
-    margin: 2rem auto;
+    margin: 2rem auto 0 auto;
   }
 `;
 
@@ -200,10 +225,102 @@ const ContentText = styled.p`
   }
 `;
 
+const ContentLinks = styled.div`
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  cursor: pointer;
+  padding: 1rem;
+`;
+
+// const ContentLink = styled.a`
+//   width: 200px;
+//   background: ${(props) =>
+//     props.secondary
+//       ? "black"
+//       : `linear-gradient(
+//     90deg,
+//     var(--secondary-color) 0%,
+//     var(--primary-color) 100%
+//   )`};
+//   color: ${(props) => (props.secondary ? "var(--primary-color)" : "white")};
+//   font-size: 1rem;
+//   font-weight: bold;
+//   padding: 1rem 1.2rem;
+//   text-align: center;
+//   text-decoration: none;
+//   position: relative;
+//   border: 2px solid
+//     ${(props) => (props.secondary ? "var(--primary-color)" : "white")};
+//   position: relative;
+
+//   &:before {
+//     content: "";
+//     position: absolute;
+//     top: 8px;
+//     left: 8px;
+//     width: 100%;
+//     height: 100%;
+//     background-color: ${(props) =>
+//       props.secondary ? "var(--primary-color)" : "white"};
+//     transition: all 0.3s ease;
+//     z-index: -1;
+//   }
+
+//   &:hover {
+//     &:before {
+//       top: 0;
+//       left: 0;
+//     }
+//   }
+
+//   @media (max-width: 480px) {
+//     width: 180px;
+//     font-size: 0.9rem;
+//     padding: 0.8rem 1rem;
+//   }
+// `;
+
+const DemoContent = styled.div`
+  color: white;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+`;
+
+const DemoLink = styled.a`
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+`;
+
+const Demo = styled.div`
+  position: relative;
+  padding-bottom: 62.5%;
+  height: 100%;
+  width: 100%;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+  }
+`;
+
 const ImagePlaceholder = styled.div`
   width: 100%;
   height: 400px;
-
   margin: 2rem 0;
   display: flex;
   justify-content: center;
@@ -213,7 +330,7 @@ const ImagePlaceholder = styled.div`
   img {
     width: 100%;
     height: 100%;
-    border-radius: 20px;
+    border-radius: 50px;
     object-fit: contain;
     object-position: center;
   }
