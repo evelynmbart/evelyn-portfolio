@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const projects = [
@@ -9,7 +8,23 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../projects/think.png",
     featured: true,
-    link: "/project/1",
+    link: "/project/1"
+  },
+  {
+    name: "Home Cooked",
+    description:
+      "Your online recipe catalog, where you can keep and create recipes for all your favorite foods.",
+    technologies: ["Typescript", "React"],
+    image: "../../projects/home-cooked.png",
+    link: "/project/9"
+  },
+  {
+    name: "Mappi",
+    description:
+      "Find the perfect NYC neighborhood for you and your lifestyle.",
+    technologies: ["Typescript", "React"],
+    image: "../../projects/mappi.png",
+    link: "/project/6"
   },
   {
     name: "Gridddle",
@@ -18,23 +33,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/gridddle.png",
     featured: true,
-    link: "/project/12",
-  },
-  {
-    name: "Home Cooked",
-    description:
-      "Your online recipe catalog, where you can keep and create recipes for all your favorite foods.",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/home-cooked.png",
-    link: "/project/9",
-  },
-  {
-    name: "Mappi",
-    description:
-      "Find the perfect NYC neighborhood for you and your lifestyle.",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/mappi.png",
-    link: "/project/6",
+    link: "/project/12"
   },
   {
     name: "CycleSync",
@@ -42,7 +41,7 @@ const projects = [
       "A personalized period tracker that helps you understand yourself and your cycle.",
     technologies: ["Typescript", "React"],
     image: "../../projects/cycle-sync.png",
-    link: "/project/14",
+    link: "/project/14"
   },
   {
     name: "Pup Progress",
@@ -51,7 +50,7 @@ const projects = [
     technologies: ["Javascript", "React"],
     image: "../../projects/pup-progress.png",
     featured: true,
-    link: "/project/2",
+    link: "/project/2"
   },
   {
     name: "MarkIt",
@@ -60,7 +59,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/markit.png",
     featured: true,
-    link: "/project/5",
+    link: "/project/5"
   },
 
   {
@@ -68,23 +67,7 @@ const projects = [
     description: "Track the water levels of the New England rivers and lakes.",
     technologies: ["Javascript", "React"],
     image: "../../projects/riverflow.png",
-    link: "/project/4",
-  },
-
-  {
-    name: "Last Meals",
-    description: "Journal your last meals and the memories they bring back.",
-    technologies: ["Typescript", "React"],
-    image: "../../projects/last-meals.png",
-    link: "/project/7",
-  },
-
-  {
-    name: "Jaipur Score",
-    description: "A simple score keeper for the board game Jaipur.",
-    technologies: ["Javascript", "React"],
-    image: "../../projects/jaipur.png",
-    link: "/project/8",
+    link: "/project/4"
   },
 
   {
@@ -94,8 +77,24 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/farkle.png",
     featured: true,
-    link: "/project/13",
+    link: "/project/13"
   },
+  {
+    name: "Last Meals",
+    description: "Journal your last meals and the memories they bring back.",
+    technologies: ["Typescript", "React"],
+    image: "../../projects/last-meals.png",
+    link: "/project/7"
+  },
+
+  {
+    name: "Jaipur Score",
+    description: "A simple score keeper for the board game Jaipur.",
+    technologies: ["Javascript", "React"],
+    image: "../../projects/jaipur.png",
+    link: "/project/8"
+  },
+
   {
     name: "Cart Compare",
     description:
@@ -103,7 +102,7 @@ const projects = [
     technologies: ["Typescript", "React"],
     image: "../../projects/cart-compare.png",
     featured: true,
-    link: "/project/15",
+    link: "/project/15"
   },
 
   // {
@@ -120,7 +119,7 @@ const projects = [
       "A productivity tool that helps you stay focused and productive.",
     technologies: ["Typescript", "React"],
     image: "../../projects/pomodoro.png",
-    link: "/project/3",
+    link: "/project/3"
   },
   {
     name: "Hangman",
@@ -128,15 +127,15 @@ const projects = [
       "The classic word game that tests your vocabulary and guessing skills.",
     technologies: ["Typescript", "React"],
     image: "../../projects/hangman.png",
-    link: "/project/11",
+    link: "/project/11"
   },
   {
     name: "Hole-in-One",
     description: "Donut themed memory game. Match the donuts to win!",
     technologies: ["Typescript", "React"],
     image: "../../projects/hole-in-one.png",
-    link: "/project/10",
-  },
+    link: "/project/10"
+  }
   // {
   //   name: "Blog Woohoo",
   //   description:
@@ -163,17 +162,13 @@ const Projects = () => {
       </ProjectsHeader>
 
       <ProjectsGrid>
-        {projects.map((project) => (
+        {projects.map(project =>
           <ProjectCard
             key={project.name}
             featured={project.featured}
             className={project.featured ? "featured" : ""}
           >
-            <ProjectLink
-              to={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <ProjectLink href={project.link}>
               <ProjectTop>
                 <ProjectImage
                   src={project.image}
@@ -191,7 +186,7 @@ const Projects = () => {
               </ProjectBottom>
             </ProjectLink>
           </ProjectCard>
-        ))}
+        )}
       </ProjectsGrid>
     </ProjectsSection>
   );
@@ -296,9 +291,9 @@ const Title = styled.h2`
 
 const ProjectsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  max-width: 1232px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 16px;
 
@@ -310,7 +305,7 @@ const ProjectsGrid = styled.div`
 
 const ProjectCard = styled.div`
   position: relative;
-  height: ${(props) => (props.featured ? "384px" : "390px")};
+  height: ${props => (props.featured ? "384px" : "390px")};
   border-radius: 10px;
   box-sizing: border-box;
   padding: 0;
@@ -318,45 +313,41 @@ const ProjectCard = styled.div`
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
-  border: ${(props) =>
-    props.featured ? "none" : "1px solid hsla(0, 0%, 100%, 0.2)"};
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
 
   &.featured {
-    grid-column: span 6;
+    grid-column: span 2;
   }
 
   &:not(.featured) {
-    grid-column: span 4;
+    grid-column: span 1;
   }
 
   &:hover {
-    transform: ${(props) =>
+    transform: ${props =>
       props.featured ? "scale(1)" : "translateY(-8px) scale(1.02)"};
-    box-shadow: ${(props) =>
-      !props.featured && "0 10px 20px rgba(0, 0, 0, 0.3)"};
+    box-shadow: ${props => !props.featured && "0 10px 20px rgba(0, 0, 0, 0.3)"};
   }
 
   @media (max-width: 1024px) {
     &.featured {
-      grid-column: span 12;
+      grid-column: span 3;
     }
 
     &:not(.featured) {
-      grid-column: span 6;
+      grid-column: span 3;
     }
   }
 
   @media (max-width: 768px) {
     &.featured,
     &:not(.featured) {
-      grid-column: span 12;
+      grid-column: span 1;
     }
   }
 `;
 
-const ProjectLink = styled(Link)`
-  text-decoration: none;
-`;
+const ProjectLink = styled.a`text-decoration: none;`;
 
 const ProjectTop = styled.div`
   width: 100%;
@@ -370,45 +361,35 @@ const ProjectImage = styled.img`
   object-fit: cover;
   border-radius: 10px 10px 0 0;
   transition: transform 0.3s ease-in-out;
-
-  &:hover {
-    transform: ${(props) => props.featured && "scale(1.05)"};
-    box-shadow: ${(props) => props.featured && "0 5px 15px rgba(0, 0, 0, 0.2)"};
-  }
 `;
 
 const ProjectBottom = styled.div`
   box-sizing: border-box;
   width: 100%;
-  height: ${(props) => (props.featured ? "auto" : "40%")};
-  min-height: ${(props) => props.featured && "30%"};
+  height: 40%;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background: ${(props) =>
-    props.featured
-      ? "linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.9) 30%)"
-      : "rgba(50, 50, 50, 0.5)"};
-  border-radius: ${(props) => (props.featured ? "0" : "0 0 10px 10px")};
+  background: rgba(50, 50, 50, 0.5);
+  border-radius: 0 0 10px 10px;
 
   transform-style: preserve-3d;
   perspective: 1000px;
   transform: translateZ(10px);
   transition: transform 0.3s ease;
   color: white;
-  z-index: ${(props) => props.featured && "2"};
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: ${(props) => (props.featured ? "2rem" : "1.7rem")};
+  font-size: 1.7rem;
   font-weight: 600;
   margin: 0;
   color: white;
 `;
 
 const ProjectDescription = styled.p`
-  font-size: ${(props) => (props.featured ? "1.2rem" : "16px")};
+  font-size: 16px;
 
-  color: ${(props) => (props.featured ? "rgba(255, 255, 255, 0.9)" : "white")};
+  color: white;
 `;
