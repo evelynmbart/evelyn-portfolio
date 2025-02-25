@@ -82,6 +82,31 @@ const StyledLink = styled(Link)`
 `;
 
 const Text = styled.div`
+  position: relative;
+  color: white;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+    border-radius: 30px;
+    z-index: 1;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+
   background-image: url(${({ src }) => src});
   background-size: cover;
   background-position: center;
@@ -100,12 +125,24 @@ const Text = styled.div`
 const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: 800;
+  background: linear-gradient(120deg, #fff, #e6e6e6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.5px;
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const Description = styled.p`
   font-size: 1.5rem;
   max-width: 600px;
-  margin-bottom: 2rem;
+  margin: 1rem 0;
+  line-height: 1.4;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
@@ -115,13 +152,20 @@ const Description = styled.p`
 const Technologies = styled.div`
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 `;
 
 const TechSpan = styled.span`
-  padding: 0.5rem 1rem;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  padding: 0.5rem 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 25px;
   font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease-in-out;
 `;
 
 const Content = styled.article`
