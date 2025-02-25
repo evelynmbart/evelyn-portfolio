@@ -5,7 +5,7 @@ const projects = [
   {
     name: "Think",
     description:
-      "A social media app that allows you to share your thoughts and ideas with others",
+      "Test your trivia knowledge with this fun and addictive quiz app.",
     technologies: ["Typescript", "React"],
     image: "../projects/think.png",
     featured: true,
@@ -14,7 +14,7 @@ const projects = [
   {
     name: "Gridddle",
     description:
-      "A map app that allows you to search for locations by name or by address",
+      "With daily inspiration, share your pixelated masterpieces with the world.",
     technologies: ["Typescript", "React"],
     image: "../../projects/gridddle.png",
     featured: true,
@@ -23,7 +23,7 @@ const projects = [
   {
     name: "Home Cooked",
     description:
-      "A recipe app that allows you to search for recipes by name or by ingredients",
+      "Your online recipe catalog, where you can keep and create recipes for all your favorite foods.",
     technologies: ["Typescript", "React"],
     image: "../../projects/home-cooked.png",
     link: "/project/9",
@@ -31,7 +31,7 @@ const projects = [
   {
     name: "Mappi",
     description:
-      "A map app that allows you to search for locations by name or by address",
+      "Find the perfect NYC neighborhood for you and your lifestyle.",
     technologies: ["Typescript", "React"],
     image: "../../projects/mappi.png",
     link: "/project/6",
@@ -39,7 +39,7 @@ const projects = [
   {
     name: "CycleSync",
     description:
-      "A map app that allows you to search for locations by name or by address",
+      "A personalized period tracker that helps you understand yourself and your cycle.",
     technologies: ["Typescript", "React"],
     image: "../../projects/cycle-sync.png",
     link: "/project/14",
@@ -47,7 +47,7 @@ const projects = [
   {
     name: "Pup Progress",
     description:
-      "A map app that allows you to search for locations by name or by address",
+      "Chapter-based or freestyle training programs for you and your pup!",
     technologies: ["Javascript", "React"],
     image: "../../projects/pup-progress.png",
     featured: true,
@@ -56,7 +56,7 @@ const projects = [
   {
     name: "MarkIt",
     description:
-      "Use Mappi to locate your must-have shops/destinations and find the perfect neighborhood for you and your lifestyle",
+      "The only bookmark hub you'll ever need. Save, organize, and share your favorite links with ease.",
     technologies: ["Typescript", "React"],
     image: "../../projects/markit.png",
     featured: true,
@@ -65,8 +65,7 @@ const projects = [
 
   {
     name: "NE RiverFlow",
-    description:
-      "A map app that allows you to search for locations by name or by address",
+    description: "Track the water levels of the New England rivers and lakes.",
     technologies: ["Javascript", "React"],
     image: "../../projects/riverflow.png",
     link: "/project/4",
@@ -74,8 +73,7 @@ const projects = [
 
   {
     name: "Last Meals",
-    description:
-      "A map app that allows you to search for locations by name or by address",
+    description: "Journal your last meals and the memories they bring back.",
     technologies: ["Typescript", "React"],
     image: "../../projects/last-meals.png",
     link: "/project/7",
@@ -83,8 +81,7 @@ const projects = [
 
   {
     name: "Jaipur Score",
-    description:
-      "A map app that allows you to search for locations by name or by address",
+    description: "A simple score keeper for the board game Jaipur.",
     technologies: ["Javascript", "React"],
     image: "../../projects/jaipur.png",
     link: "/project/8",
@@ -93,7 +90,7 @@ const projects = [
   {
     name: "Farkle",
     description:
-      "A map app that allows you to search for locations by name or by address",
+      "The classic dice game that tests your luck. Roll the dice and see if you can score big!",
     technologies: ["Typescript", "React"],
     image: "../../projects/farkle.png",
     featured: true,
@@ -120,7 +117,7 @@ const projects = [
   {
     name: "Pomodoro",
     description:
-      "A map app that allows you to search for locations by name or by address",
+      "A productivity tool that helps you stay focused and productive.",
     technologies: ["Typescript", "React"],
     image: "../../projects/pomodoro.png",
     link: "/project/3",
@@ -128,15 +125,14 @@ const projects = [
   {
     name: "Hangman",
     description:
-      "A map app that allows you to search for locations by name or by address",
+      "The classic word game that tests your vocabulary and guessing skills.",
     technologies: ["Typescript", "React"],
     image: "../../projects/hangman.png",
     link: "/project/11",
   },
   {
     name: "Hole-in-One",
-    description:
-      "A map app that allows you to search for locations by name or by address",
+    description: "Donut themed memory game. Match the donuts to win!",
     technologies: ["Typescript", "React"],
     image: "../../projects/hole-in-one.png",
     link: "/project/10",
@@ -152,44 +148,6 @@ const projects = [
 ];
 
 const Projects = () => {
-  // Function to arrange projects in the desired pattern
-  const arrangeProjects = (projects) => {
-    const featured = projects.filter((project) => project.featured);
-    const nonFeatured = projects.filter((project) => !project.featured);
-
-    const arranged = [];
-    let featuredIndex = 0;
-    let nonFeaturedIndex = 0;
-
-    while (
-      featuredIndex < featured.length ||
-      nonFeaturedIndex < nonFeatured.length
-    ) {
-      // Add two featured projects side by side
-      if (featuredIndex < featured.length - 1) {
-        arranged.push({
-          ...featured[featuredIndex],
-          sizingClass: "featured",
-        });
-        arranged.push({
-          ...featured[featuredIndex + 1],
-          sizingClass: "featured",
-        });
-        featuredIndex += 2;
-      }
-
-      // Add a row of three non-featured projects
-      for (let i = 0; i < 3 && nonFeaturedIndex < nonFeatured.length; i++) {
-        arranged.push(nonFeatured[nonFeaturedIndex]);
-        nonFeaturedIndex++;
-      }
-    }
-
-    return arranged;
-  };
-
-  const arrangedProjects = arrangeProjects(projects);
-
   return (
     <ProjectsSection id="projects">
       <ProjectsHeader>
@@ -205,15 +163,23 @@ const Projects = () => {
       </ProjectsHeader>
 
       <ProjectsGrid>
-        {arrangedProjects.map((project) => (
-          <ProjectCard key={project.name} featured={project.featured}>
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.name}
+            featured={project.featured}
+            className={project.featured ? "featured" : ""}
+          >
             <ProjectLink
               to={project.link}
               target="_blank"
               rel="noopener noreferrer"
             >
               <ProjectTop>
-                <ProjectImage src={project.image} alt={project.name} />
+                <ProjectImage
+                  src={project.image}
+                  alt={project.name}
+                  featured={project.featured}
+                />
               </ProjectTop>
               <ProjectBottom featured={project.featured}>
                 <ProjectTitle featured={project.featured}>
@@ -332,7 +298,7 @@ const ProjectsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 16px;
-  max-width: 1200px;
+  max-width: 1232px;
   margin: 0 auto;
   padding: 0 16px;
 
@@ -344,7 +310,6 @@ const ProjectsGrid = styled.div`
 
 const ProjectCard = styled.div`
   position: relative;
-  max-width: 100%;
   height: ${(props) => (props.featured ? "384px" : "390px")};
   border-radius: 10px;
   box-sizing: border-box;
@@ -353,18 +318,15 @@ const ProjectCard = styled.div`
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
-  width: 100%;
   border: ${(props) =>
     props.featured ? "none" : "1px solid hsla(0, 0%, 100%, 0.2)"};
 
   &.featured {
     grid-column: span 6;
-    max-width: 590px;
   }
 
   &:not(.featured) {
     grid-column: span 4;
-    max-width: 387px;
   }
 
   &:hover {
@@ -372,18 +334,15 @@ const ProjectCard = styled.div`
       props.featured ? "scale(1)" : "translateY(-8px) scale(1.02)"};
     box-shadow: ${(props) =>
       !props.featured && "0 10px 20px rgba(0, 0, 0, 0.3)"};
-    filter: ${(props) => !props.featured && "brightness(1.1)"};
   }
 
   @media (max-width: 1024px) {
     &.featured {
       grid-column: span 12;
-      max-width: 100%;
     }
 
     &:not(.featured) {
       grid-column: span 6;
-      max-width: 100%;
     }
   }
 
@@ -391,7 +350,6 @@ const ProjectCard = styled.div`
     &.featured,
     &:not(.featured) {
       grid-column: span 12;
-      max-width: 100%;
     }
   }
 `;
@@ -411,6 +369,7 @@ const ProjectImage = styled.img`
   height: 100%;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
+  transition: transform 0.3s ease-in-out;
 
   &:hover {
     transform: ${(props) => props.featured && "scale(1.05)"};
@@ -423,18 +382,16 @@ const ProjectBottom = styled.div`
   width: 100%;
   height: ${(props) => (props.featured ? "auto" : "40%")};
   min-height: ${(props) => props.featured && "30%"};
-  padding: 2rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   background: ${(props) =>
     props.featured
-      ? "linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent)"
-      : "rgb(50, 50, 50)"};
+      ? "linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.9) 30%)"
+      : "rgba(50, 50, 50, 0.5)"};
   border-radius: ${(props) => (props.featured ? "0" : "0 0 10px 10px")};
-  position: ${(props) => (props.featured ? "absolute" : "relative")};
-  bottom: ${(props) => props.featured && "0"};
-  left: ${(props) => props.featured && "0"};
+
   transform-style: preserve-3d;
   perspective: 1000px;
   transform: translateZ(10px);
@@ -452,6 +409,6 @@ const ProjectTitle = styled.h3`
 
 const ProjectDescription = styled.p`
   font-size: ${(props) => (props.featured ? "1.2rem" : "16px")};
-  margin: ${(props) => (props.featured ? "0.5rem 0 0 0" : "0")};
+
   color: ${(props) => (props.featured ? "rgba(255, 255, 255, 0.9)" : "white")};
 `;
