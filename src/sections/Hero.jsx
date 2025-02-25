@@ -388,7 +388,7 @@ const Span = styled.span`
   color: var(--primary-color);
   font-size: 2.3rem;
   display: inline-block;
-  animation: wave 1.2s ease-in-out infinite alternate;
+  animation: wave 2.4s ease-in-out infinite;
   background: linear-gradient(to bottom, var(--primary-color) 30%, white 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -396,11 +396,13 @@ const Span = styled.span`
 
   @keyframes wave {
     0%,
+    15%,
     100% {
       transform: translateY(0);
     }
-    50% {
-      transform: translateY(-10px);
+    5%,
+    10% {
+      transform: translateY(-15px);
     }
   }
 `;
