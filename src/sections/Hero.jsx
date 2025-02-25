@@ -1,3 +1,4 @@
+import Spline from "@splinetool/react-spline";
 import styled, { keyframes } from "styled-components";
 import About from "./About";
 import Projects from "./Projects";
@@ -39,7 +40,11 @@ const Hero = () => {
               </ResumeButton>
             </ButtonContainer>
           </Left>
-          <Right></Right>
+          <Right>
+          <Spline
+                  scene="https://prod.spline.design/zHOPA2NhBDffXzJn/scene.splinecode"
+          />
+          </Right>
         </Main>
 
         <Footer>
@@ -386,7 +391,7 @@ const Subtitle = styled.p`
 const Span = styled.span`
   position: relative;
   color: var(--primary-color);
-  font-size: 2.3rem;
+  font-size: 1.3rem;
   display: inline-block;
   animation: wave 2.4s ease-in-out infinite;
   background: linear-gradient(to bottom, var(--primary-color) 30%, white 100%);
@@ -402,7 +407,7 @@ const Span = styled.span`
     }
     5%,
     10% {
-      transform: translateY(-15px);
+      transform: translateY(-2px);
     }
   }
 `;

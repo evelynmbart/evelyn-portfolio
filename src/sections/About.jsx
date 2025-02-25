@@ -67,7 +67,7 @@ const About = () => {
 
     const typingInterval = setInterval(() => {
       if (index < text.length) {
-        setDisplayText((prev) => prev + text.charAt(index));
+        setDisplayText(() => text.slice(0, index + 1));
         index++;
       } else {
         setIsTyping(false);
@@ -223,7 +223,7 @@ export default About;
 
 const AboutSection = styled.section`
   margin: -40px 0 0;
-  padding: 4rem 1rem;
+  padding: 4rem 0;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -419,6 +419,7 @@ const TypingContainer = styled.div`
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
+  margin: 0 auto;
 
   &::after {
     content: "✨ The fun fact machine ✨";
