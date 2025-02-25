@@ -169,7 +169,11 @@ const Projects = () => {
         <HeaderFrame>
           <Subtitle>Projects</Subtitle>
           <Title>Check out what I've been working on</Title>
-          <SubtitleDescription />
+          <TopLeftCorner />
+          <TopRightCorner />
+          <BottomLeftCorner />
+          <BottomLeftCornerOutside />
+          <BottomRightCorner />
         </HeaderFrame>
       </ProjectsHeader>
 
@@ -215,6 +219,47 @@ const Projects = () => {
 
 export default Projects;
 
+const Corner = styled.span`
+  position: absolute;
+  width: 15px;
+  height: 15px;
+`;
+
+const TopLeftCorner = styled(Corner)`
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--primary-color);
+  border-left: 2px solid var(--primary-color);
+`;
+
+const TopRightCorner = styled(Corner)`
+  top: 0;
+  right: 0;
+  border-top: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+`;
+
+const BottomLeftCorner = styled(Corner)`
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid var(--primary-color);
+  border-left: 2px solid var(--primary-color);
+`;
+
+const BottomLeftCornerOutside = styled(Corner)`
+  bottom: -15px;
+  left: -15px;
+  border-top: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+`;
+
+const BottomRightCorner = styled(Corner)`
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+`;
+
 const ProjectsSection = styled.section`
   padding: 4rem 7rem;
   background-color: rgb(19, 19, 19);
@@ -230,7 +275,9 @@ const ProjectsHeader = styled.div`
 `;
 
 const HeaderFrame = styled.div`
-  max-width: 800px;
+  position: relative;
+  padding: 2rem 8rem;
+  max-width: 450px;
   margin: 0 auto;
 `;
 
