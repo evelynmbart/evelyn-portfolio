@@ -77,23 +77,26 @@ const ProjectSection = styled.section`
   width: 100%;
   min-height: 100vh;
   background-color: rgb(19, 19, 19);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Header = styled.header`
   background-color: rgb(19, 19, 19);
   display: flex;
+  justify-content: end;
   align-items: center;
-  justify-content: flex-end;
   border-bottom: 1px solid white;
   margin-bottom: 2rem;
-  padding: 1rem 2rem;
+  width: 100%;
 `;
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   gap: 2rem;
+  padding: 1rem 2rem;
 `;
 
 const StyledLink = styled(Link)`
@@ -107,9 +110,25 @@ const StyledLink = styled(Link)`
 `;
 
 const Text = styled.div`
+  @media (max-width: 768px) {
+    width: 80%;
+    height: auto;
+    min-height: 250px;
+    padding: 1.5rem;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 75%;
+    padding: 1rem;
+    min-height: 200px;
+    gap: 0.5rem;
+  }
+
   position: relative;
   color: white;
-
+  width: 100%;
+  margin: 0 auto;
   &::before {
     content: "";
     position: absolute;
@@ -137,13 +156,11 @@ const Text = styled.div`
   background-position: center;
   background-repeat: repeat;
   border-radius: 30px;
-  padding: 20px;
+  gap: 1rem;
+  padding: 1rem;
   height: 200px;
-  margin: 0 10%;
   display: flex;
   flex-direction: column;
-  justify-content: end;
-  align-items: start;
   background-color: white;
 `;
 
@@ -155,6 +172,7 @@ const Title = styled.h1`
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   letter-spacing: -0.5px;
+
   @media (max-width: 768px) {
     font-size: 2rem;
   }
@@ -162,8 +180,7 @@ const Title = styled.h1`
 
 const Description = styled.p`
   font-size: 1.5rem;
-  max-width: 600px;
-  margin: 1rem 0;
+  max-width: 800px;
   line-height: 1.4;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.9);
@@ -179,6 +196,7 @@ const Technologies = styled.div`
   gap: 1rem;
   flex-wrap: wrap;
   margin-top: 1rem;
+  justify-content: start;
 `;
 
 const TechSpan = styled.span`
@@ -195,8 +213,9 @@ const TechSpan = styled.span`
 
 const Content = styled.article`
   max-width: 800px;
-  margin: 5% 20% 0 20%;
-  padding: 0 5rem;
+  margin: 5% auto;
+  padding: 0 2rem;
+  text-align: center;
 
   @media (max-width: 768px) {
     margin: 2rem auto 0 auto;
@@ -208,6 +227,7 @@ const ContentTitle = styled.h2`
   margin: 2rem 0 1rem;
   color: white;
   font-weight: 800;
+  text-align: center;
 
   @media (max-width: 768px) {
     font-size: 1.75rem;
@@ -217,9 +237,11 @@ const ContentTitle = styled.h2`
 const ContentText = styled.p`
   font-size: 1.1rem;
   line-height: 1.6;
-  text-indent: 2.5rem;
   color: white;
   padding-bottom: 2rem;
+  text-indent: 2.5rem;
+  text-align: left;
+
   @media (max-width: 768px) {
     font-size: 1rem;
   }
@@ -290,12 +312,14 @@ const DemoContent = styled.div`
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  text-align: center;
 `;
 
 const DemoLink = styled.a`
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
+  text-align: center;
 
   &:hover {
     color: var(--primary-color);
@@ -321,7 +345,7 @@ const Demo = styled.div`
 const ImagePlaceholder = styled.div`
   width: 100%;
   height: 400px;
-  margin: 2rem 0;
+  margin: 2rem auto;
   display: flex;
   justify-content: center;
   align-items: center;
