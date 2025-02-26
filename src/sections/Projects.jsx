@@ -136,6 +136,8 @@ const DotGrid = () => {
     const ctx = canvas.getContext("2d");
     const stars = [];
     let shootingStars = [];
+    let mouseX = 0;
+    let mouseY = 0;
 
     // Set canvas size
     const resizeCanvas = () => {
@@ -147,11 +149,22 @@ const DotGrid = () => {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
+    // Track mouse movement
+    const handleMouseMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
     // Create star class
     class Star {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
+        this.originalX = this.x;
+        this.originalY = this.y;
         this.size = Math.random() * 2 + 1;
         this.twinkleSpeed = Math.random() * 0.1;
         this.angle = Math.random() * Math.PI * 2;
@@ -159,11 +172,20 @@ const DotGrid = () => {
         this.r = Math.random() * 255;
         this.g = Math.random() * 255;
         this.b = Math.random() * 255;
+        this.mouseSensitivity = Math.random() * 0.03 + 0.01;
       }
 
       draw() {
         this.angle += this.twinkleSpeed;
         const twinkle = Math.sin(this.angle) * 0.3 + 0.7;
+
+        // Calculate distance from mouse to original position
+        const dx = mouseX - this.originalX;
+        const dy = mouseY - this.originalY;
+
+        // Update position with slight mouse following
+        this.x = this.originalX + dx * this.mouseSensitivity;
+        this.y = this.originalY + dy * this.mouseSensitivity;
 
         ctx.beginPath();
         ctx.fillStyle = `rgba(${this.r}, ${this.g}, ${this.b}, ${
@@ -256,6 +278,7 @@ const DotGrid = () => {
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
@@ -488,12 +511,9 @@ const ProjectImageWrapper = styled.div`
   flex: 1;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
 
-  &:hover {
-    transform: translateY(-10px);
-  }
+  // box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 `;
 
 const ProjectImage = styled.img`
@@ -501,6 +521,10 @@ const ProjectImage = styled.img`
   height: 500px;
   object-fit: contain;
   vertical-align: middle;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
 `;
 
 const ProjectContent = styled.div`
