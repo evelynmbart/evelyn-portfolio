@@ -344,7 +344,7 @@ const Projects = () => {
             isEven={index % 2 === 0}
             ref={(el) => (projectRefs.current[index] = el)}
           >
-            <ProjectImageWrapper>
+            <ProjectImageWrapper href={project.link}>
               <ProjectImage src={project.image} alt={project.name} />
             </ProjectImageWrapper>
 
@@ -507,13 +507,17 @@ const ProjectCard = styled.div`
   }
 `;
 
-const ProjectImageWrapper = styled.div`
+const ProjectImageWrapper = styled.a`
   flex: 1;
   border-radius: 12px;
   overflow: hidden;
 
   // box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
 `;
 
 const ProjectImage = styled.img`
@@ -521,10 +525,7 @@ const ProjectImage = styled.img`
   height: 500px;
   object-fit: contain;
   vertical-align: middle;
-
-  &:hover {
-    transform: translateY(-10px);
-  }
+  cursor: pointer;
 `;
 
 const ProjectContent = styled.div`
