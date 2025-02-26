@@ -38,7 +38,7 @@ function ProjectPage({ PROJECTS }) {
               <img src={project.image} alt={project.name} />
             </ImagePlaceholder>
             <ContentText>{project.thirdP}</ContentText>
-            {/* <ContentLinks>
+            <ContentLinks>
               <ContentLink
                 href={project.siteLink}
                 target="_blank"
@@ -53,7 +53,7 @@ function ProjectPage({ PROJECTS }) {
               >
                 Check out the code!
               </ContentLink>
-            </ContentLinks> */}
+            </ContentLinks>
             <DemoContent>
               Here's a demo of the project:
               <Demo>
@@ -216,7 +216,6 @@ const Content = styled.article`
   margin: 5% auto;
   padding: 0 2rem;
   text-align: center;
-
   @media (max-width: 768px) {
     margin: 2rem auto 0 auto;
   }
@@ -254,55 +253,57 @@ const ContentLinks = styled.div`
   justify-content: center;
   cursor: pointer;
   padding: 1rem;
+  position: relative;
+  z-index: 2;
 `;
 
-// const ContentLink = styled.a`
-//   width: 200px;
-//   background: ${(props) =>
-//     props.secondary
-//       ? "black"
-//       : `linear-gradient(
-//     90deg,
-//     var(--secondary-color) 0%,
-//     var(--primary-color) 100%
-//   )`};
-//   color: ${(props) => (props.secondary ? "var(--primary-color)" : "white")};
-//   font-size: 1rem;
-//   font-weight: bold;
-//   padding: 1rem 1.2rem;
-//   text-align: center;
-//   text-decoration: none;
-//   position: relative;
-//   border: 2px solid
-//     ${(props) => (props.secondary ? "var(--primary-color)" : "white")};
-//   position: relative;
+const ContentLink = styled.a`
+  width: 200px;
+  background: ${(props) =>
+    props.secondary
+      ? "black"
+      : `linear-gradient(
+    90deg,
+    var(--secondary-color) 0%,
+    var(--primary-color) 100%
+  )`};
+  color: ${(props) => (props.secondary ? "var(--primary-color)" : "white")};
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  position: absolute;
+  border: 2px solid
+    ${(props) => (props.secondary ? "var(--primary-color)" : "white")};
+  position: relative;
 
-//   &:before {
-//     content: "";
-//     position: absolute;
-//     top: 8px;
-//     left: 8px;
-//     width: 100%;
-//     height: 100%;
-//     background-color: ${(props) =>
-//       props.secondary ? "var(--primary-color)" : "white"};
-//     transition: all 0.3s ease;
-//     z-index: -1;
-//   }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 100%;
+    height: 100%;
+    background-color: ${(props) =>
+      props.secondary ? "var(--primary-color)" : "white"};
+    transition: all 0.3s ease;
+    z-index: -1;
+  }
 
-//   &:hover {
-//     &:before {
-//       top: 0;
-//       left: 0;
-//     }
-//   }
+  &:hover {
+    &:before {
+      top: 0;
+      left: 0;
+    }
+  }
 
-//   @media (max-width: 480px) {
-//     width: 180px;
-//     font-size: 0.9rem;
-//     padding: 0.8rem 1rem;
-//   }
-// `;
+  @media (max-width: 480px) {
+    width: 180px;
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+  }
+`;
 
 const DemoContent = styled.div`
   color: white;

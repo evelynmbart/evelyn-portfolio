@@ -156,6 +156,9 @@ const DotGrid = () => {
         this.twinkleSpeed = Math.random() * 0.1;
         this.angle = Math.random() * Math.PI * 2;
         this.opacity = Math.random() * 0.5 + 0.5;
+        this.r = Math.random() * 255;
+        this.g = Math.random() * 255;
+        this.b = Math.random() * 255;
       }
 
       draw() {
@@ -163,7 +166,9 @@ const DotGrid = () => {
         const twinkle = Math.sin(this.angle) * 0.3 + 0.7;
 
         ctx.beginPath();
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * twinkle})`;
+        ctx.fillStyle = `rgba(${this.r}, ${this.g}, ${this.b}, ${
+          this.opacity * twinkle
+        })`;
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
       }
