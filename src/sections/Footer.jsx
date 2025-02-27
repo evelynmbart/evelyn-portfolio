@@ -19,7 +19,7 @@ const Footer = () => {
       <ContactContainer>
         <ContactButton>Contact</ContactButton>
         <ContactLinks>
-          <ContactLink href="https://www.linkedin.com/in/evelyn-bart-9000000000/">
+          <ContactLink href="https://www.linkedin.com/in/evelyn-bart-a469a4288">
             <FaLinkedin />
           </ContactLink>
           <ContactLink href="mailto:evelyn.m.bart@gmail.com">

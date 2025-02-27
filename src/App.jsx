@@ -20,8 +20,8 @@ const PROJECTS = [
     thirdP:
       "Additionally, the app offers hints and explanations to help users learn from their mistakes. This makes Think not just a quiz app but also a learning tool.",
     image: "../project-post-imgs/think2.png",
-    siteLink: "", // ADD SITE LINK
-    githubLink: "", // ADD GITHUB LINK
+    siteLink: "https://think.levelynup.com/", // ADD SITE LINK
+    githubLink: "https://github.com/evelynmbart/new-think", // ADD GITHUB LINK
     embedLink:
       "https://www.loom.com/embed/751a1d63fcf44a49a12123eaf6a810b1?sid=d3252d38-0130-44c6-9dd7-83c7350f36b4",
     shareLink:
@@ -41,8 +41,8 @@ const PROJECTS = [
     secondP:
       "Using TypeScript and React, Pup Progress delivers a clean and organized interface. The app categorizes tricks based on difficulty level, making it easy to pick up where you left off. Users can track their dog's progress over time and revisit past lessons as needed. The intuitive design makes navigation effortless for all users.",
     image: "../project-post-imgs/pup1.png",
-    siteLink: "", // ADD SITE LINK
-    githubLink: "", // ADD GITHUB LINK
+    siteLink: "https://pup-progress.levelynup.com/", // ADD SITE LINK
+    githubLink: "https://github.com/evelynmbart/pup--progress", // ADD GITHUB LINK
     embedLink:
       "https://www.loom.com/embed/8349bf0a80e6429d8a057cefbbff9dee?sid=a868ac5d-e99f-4e00-875e-2c553b8f1429",
     shareLink:
@@ -85,8 +85,8 @@ const PROJECTS = [
     thirdP:
       "With a user-friendly design, users can bookmark favorite river spots for easy access. The app was inspired by my brother, a whitewater kayak instructor, who needed an efficient way to check rapid conditions before leading groups.",
     image: "../project-post-imgs/river1.png",
-    siteLink: "", // ADD SITE LINK
-    githubLink: "", // ADD GITHUB LINK
+    siteLink: "https://riverflow.levelynup.com/", // ADD SITE LINK
+    githubLink: "https://github.com/evelynmbart/ne-river-gauge", // ADD GITHUB LINK
     embedLink:
       "https://www.loom.com/embed/cd60cb7f128345af852b3dffc39118f0?sid=544359e7-ea1c-4321-bdc0-b15487b43dd6",
     shareLink:
@@ -155,8 +155,8 @@ const PROJECTS = [
     thirdP:
       "What makes Last Meals stand out is its ability to review meals over a certain period, like a month or year. This gives users the chance to track their favorite dishes seasonally or discover recurring meals. Whether you are a chef or a casual foodie, this app can bring joy to those who take pride in their culinary choices. By using it regularly, you can build a rich database of your food adventures.",
     image: "../project-post-imgs/last1.png",
-    siteLink: "", // ADD SITE LINK
-    githubLink: "", // ADD GITHUB LINK
+    siteLink: "https://last-meals.levelynup.com/", // ADD SITE LINK
+    githubLink: "https://github.com/evelynmbart/last-meals", // ADD GITHUB LINK
     embedLink:
       "https://www.loom.com/embed/aa793fd349e44089ac2b50b9f9fab275?sid=43530566-500f-42da-9ba7-d332de546a38",
     shareLink:
@@ -201,8 +201,8 @@ const PROJECTS = [
     thirdP:
       "One of the standout features of HomeCooked is its ability to let users contribute new recipes. This creates a growing catalog of meals where users can inspire each other. Whether you're trying to make a new dish or looking for something new to cook, this app connects people through food. With HomeCooked, you'll never run out of meal ideas again.",
     image: "../project-post-imgs/homecooked1.png",
-    siteLink: "", // ADD SITE LINK
-    githubLink: "", // ADD GITHUB LINK
+    siteLink: "https://home-cooked.levelynup.com/", // ADD SITE LINK
+    githubLink: "https://github.com/evelynmbart/new-home-cooked", // ADD GITHUB LINK
     embedLink:
       "https://www.loom.com/embed/160b831f35264a0582ac38eb0be793a8?sid=072c706a-3bd6-4426-b5d3-6235d3863b1a",
     shareLink:
@@ -316,8 +316,8 @@ const PROJECTS = [
     thirdP:
       "CycleSync also helps you predict your next cycle based on your data, which is useful for those planning their schedules or managing symptoms. With its user-centric design, CycleSync is the go-to app for anyone who wants to keep a detailed record of their menstrual health.",
     image: "../project-post-imgs/cycle2.png",
-    siteLink: "", // ADD SITE LINK
-    githubLink: "", // ADD GITHUB LINK
+    siteLink: "https://cycle-sync.levelynup.com/", // ADD SITE LINK
+    githubLink: "https://github.com/evelynmbart/new-cycle-sync", // ADD GITHUB LINK
     embedLink:
       "https://www.loom.com/embed/8401ae90f9c9454ea4f55e91a97ed4c8?sid=ea821f59-8a55-4488-bafd-dda1c6a44fc8",
     shareLink:
@@ -339,8 +339,8 @@ const PROJECTS = [
     thirdP:
       "CartCompare is perfect for people who want to save money without sacrificing the quality of their groceries. By providing detailed pricing information, the app helps you make informed decisions about where to shop. Whether you're on a tight budget or just looking for a better deal, CartCompare can help you find the lowest prices for your favorite products.",
     image: "../project-post-imgs/cart4.png",
-    siteLink: "", // ADD SITE LINK
-    githubLink: "", // ADD GITHUB LINK
+    siteLink: "https://cartcompare.levelynup.com/", // ADD SITE LINK
+    githubLink: "https://github.com/evelynmbart/new-cart-compare", // ADD GITHUB LINK
     embedLink:
       "https://www.loom.com/embed/9278d3a2300e4298b955024ed932821f?sid=910eb522-595c-469b-9611-e3437aaa0f69",
     shareLink:
