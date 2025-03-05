@@ -109,8 +109,8 @@ const PROJECTS = [
     thirdP:
       "Whether it's news articles, travel information, or reference materials, MarkIt ensures quick access. Its clean design and user-friendly interface make it a must-have tool for digital organization.",
     image: "../project-post-imgs/mark1.png",
-    siteLink: "", // ADD SITE LINK
-    githubLink: "", // ADD GITHUB LINK
+    siteLink: "https://markit.levelynup.com/", // ADD SITE LINK
+    githubLink: "https://github.com/evelynmbart/neww-mark-it", // ADD GITHUB LINK
     embedLink:
       "https://www.loom.com/embed/ad53292ce7f6418b85e074eb102ca6eb?sid=fac70a7f-f43a-4034-b08d-c6e776f60c0e",
     shareLink:
@@ -132,7 +132,7 @@ const PROJECTS = [
     thirdP:
       "Mappi was designed to help people make informed decisions about where to live. It saves time by presenting all necessary data in one place. Whether moving to NYC or just exploring new areas, Mappi is a valuable tool for finding the perfect neighborhood.",
     image: "../project-post-imgs/mappi3.png",
-    siteLink: "", // ADD SITE LINK
+    siteLink: "https://mappi.levelynup.com/", // ADD SITE LINK
     githubLink: "https://github.com/evelynmbart/mappi",
     embedLink:
       "https://www.loom.com/embed/8df0a24f844c4d01ae1170dc06655e2b?sid=91ec193c-712a-489b-a3a7-2c87029addb6",
@@ -271,7 +271,7 @@ const PROJECTS = [
     thirdP:
       "Gridddle is more than just an art app; it's a community-driven platform for artistic expression. Every day brings a new challenge that encourages users to think outside the box and experiment with pixel art. The daily prompts keep the app fresh and interesting, making it a great tool for practicing and improving your design skills. Whether you're a pixel art expert or a newcomer, Gridddle offers a fun and creative environment.",
     image: "../project-post-imgs/grid5.png",
-    siteLink: "", // ADD SITE LINK
+    siteLink: "https://gridddle.levelynup.com/", // ADD SITE LINK
     githubLink: "https://github.com/evelynmbart/Gridddle",
     embedLink:
       "https://www.loom.com/embed/4286157e6615442e9b0d59c9843c949c?sid=2d2057fa-81a8-4dec-9c7c-84bf4cb924b7",
