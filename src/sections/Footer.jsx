@@ -47,9 +47,9 @@ const Footer = () => {
           </SocialLinks>
           <div>
             <Nav>
-              <a href="/about">About</a>
-              <a href="/projects">Projects</a>
-              <a href="/contact">Contact</a>
+              <a href="#about">About</a>
+              <a href="#projects">Projects</a>
+              <a href="#contact">Contact</a>
             </Nav>
           </div>
         </Recap>
