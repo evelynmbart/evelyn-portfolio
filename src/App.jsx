@@ -27,6 +27,7 @@ const PROJECTS = [
     shareLink:
       "https://www.loom.com/share/751a1d63fcf44a49a12123eaf6a810b1?sid=6b25c1b3-f3e8-4fa8-9a80-fe71fffa56cc",
     demoImage: "../demo-thumbnails/thinkdemo.png",
+    link: "/project/1",
   },
   {
     id: 2,
