@@ -41,16 +41,18 @@ const Hero = () => {
             </ButtonContainer>
           </Left>
           <Right>
-            <Spline scene="https://prod.spline.design/zHOPA2NhBDffXzJn/scene.splinecode" />
+            <SplineContainer>
+              <Spline scene="https://prod.spline.design/zHOPA2NhBDffXzJn/scene.splinecode" />
+            </SplineContainer>
           </Right>
         </Main>
 
         <Footer>
           <ConveyorBelt>
             <ConveyorContent>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((_) => {
+              {[1, 2].map((_, index) => {
                 return (
-                  <>
+                  <SkillGroup key={index}>
                     <SkillItem>
                       <img src="../skill_icons/html.png" alt="HTML Logo " />
                       HTML
@@ -99,7 +101,7 @@ const Hero = () => {
                       />
                       Tailwind
                     </SkillItem>
-                  </>
+                  </SkillGroup>
                 );
               })}
             </ConveyorContent>
@@ -130,7 +132,6 @@ const HeroSection = styled.section`
   @media (max-width: 768px) {
     margin: 0;
     border-radius: 0;
-    height: fit-content;
     width: 100vw;
   }
 `;
@@ -161,7 +162,7 @@ const NavLink = styled.a`
   text-decoration: none;
   margin-left: 2rem;
   font-size: 1.1rem;
-  transition: opacity 0.2s;
+  transition: color 0.2s;
 
   &:hover {
     color: var(--primary-color);
@@ -176,6 +177,7 @@ const NavLink = styled.a`
 const Main = styled.main`
   flex: 1;
   display: flex;
+  min-height: 0;
 
   @media (max-width: 1024px) {
     flex-direction: column-reverse;
@@ -197,8 +199,8 @@ const ConveyorBelt = styled.div`
   height: 100%;
   width: 100%;
   overflow: hidden;
+  display: flex;
   align-items: center;
-  justify-content: center;
   position: relative;
 `;
 
@@ -207,7 +209,7 @@ const scroll = keyframes`
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 `;
 
@@ -218,7 +220,6 @@ const ConveyorContent = styled.div`
   animation: ${scroll} 20s linear infinite;
   white-space: nowrap;
 
-  /* Create a copy of content for seamless loop */
   &:after {
     content: "";
     display: block;
@@ -229,6 +230,11 @@ const ConveyorContent = styled.div`
     width: 100%;
     background: inherit;
   }
+`;
+
+const SkillGroup = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const SkillItem = styled.span`
@@ -245,6 +251,11 @@ const SkillItem = styled.span`
   img {
     width: 24px;
     height: 24px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0 1rem;
   }
 `;
 
@@ -264,6 +275,11 @@ const Left = styled.div`
     border-bottom: 1px solid rgb(119, 119, 119);
     gap: 2rem;
     padding: 2rem 1rem;
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    height: 100%;
   }
 `;
 
@@ -298,7 +314,6 @@ const ResumeButton = styled.a`
   position: relative;
   border: 2px solid
     ${(props) => (props.secondary ? "var(--primary-color)" : "white")};
-  position: relative;
 
   &:before {
     content: "";
@@ -329,10 +344,21 @@ const ResumeButton = styled.a`
 
 const Right = styled.div`
   width: 65%;
+  position: relative;
+  overflow: hidden;
 
   @media (max-width: 1024px) {
-    width: 100%;
-    flex: 1;
+    display: none;
+  }
+`;
+
+const SplineContainer = styled.div`
+  width: 100%;
+  height: 100%;
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
   }
 `;
 
@@ -407,5 +433,13 @@ const Span = styled.span`
     10% {
       transform: translateY(-2px);
     }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
   }
 `;

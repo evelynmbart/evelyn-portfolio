@@ -20,7 +20,7 @@ function ProjectPage({ PROJECTS }) {
         </Nav>
       </Header>
       {project && (
-        <div>
+        <ProjectContainer>
           <Text key={project.name} src={project.mainImage}>
             <Title>{project.name}</Title>
             <Description>{project.description}</Description>
@@ -64,7 +64,7 @@ function ProjectPage({ PROJECTS }) {
               </DemoLink>
             </DemoContent>
           </Content>
-        </div>
+        </ProjectContainer>
       )}
     </ProjectSection>
   );
@@ -80,6 +80,17 @@ const ProjectSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 1rem;
+
+  @media (max-width: 480px) {
+    padding: 0 0.5rem;
+  }
+`;
+
+const ProjectContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const Header = styled.header`
@@ -90,6 +101,9 @@ const Header = styled.header`
   border-bottom: 1px solid white;
   margin-bottom: 2rem;
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 `;
 
 const Nav = styled.nav`
@@ -97,6 +111,10 @@ const Nav = styled.nav`
   align-items: center;
   gap: 2rem;
   padding: 1rem 2rem;
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -110,25 +128,22 @@ const StyledLink = styled(Link)`
 `;
 
 const Text = styled.div`
-  @media (max-width: 768px) {
-    width: 80%;
-    height: auto;
-    min-height: 250px;
-    padding: 1.5rem;
-    gap: 0.75rem;
-  }
-
-  @media (max-width: 480px) {
-    width: 75%;
-    padding: 1rem;
-    min-height: 200px;
-    gap: 0.5rem;
-  }
-
   position: relative;
   color: white;
-  width: 100%;
+
   margin: 0 auto;
+  padding: 2rem;
+  height: auto;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-image: url(${({ src }) => src});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+
   &::before {
     content: "";
     position: absolute;
@@ -151,17 +166,16 @@ const Text = styled.div`
     z-index: 2;
   }
 
-  background-image: url(${({ src }) => src});
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
-  border-radius: 30px;
-  gap: 1rem;
-  padding: 1rem;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    min-height: 180px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    min-height: 150px;
+    gap: 0.75rem;
+  }
 `;
 
 const Title = styled.h1`
@@ -176,6 +190,10 @@ const Title = styled.h1`
   @media (max-width: 768px) {
     font-size: 2rem;
   }
+
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+  }
 `;
 
 const Description = styled.p`
@@ -189,14 +207,23 @@ const Description = styled.p`
   @media (max-width: 768px) {
     font-size: 1.2rem;
   }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
 `;
 
 const Technologies = styled.div`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   justify-content: start;
+
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+  }
 `;
 
 const TechSpan = styled.span`
@@ -209,6 +236,11 @@ const TechSpan = styled.span`
   letter-spacing: 0.5px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.2s ease-in-out;
+
+  @media (max-width: 480px) {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
 `;
 
 const Content = styled.article`
@@ -216,8 +248,14 @@ const Content = styled.article`
   margin: 5% auto;
   padding: 0 2rem;
   text-align: center;
+
   @media (max-width: 768px) {
-    margin: 2rem auto 0 auto;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 0.5rem;
   }
 `;
 
@@ -231,6 +269,11 @@ const ContentTitle = styled.h2`
   @media (max-width: 768px) {
     font-size: 1.75rem;
   }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 0.75rem;
+  }
 `;
 
 const ContentText = styled.p`
@@ -243,6 +286,14 @@ const ContentText = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1rem;
+    padding-bottom: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-indent: 1.5rem;
+    padding-bottom: 1rem;
   }
 `;
 
@@ -251,10 +302,21 @@ const ContentLinks = styled.div`
   gap: 4rem;
   margin-bottom: 2rem;
   justify-content: center;
-  cursor: pointer;
+  flex-wrap: wrap;
   padding: 1rem;
   position: relative;
   z-index: 2;
+
+  @media (max-width: 768px) {
+    gap: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    gap: 1.5rem;
+    padding: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const ContentLink = styled.a`
@@ -273,7 +335,6 @@ const ContentLink = styled.a`
   padding: 1rem 1.2rem;
   text-align: center;
   text-decoration: none;
-  position: absolute;
   border: 2px solid
     ${(props) => (props.secondary ? "var(--primary-color)" : "white")};
   position: relative;
@@ -299,7 +360,8 @@ const ContentLink = styled.a`
   }
 
   @media (max-width: 480px) {
-    width: 180px;
+    width: 100%;
+    max-width: 180px;
     font-size: 0.9rem;
     padding: 0.8rem 1rem;
   }
@@ -314,6 +376,11 @@ const DemoContent = styled.div`
   justify-content: center;
   gap: 2rem;
   text-align: center;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    gap: 1.5rem;
+  }
 `;
 
 const DemoLink = styled.a`
@@ -324,6 +391,10 @@ const DemoLink = styled.a`
 
   &:hover {
     color: var(--primary-color);
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
   }
 `;
 
@@ -359,7 +430,14 @@ const ImagePlaceholder = styled.div`
     object-fit: contain;
     object-position: center;
   }
+
   @media (max-width: 768px) {
     height: 300px;
+    margin: 1.5rem auto;
+  }
+
+  @media (max-width: 480px) {
+    height: 200px;
+    margin: 1rem auto;
   }
 `;
