@@ -208,6 +208,7 @@ const Main = styled.main`
 
   @media (max-width: 1024px) {
     flex-direction: column-reverse;
+    height: 10%;
   }
 `;
 
@@ -302,10 +303,11 @@ const Left = styled.div`
     border-bottom: 1px solid rgb(119, 119, 119);
     gap: 2rem;
     padding: 2rem 1rem;
-    height: 100%;
+    height: 60%;
   }
 
   @media (max-width: 768px) {
+    width: 95%;
     height: 100%;
   }
 `;
