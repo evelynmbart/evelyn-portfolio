@@ -431,7 +431,7 @@ const BottomRightCorner = styled(Corner)`
 `;
 
 const ProjectsSection = styled.section`
-  // padding: 4rem 7rem;
+  padding: 4rem 7rem;
   background-color: rgb(19, 19, 19);
   position: relative;
 
