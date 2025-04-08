@@ -267,7 +267,7 @@ const TimelineContainer = styled.div`
 const HorizontalTimelineBox = styled.div`
   display: flex;
   align-items: center;
-  padding: 2rem;
+
   min-height: 300px;
   max-width: 100%;
   overflow-x: auto;
@@ -395,17 +395,21 @@ const TypingSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2rem;
-  margin: 4rem auto 2rem;
+  gap: 1.5rem;
+  margin: 3rem auto 2rem;
+  width: 90%;
   max-width: 800px;
   padding: 0 1rem;
   position: relative;
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
     margin: 2rem auto 1rem;
     align-items: center;
     text-align: center;
     gap: 1rem;
+    width: 95%;
+    padding: 0 0.5rem;
   }
 `;
 
@@ -414,23 +418,24 @@ const TypingContainer = styled.div`
   max-width: 600px;
   font-family: monospace;
   display: flex;
-  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  font-size: clamp(0.8rem, 2vw, 1.1rem);
   line-height: 1.6;
-  padding: 1.5rem;
-
+  padding: 1.25rem;
+  position: relative;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
-  margin: 0 auto;
+  margin: 1rem auto;
+  box-sizing: border-box;
 
   &::after {
     content: "✨ The fun fact machine ✨";
     position: absolute;
     font-size: clamp(0.6rem, 1.5vw, 0.8rem);
-    top: 0;
-    transform: translateY(-100%);
-    left: 0;
+    top: -1.5rem;
+    left: 0.5rem;
+    white-space: nowrap;
   }
 
   &::before {
@@ -448,8 +453,8 @@ const TypingContainer = styled.div`
 
   @media (max-width: 480px) {
     padding: 1rem;
-    margin: 0 auto;
-    width: 80%;
+    width: 95%;
+    font-size: clamp(0.75rem, 1.8vw, 1rem);
   }
 `;
 

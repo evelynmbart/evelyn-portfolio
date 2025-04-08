@@ -431,7 +431,7 @@ const BottomRightCorner = styled(Corner)`
 `;
 
 const ProjectsSection = styled.section`
-  padding: 4rem 7rem;
+  // padding: 4rem 7rem;
   background-color: rgb(19, 19, 19);
   position: relative;
 
@@ -449,7 +449,7 @@ const ProjectsHeader = styled.div`
 
 const HeaderFrame = styled.div`
   position: relative;
-  padding: 2rem 8rem;
+  padding: 2rem;
   max-width: 450px;
   margin: 0 auto;
 `;
@@ -466,7 +466,8 @@ const Subtitle = styled.span`
 const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: 500;
-  margin: 1rem 0;
+  margin: 1rem auto;
+  text-align: center;
   background: linear-gradient(
     45deg,
     var(--primary-color),
@@ -476,7 +477,9 @@ const Title = styled.h2`
   -webkit-text-fill-color: transparent;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    width: 100%;
+    max-width: 300px;
   }
 `;
 
