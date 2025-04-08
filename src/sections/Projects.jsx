@@ -130,6 +130,8 @@ const projects = [
 // Canvas background component
 const DotGrid = () => {
   const canvasRef = useRef(null);
+  const animationFrameRef = useRef(null);
+  const isVisibleRef = useRef(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -161,61 +163,44 @@ const DotGrid = () => {
     // Create star class
     class Star {
       constructor() {
+        this.reset();
+      }
+
+      reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.originalX = this.x;
-        this.originalY = this.y;
-        this.size = Math.random() * 2 + 1;
-        this.twinkleSpeed = Math.random() * 0.1;
-        this.angle = Math.random() * Math.PI * 2;
-        this.opacity = Math.random() * 0.5 + 0.5;
-        this.r = Math.random() * 255;
-        this.g = Math.random() * 255;
-        this.b = Math.random() * 255;
-        this.mouseSensitivity = Math.random() * 0.03 + 0.01;
+        this.size = Math.random() * 2;
+        this.speed = Math.random() * 0.5 + 0.1;
+        this.opacity = Math.random() * 0.5 + 0.2;
       }
 
       draw() {
-        this.angle += this.twinkleSpeed;
-        const twinkle = Math.sin(this.angle) * 0.3 + 0.7;
-
-        // Calculate distance from mouse to original position
-        const dx = mouseX - this.originalX;
-        const dy = mouseY - this.originalY;
-
-        // Update position with slight mouse following
-        this.x = this.originalX + dx * this.mouseSensitivity;
-        this.y = this.originalY + dy * this.mouseSensitivity;
+        this.y += this.speed;
+        if (this.y > canvas.height) {
+          this.reset();
+        }
 
         ctx.beginPath();
-        ctx.fillStyle = `rgba(${this.r}, ${this.g}, ${this.b}, ${
-          this.opacity * twinkle
-        })`;
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
         ctx.fill();
       }
     }
 
-    // Create shooting star class
     class ShootingStar {
       constructor() {
         this.reset();
       }
 
       reset() {
-        // Randomly choose direction (left-to-right or right-to-left)
         this.direction = Math.random() < 0.5 ? 1 : -1;
-
-        // Set starting position based on direction
         if (this.direction === 1) {
           this.x = -50;
         } else {
           this.x = canvas.width + 50;
         }
-
         this.y = (Math.random() * canvas.height) / 2;
         this.speed = Math.random() * 15 + 10;
-        // Wider angle range and random direction
         this.angle = (Math.random() * 30 - 15) * this.direction;
         this.tail = [];
         this.opacity = 1;
@@ -237,7 +222,6 @@ const DotGrid = () => {
           ctx.stroke();
         });
 
-        // Reset based on direction
         if (
           (this.direction === 1 && this.x > canvas.width + 50) ||
           (this.direction === -1 && this.x < -50)
@@ -247,8 +231,8 @@ const DotGrid = () => {
       }
     }
 
-    // Initialize more stars
-    for (let i = 0; i < 500; i++) {
+    // Initialize fewer stars
+    for (let i = 0; i < 200; i++) {
       stars.push(new Star());
     }
 
@@ -263,22 +247,40 @@ const DotGrid = () => {
       shootingStars.push(new ShootingStar());
     }, 12000);
 
-    // Animation loop
+    // Animation loop with visibility check
     const animate = () => {
+      if (!isVisibleRef.current) {
+        animationFrameRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
       ctx.fillStyle = "rgba(19, 19, 19)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       stars.forEach((star) => star.draw());
       shootingStars.forEach((star) => star.draw());
 
-      requestAnimationFrame(animate);
+      animationFrameRef.current = requestAnimationFrame(animate);
     };
 
+    // Intersection Observer for visibility
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(canvas);
     animate();
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", handleMouseMove);
+      observer.disconnect();
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
   }, []);
 
@@ -349,6 +351,9 @@ const Projects = () => {
                 src={project.image}
                 alt={project.name}
                 loading="lazy"
+                width="600"
+                height="400"
+                decoding="async"
               />
             </ProjectImageWrapper>
 

@@ -1,9 +1,12 @@
 import Spline from "@splinetool/react-spline";
+import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import About from "./About";
 import Projects from "./Projects";
 
 const Hero = () => {
+  const [isSplineLoaded, setIsSplineLoaded] = useState(false);
+
   return (
     <>
       <HeroSection>
@@ -42,9 +45,13 @@ const Hero = () => {
           </Left>
           <Right>
             <SplineContainer>
+              {!isSplineLoaded && (
+                <LoadingPlaceholder>Loading 3D Scene...</LoadingPlaceholder>
+              )}
               <Spline
                 scene="https://prod.spline.design/zHOPA2NhBDffXzJn/scene.splinecode"
                 loading="lazy"
+                onLoad={() => setIsSplineLoaded(true)}
               />
             </SplineContainer>
           </Right>
@@ -61,6 +68,8 @@ const Hero = () => {
                         src="../skill_icons/html.png"
                         alt="HTML Logo "
                         loading="lazy"
+                        width="24"
+                        height="24"
                       />
                       HTML
                     </SkillItem>
@@ -69,6 +78,8 @@ const Hero = () => {
                         src="../skill_icons/css.png"
                         alt="CSS Logo"
                         loading="lazy"
+                        width="24"
+                        height="24"
                       />
                       CSS
                     </SkillItem>
@@ -77,6 +88,8 @@ const Hero = () => {
                         src="../skill_icons/javascript.png"
                         alt="JavaScript Logo"
                         loading="lazy"
+                        width="24"
+                        height="24"
                       />
                       JavaScript
                     </SkillItem>
@@ -85,6 +98,8 @@ const Hero = () => {
                         src="../skill_icons/react.png"
                         alt="React Logo"
                         loading="lazy"
+                        width="24"
+                        height="24"
                       />
                       React
                     </SkillItem>
@@ -93,6 +108,8 @@ const Hero = () => {
                         src="../skill_icons/typescript.png"
                         alt="TypeScript Logo"
                         loading="lazy"
+                        width="24"
+                        height="24"
                       />
                       TypeScript
                     </SkillItem>
@@ -101,6 +118,8 @@ const Hero = () => {
                         src="../skill_icons/node.png"
                         alt="Node.js Logo"
                         loading="lazy"
+                        width="24"
+                        height="24"
                       />
                       Node.js
                     </SkillItem>
@@ -109,6 +128,8 @@ const Hero = () => {
                         src="../skill_icons/postgresql.png"
                         alt="PostgreSQL Logo"
                         loading="lazy"
+                        width="24"
+                        height="24"
                       />
                       PostgreSQL
                     </SkillItem>
@@ -117,6 +138,8 @@ const Hero = () => {
                         src="../skill_icons/git.png"
                         alt="Git Logo"
                         loading="lazy"
+                        width="24"
+                        height="24"
                       />
                       Git
                     </SkillItem>
@@ -125,6 +148,8 @@ const Hero = () => {
                         src="../skill_icons/tailwind.png"
                         alt="Tailwind Logo"
                         loading="lazy"
+                        width="24"
+                        height="24"
                       />
                       Tailwind
                     </SkillItem>
@@ -382,13 +407,10 @@ const Right = styled.div`
 `;
 
 const SplineContainer = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
-
-  canvas {
-    width: 100% !important;
-    height: 100% !important;
-  }
+  min-height: 400px;
 `;
 
 const Title = styled.h1`
@@ -471,4 +493,14 @@ const Span = styled.span`
   @media (max-width: 480px) {
     font-size: 1rem;
   }
+`;
+
+const LoadingPlaceholder = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.2rem;
+  font-family: "Quicksand", sans-serif;
 `;
