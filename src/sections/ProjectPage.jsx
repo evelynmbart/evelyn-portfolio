@@ -21,7 +21,7 @@ function ProjectPage({ PROJECTS }) {
       </Header>
       {project && (
         <ProjectContainer>
-          <Text key={project.name} src={project.mainImage}>
+          <Text key={project.name} src={project.mainImage} loading="lazy">
             <Title>{project.name}</Title>
             <Description>{project.description}</Description>
             <Technologies>
@@ -35,7 +35,7 @@ function ProjectPage({ PROJECTS }) {
             <ContentText>{project.firstP}</ContentText>
             <ContentText>{project.secondP}</ContentText>
             <ImagePlaceholder>
-              <img src={project.image} alt={project.name} />
+              <img src={project.image} alt={project.name} loading="lazy" />
             </ImagePlaceholder>
             <ContentText>{project.thirdP}</ContentText>
             <ContentLinks>

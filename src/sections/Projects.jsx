@@ -345,7 +345,11 @@ const Projects = () => {
             ref={(el) => (projectRefs.current[index] = el)}
           >
             <ProjectImageWrapper href={project.link}>
-              <ProjectImage src={project.image} alt={project.name} />
+              <ProjectImage
+                src={project.image}
+                alt={project.name}
+                loading="lazy"
+              />
             </ProjectImageWrapper>
 
             <ProjectContent isEven={index % 2 === 0}>

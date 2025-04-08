@@ -42,7 +42,10 @@ const Hero = () => {
           </Left>
           <Right>
             <SplineContainer>
-              <Spline scene="https://prod.spline.design/zHOPA2NhBDffXzJn/scene.splinecode" />
+              <Spline
+                scene="https://prod.spline.design/zHOPA2NhBDffXzJn/scene.splinecode"
+                loading="lazy"
+              />
             </SplineContainer>
           </Right>
         </Main>
@@ -54,50 +57,74 @@ const Hero = () => {
                 return (
                   <SkillGroup key={index}>
                     <SkillItem>
-                      <img src="../skill_icons/html.png" alt="HTML Logo " />
+                      <img
+                        src="../skill_icons/html.png"
+                        alt="HTML Logo "
+                        loading="lazy"
+                      />
                       HTML
                     </SkillItem>
                     <SkillItem>
-                      <img src="../skill_icons/css.png" alt="CSS Logo" />
+                      <img
+                        src="../skill_icons/css.png"
+                        alt="CSS Logo"
+                        loading="lazy"
+                      />
                       CSS
                     </SkillItem>
                     <SkillItem>
                       <img
                         src="../skill_icons/javascript.png"
                         alt="JavaScript Logo"
+                        loading="lazy"
                       />
                       JavaScript
                     </SkillItem>
                     <SkillItem>
-                      <img src="../skill_icons/react.png" alt="React Logo" />
+                      <img
+                        src="../skill_icons/react.png"
+                        alt="React Logo"
+                        loading="lazy"
+                      />
                       React
                     </SkillItem>
                     <SkillItem>
                       <img
                         src="../skill_icons/typescript.png"
                         alt="TypeScript Logo"
+                        loading="lazy"
                       />
                       TypeScript
                     </SkillItem>
                     <SkillItem>
-                      <img src="../skill_icons/node.png" alt="Node.js Logo" />
+                      <img
+                        src="../skill_icons/node.png"
+                        alt="Node.js Logo"
+                        loading="lazy"
+                      />
                       Node.js
                     </SkillItem>
                     <SkillItem>
                       <img
                         src="../skill_icons/postgresql.png"
                         alt="PostgreSQL Logo"
+                        loading="lazy"
                       />
                       PostgreSQL
                     </SkillItem>
                     <SkillItem>
-                      <img src="../skill_icons/git.png" alt="Git Logo" />
+                      <img
+                        src="../skill_icons/git.png"
+                        alt="Git Logo"
+                        loading="lazy"
+                      />
                       Git
                     </SkillItem>
                     <SkillItem>
                       <img
                         src="../skill_icons/tailwind.png"
                         alt="Tailwind Logo"
+                        loading="lazy"
                       />
                       Tailwind
                     </SkillItem>
