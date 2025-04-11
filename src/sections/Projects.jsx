@@ -2,6 +2,15 @@ import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 const projects = [
+  // {
+  //   name: "Pinpoint",
+  //   description:
+  //     "Browse NYC advertisement spaces (walls, windows, and more) for rent",
+  //   technologies: ["Typescript", "React"],
+  //   image: "../project-post-imgs/pinpoint1.png",
+  //   featured: true,
+  //   link: "/project/16",
+  // },
   {
     name: "Think",
     description:

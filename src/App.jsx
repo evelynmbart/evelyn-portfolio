@@ -5,6 +5,27 @@ import Hero from "./sections/Hero";
 import ProjectPage from "./sections/ProjectPage";
 
 const PROJECTS = [
+  // {
+  //   id: 16,
+  //   mainImage: "../project-post-imgs/pinpoint3.png",
+  //   name: "Pinpoint",
+  //   description:
+  //     "Connect brands with advertisement spaces in the city that never sleeps",
+  //   technologies: ["Typescript", "React"],
+  //   image: "../project-post-imgs/pinpoint2.png",
+  //   firstP:
+  //     "Pinpoint is a platform that connects brands with advertisement spaces in the city that never sleeps. It allows brands to find and rent advertisement spaces in New York City, from walls and windows to billboards and more.",
+  //   secondP:
+  //     "The platform is built with TypeScript and React. It is a single-page application that allows users to search for advertisement spaces by location, size, and type. It also allows users to filter advertisement spaces by price and availability.",
+  //   thirdP:
+  //     "The platform is still in development, but I hope to launch it soon.",
+  //   siteLink: "https://pinpoint.levelynup.com/",
+  //   githubLink: "",
+  //   embedLink: "",
+  //   shareLink: "",
+  //   demoImage: "",
+  //   link: "/project/16",
+  // },
   {
     id: 1,
     mainImage: "../project-post-imgs/think0.png",

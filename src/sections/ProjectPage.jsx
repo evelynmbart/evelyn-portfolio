@@ -51,7 +51,9 @@ function ProjectPage({ PROJECTS }) {
                 target="_blank"
                 title="Github link"
               >
-                Check out the code!
+                {project.githubLink
+                  ? "Check out the code!"
+                  : "Code will be available soon!"}
               </ContentLink>
             </ContentLinks>
             <DemoContent>
