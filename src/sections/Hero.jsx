@@ -32,7 +32,7 @@ const Hero = () => {
             </Subtitle>
             <ButtonContainer>
               <ResumeButton
-                href="../Evelyn-Bart-Resume-2025.pdf"
+                href="../Evelyn Bart Resume.pdf"
                 alt="Download my resume!"
                 download
               >
