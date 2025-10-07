@@ -48,7 +48,7 @@ const projects = [
   {
     name: "Cart Compare",
     description:
-      "Compare prices of products across different stores and find the best deals",
+      "Compare prices of products across different stores and find the best deals.",
     technologies: ["Typescript", "React"],
     image: "../project-post-imgs/cart2.png",
     featured: true,
