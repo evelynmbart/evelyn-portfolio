@@ -41,7 +41,7 @@ const Footer = () => {
             <a href="https://github.com/evelynmbart">
               <FaGithub size={27} title="GitHub" />
             </a>
-            <a href="../Evelyn Bart Resume.pdf" download>
+            <a href="../Evelyn Bart Resume(for portfolio).pdf" download>
               <FaFilePdf size={27} title="Resume" />
             </a>
           </SocialLinks>
