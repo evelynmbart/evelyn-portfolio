@@ -8,7 +8,7 @@
   --accent-color: #728cc5;
   --light-text-color: #f0f9f7;
   --primary-color-rgb: 147, 51, 234; /* Adjust these values to match your primary color */
-  --card-bg-color: hsla(0,0%,100%,.66);
+  --card-bg-color: hsla(0, 0%, 100%, 0.66);
 }
 :root[data-theme="dark"] {
   --text-color: #f0f9f7;
@@ -34,7 +34,7 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
-  font-family: "EB Garamond", serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
 }
 
