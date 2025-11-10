@@ -12,23 +12,6 @@ const projects = [
   //   link: "/project/16",
   // },
   {
-    name: "Think",
-    description:
-      "Test your trivia knowledge with this fun and addictive quiz app.",
-    technologies: ["Typescript", "React"],
-    image: "../project-post-imgs/think2.png",
-    featured: true,
-    link: "/project/1",
-  },
-  {
-    name: "Home Cooked",
-    description:
-      "Your online recipe catalog, where you can keep and create recipes for all your favorite foods.",
-    technologies: ["Typescript", "React"],
-    image: "../project-post-imgs/homecooked4.png",
-    link: "/project/9",
-  },
-  {
     name: "Mappi",
     description:
       "Find the perfect NYC neighborhood for you and your lifestyle.",
@@ -54,7 +37,15 @@ const projects = [
     featured: true,
     link: "/project/15",
   },
-
+  {
+    name: "Think",
+    description:
+      "Test your trivia knowledge with this fun and addictive quiz app.",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/think2.png",
+    featured: true,
+    link: "/project/1",
+  },
   {
     name: "Pup Progress",
     description:
@@ -72,6 +63,14 @@ const projects = [
     image: "../project-post-imgs/mark2.png",
     featured: true,
     link: "/project/5",
+  },
+  {
+    name: "Home Cooked",
+    description:
+      "Your online recipe catalog, where you can keep and create recipes for all your favorite foods.",
+    technologies: ["Typescript", "React"],
+    image: "../project-post-imgs/homecooked4.png",
+    link: "/project/9",
   },
   {
     name: "NE RiverFlow",
