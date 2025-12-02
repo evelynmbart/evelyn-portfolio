@@ -1,11 +1,41 @@
-import Spline from "@splinetool/react-spline";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import About from "./About";
 import Projects from "./Projects";
 
 const Hero = () => {
-  const [isSplineLoaded, setIsSplineLoaded] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const intervalRef = useRef(null);
+
+  const heroImages = [
+    "hero-images/raleigh.jpg",
+    "hero-images/IMG_0050.PNG",
+    "hero-images/IMG_0685.jpg",
+    "hero-images/xmas.jpg",
+    "hero-images/IMG_5026.JPG",
+    "hero-images/IMG_7454 2.jpg",
+  ];
+
+  const handleMouseEnter = () => {
+    intervalRef.current = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 1000); // Change image every 1 second while hovering
+  };
+
+  const handleMouseLeave = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -44,16 +74,19 @@ const Hero = () => {
             </ButtonContainer>
           </Left>
           <Right>
-            <SplineContainer>
-              {!isSplineLoaded && (
-                <LoadingPlaceholder>Loading 3D Scene...</LoadingPlaceholder>
-              )}
-              <Spline
-                scene="https://prod.spline.design/zHOPA2NhBDffXzJn/scene.splinecode"
-                loading="lazy"
-                onLoad={() => setIsSplineLoaded(true)}
-              />
-            </SplineContainer>
+            <ImageContainer
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              {heroImages.map((image, index) => (
+                <CarouselImage
+                  key={image}
+                  src={`../${image}`}
+                  alt={`Hero image ${index + 1}`}
+                  $isActive={index === currentImageIndex}
+                />
+              ))}
+            </ImageContainer>
           </Right>
         </Main>
 
@@ -406,11 +439,43 @@ const Right = styled.div`
   }
 `;
 
-const SplineContainer = styled.div`
+const ImageContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
   min-height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const CarouselImage = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 70%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: ${(props) => (props.$isActive ? 1 : 0)};
+  transition: opacity 1s ease-in-out;
+  animation: ${(props) => (props.$isActive ? fadeIn : "none")} 1s ease-in-out;
+  border-radius: 10px;
+  color: white;
 `;
 
 const Title = styled.h1`
