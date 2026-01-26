@@ -11,6 +11,13 @@ const projects = [
     link: "/project/6",
   },
   {
+    name: 'EB Blog',
+    description: 'My most recent dev blog',
+    technologies: ['Typescript', 'React'],
+    image: '../project-post-imgs/ebblog1.png',
+    link: '/project/16',
+  },
+  {
     name: "Gridddle",
     description:
       "With daily inspiration, share your pixelated masterpieces with the world.",

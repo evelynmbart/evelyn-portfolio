@@ -56,15 +56,18 @@ function ProjectPage({ PROJECTS }) {
                   : "Code will be available soon!"}
               </ContentLink>
             </ContentLinks>
-            <DemoContent>
-              Here's a demo of the project:
-              <Demo>
-                <iframe src={project.embedLink} allowFullScreen></iframe>
-              </Demo>
-              <DemoLink href={project.shareLink} target="_blank">
-                External Demo Link
-              </DemoLink>
-            </DemoContent>
+            {project.embedLink && ( 
+              <>
+                {project.embedLink && (
+                  <DemoContent>
+                    Here's a demo of the project:
+                    <Demo>
+                      <iframe src={project.embedLink} allowFullScreen></iframe>
+                    </Demo>
+                  </DemoContent>
+                )}
+              </>
+            )}
           </Content>
         </ProjectContainer>
       )}

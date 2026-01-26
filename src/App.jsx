@@ -369,13 +369,24 @@ const PROJECTS = [
       "https://www.loom.com/share/9278d3a2300e4298b955024ed932821f?sid=2b3e7c17-29f3-4196-b00d-3888c32b5d62",
     demoImage: "../demo-thumbnails/cartdemo.gif",
   },
-  // {
-  //   id: 16,
-  //   name: "BlogWoohoo",
-  //   title: "BlogWoohoo - A Blogging Platform",
-  //   description: "A platform for users to create and share their blogs.",
-  //   technologies: ["TypeScript", "React"],
-  // },
+  {
+    id: 16,
+    mainImage: "../project-post-imgs/ebblog1.png",
+    name: "EB Blog",
+    title: "EB Blog - My Dev Blog",
+    description: "A blog about my coding projects and goals.",
+    technologies: ["TypeScript", "React"],
+    firstP:
+      "This is my most recent dynamic dev blog. I've made a few in the past but never kept up with them or didn't like their design. It's a place where I share my thoughts and experiences as I build more projects.",
+    secondP:
+      "Built using TypeScript and React, EB Blog provides a smooth experience on both mobile and desktop. I've connected it to a supabase database to store the blog data. I've used supabase before but never for a blog and I'm still learning how to use it. So far it was really cool and easy to set up and I'm excited to start connecting more projects to a db!!",
+    image: "../project-post-imgs/ebblog1.png",
+    siteLink: "https://ebblog.levelynup.com/",
+    githubLink: null,
+    embedLink: null,
+    shareLink: null,
+    demoImage: null,
+  },
 ];
 
 function App() {
