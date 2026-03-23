@@ -131,6 +131,21 @@ export interface LinkConfig {
   
   /** Field names whose values should be rendered as mailto: links */
   emailFields?: string[];
+
+  /**
+   * Map of field names to destination URLs (or richer link config).
+   * Useful when the displayed value is a label (e.g. "Click to download…")
+   * but the destination should be a specific URL/file.
+   */
+  fieldLinks?: Record<
+    string,
+    | string
+    | {
+        href: string;
+        /** When set, renders the link with the `download` attribute */
+        download?: boolean | string;
+      }
+  >;
 }
 
 /**

@@ -22,6 +22,7 @@ export const About = () => {
     name: "Evelyn Bart",
     title: "Frontend Developer",
     email: "evelyn.m.bart@gmail.com",
+    resume: "/EvelynBart_Resume.pdf",
     skills: [
       "TypeScript",
       "React",

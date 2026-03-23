@@ -6,6 +6,7 @@ function App() {
     name: "Evelyn Bart",
     title: "Frontend Developer",
     email: "evelyn.m.bart@gmail.com",
+    resume: "Click to see my resume",
     skills: [
       "TypeScript",
       "React",
@@ -62,6 +63,12 @@ function App() {
       Linkedin: "https://www.linkedin.com/in/evelyn-bart-a469a4288",
     },
     emailFields: ["email"],
+    fieldLinks: {
+      resume: {
+        href: "/EvelynBart_Resume.pdf",
+        download: "EvelynBart_Resume.pdf",
+      },
+    },
   };
 
   return (

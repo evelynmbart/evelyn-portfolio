@@ -154,15 +154,25 @@ const TokenValue: React.FC<TokenValueProps> = React.memo(
     // Helper to check if a string value should be a link
     const getLink = (
       val: string,
-    ): { href: string; isEmail: boolean } | null => {
+    ): { href: string; isEmail: boolean; download?: boolean | string } | null => {
       if (!linkConfig) return null;
+
+      const keyToCheck = typeof node.key === "string" ? node.key : parentKey;
 
       // Check if this is an email field (check node.key for direct fields like "email")
       if (linkConfig.emailFields) {
-        const keyToCheck = typeof node.key === "string" ? node.key : parentKey;
         if (typeof keyToCheck === "string" && linkConfig.emailFields.includes(keyToCheck)) {
           return { href: `mailto:${val}`, isEmail: true };
         }
+      }
+
+      // Check if this field has a direct link mapping (by field name, not value)
+      if (typeof keyToCheck === "string" && linkConfig.fieldLinks?.[keyToCheck]) {
+        const fieldCfg = linkConfig.fieldLinks[keyToCheck];
+        if (typeof fieldCfg === "string") {
+          return { href: fieldCfg, isEmail: false };
+        }
+        return { href: fieldCfg.href, isEmail: false, download: fieldCfg.download };
       }
 
       // Check if this value has a direct link mapping
@@ -215,8 +225,19 @@ const TokenValue: React.FC<TokenValueProps> = React.memo(
                 <a
                   className={["coi-value", "coi-string", "coi-link"].join(" ")}
                   href={linkInfo.href}
-                  target={linkInfo.isEmail ? undefined : "_blank"}
-                  rel={linkInfo.isEmail ? undefined : "noopener noreferrer"}
+                  download={
+                    typeof linkInfo.download === "string"
+                      ? linkInfo.download
+                      : linkInfo.download
+                        ? true
+                        : undefined
+                  }
+                  target={linkInfo.isEmail || linkInfo.download ? undefined : "_blank"}
+                  rel={
+                    linkInfo.isEmail || linkInfo.download
+                      ? undefined
+                      : "noopener noreferrer"
+                  }
                   onClick={(e) => e.stopPropagation()}
                 >
                   {formattedValue}
@@ -251,8 +272,17 @@ const TokenValue: React.FC<TokenValueProps> = React.memo(
           <a
             className="coi-value coi-string coi-link"
             href={linkInfo.href}
-            target={linkInfo.isEmail ? undefined : "_blank"}
-            rel={linkInfo.isEmail ? undefined : "noopener noreferrer"}
+            download={
+              typeof linkInfo.download === "string"
+                ? linkInfo.download
+                : linkInfo.download
+                  ? true
+                  : undefined
+            }
+            target={linkInfo.isEmail || linkInfo.download ? undefined : "_blank"}
+            rel={
+              linkInfo.isEmail || linkInfo.download ? undefined : "noopener noreferrer"
+            }
             onClick={(e) => e.stopPropagation()}
           >
             {formatPrimitiveValue(value, type)}
