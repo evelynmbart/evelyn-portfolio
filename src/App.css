@@ -1,0 +1,75 @@
+.object {
+  font-family: "Fira Code", monospace;
+  font-size: 1rem;
+  line-height: 2.2;
+  max-width: 100%;
+  margin: 0;
+  padding: 2rem;
+}
+
+.line {
+  text-indent: 3rem;
+}
+
+.inline {
+  text-indent: 5rem;
+}
+
+.key {
+  color: var(--pastel-pink);
+}
+
+.value {
+  color: var(--pastel-orange);
+}
+
+.value.overflow {
+  display: block;
+  margin-top: 8px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  max-height: 80px;
+  overflow-y: auto;
+  position: relative;
+}
+
+a.value {
+  color: var(--pastel-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a.value:hover {
+  color: var(--pastel-green);
+}
+
+.bracket {
+  color: white;
+}
+
+.show-more {
+  color: var(--pastel-purple);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.show-more:hover {
+  color: var(--pastel-pink);
+}
+
+/* Blinking cursor */
+.cursor {
+  color: var(--pastel-blue);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
